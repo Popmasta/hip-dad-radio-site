@@ -9,56 +9,62 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (same on every page) -->
   <header>
-    <a href="index.html" class="logo">
-      <img src="assets/hdr-logo.png" alt="Hip Dad Radio Logo" />
-      <div class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
-    </a>
+    <div class="header-left">
+      <a href="index.html" class="brand">
+        <img src="assets/hdr-logo.png" class="brand-logo" alt="Hip Dad Radio Logo" />
+        <div class="brand-text">
+          <span class="brand-title">Hip Dad Radio</span>
+          <span class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</span>
+        </div>
+      </a>
+    </div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="the-scoop.html" class="active">The Scoop</a>
-      <a href="listen-live.html">Listen Live</a>
-      <a href="contact.html">Contact</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="videos.html" class="nav-link">Videos</a>
+      <a href="the-scoop.html" class="nav-link active">The Scoop</a>
+      <a href="listen-live.html" class="nav-link">Listen Live</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <!-- PLAYER BUTTON -->
-    <button id="player-btn" class="play-btn">▶ Hip Dad Radio • LIVE</button>
+    <button id="playerButton" class="player-pill">
+      <span id="playerIcon">▶️</span> Hip Dad Radio • <span class="live-dot">● LIVE</span>
+    </button>
   </header>
 
-  <!-- INSTALLED GLOBAL AUDIO PLAYER -->
-  <audio id="hipdad-player" src="https://streaming.live365.com/a27079"></audio>
+  <!-- Hidden audio element -->
+  <audio id="audioPlayer">
+    <source src="https://streaming.live365.com/a27079" type="audio/mpeg" />
+  </audio>
 
-  <!-- PAGE CONTAINER -->
-  <div class="content-section">
+  <!-- CONTENT -->
+  <div class="page-wrapper">
 
-    <h1>The Scoop</h1>
-    <p class="section-intro">
-      Fresh cuts, radio updates, behind-the-scenes, and all the Hip Dad happenings.
-      Here’s what we’ve been posting lately →
-    </p>
+    <div class="card">
+      <h1>The Scoop</h1>
+      <p>Your latest Hip Dad Radio updates, playlists, show themes, and record-club vibes — straight from Instagram.</p>
+    </div>
 
-    <!-- BOX CONTAINER -->
-    <div class="box">
-      <h2>Recent Instagram Posts</h2>
-
-      <!-- SnapWidget Embed -->
-      <div class="instagram-wrapper">
-        <iframe 
-          src="https://snapwidget.com/embed/1113336"
-          class="snapwidget-widget"
-          allowtransparency="true"
-          frameborder="0"
-          scrolling="no"
-          style="border:none; overflow:hidden; width:100%; max-width:800px; height:510px;"
-          title="Posts from Instagram">
-        </iframe>
-      </div>
+    <!-- INSTAGRAM FEED EMBED -->
+    <div class="card instagram-wrapper">
+      <!-- Replace ONLY this line with your SnapWidget embed code -->
+      <iframe src="https://snapwidget.com/embed/1113336"
+              class="snapwidget-widget"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="no"
+              style="border:none; overflow:hidden; width:100%; max-width:800px; height:600px;"
+              title="Instagram Feed"></iframe>
     </div>
 
   </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    © 2025 Hip Dad Radio — Chicago, IL
+  </footer>
 
   <script src="player.js"></script>
 </body>
