@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hip Dad Radio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hip Dad Radio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
 </head>
 
 <body>
 
 <header>
-    <div class="left">
-        <img src="assets/hdr-logo.png" alt="Hip Dad Logo">
-        <span>Chicago’s Meat ’N Potatoes • Streaming 24/7</span>
-    </div>
+  <div class="left-header">
+    <img src="hdr-logo.png" class="top-logo" alt="Hip Dad Radio Logo">
+    <span class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</span>
+  </div>
 
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/videos.html">Videos</a></li>
-            <li><a href="/the-scoop.html">The Scoop</a></li>
-            <li><a href="/listen-live.html">Listen Live</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="videos.html">Videos</a>
+    <a href="the-scoop.html">The Scoop</a>
+    <a href="listen-live.html">Listen Live</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="player-button">
+    <button id="miniPlayBtn">▶ Hip Dad Radio <span class="live-dot">• LIVE</span></button>
+  </div>
 </header>
 
-<!-- MINI PLAYER -->
-<div id="mini-player">
-    <button id="playPauseBtn">▶</button>
-    <span>Hip Dad Radio • LIVE</span>
-</div>
-
-<div class="page-content">
+<main>
+  <section class="home-hero">
     <h1>Welcome to Hip Dad Radio</h1>
     <p>A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.</p>
 
-    <a class="button" href="/listen-live.html">Start Listening →</a>
-    <a class="button" href="/the-scoop.html">Read The Scoop</a>
+    <div class="button-row">
+      <a href="listen-live.html" class="cta-btn">Start Listening →</a>
+      <a href="the-scoop.html" class="cta-btn secondary">Read The Scoop</a>
+    </div>
 
     <h2>Record Club • Playlists</h2>
     <p>Each week we pick one new album and one old album to spin and talk about.</p>
-</div>
+  </section>
 
-<footer>
+  <footer>
     © 2025 Hip Dad Radio — Chicago, IL
-</footer>
+  </footer>
+</main>
 
 </body>
 </html>
