@@ -1,144 +1,107 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* GENERAL RESETS */
 body {
-  background: #D9C27A;
+  margin: 0;
   font-family: Arial, sans-serif;
-  color: #000;
+  background-color: #d8c58a;
 }
 
 /* HEADER */
-.top-header {
-  background: #000;
-  color: #F3CC4C;
+header {
+  background-color: #000;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 18px 22px;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  justify-content: space-between;
 }
 
+/* LEFT SIDE (LOGO + TAGLINE) */
 .header-left {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
-.logo {
-  height: 70px;
-  margin-right: 14px;
+.header-left img {
+  height: 55px;
+  width: auto;
 }
 
 .tagline {
-  font-size: 14px;
+  color: #f0d878;
+  font-size: 16px;
 }
 
-.main-nav a {
-  color: #F3CC4C;
+/* NAVIGATION */
+nav {
+  flex-grow: 1;            /* Makes nav fill the middle space */
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li a {
   text-decoration: none;
-  margin: 0 18px;
-  font-weight: bold;
+  color: #f0d878;
   font-size: 18px;
+  font-weight: bold;
 }
 
-.main-nav a:hover {
-  text-decoration: underline;
+/* PLAYER BUTTON (RIGHT SIDE) */
+.player-container {
+  margin-left: auto;
 }
 
-/* MINI PLAYER */
-.mini-player {
+.player-btn {
   display: flex;
   align-items: center;
-  border: 2px solid #F3CC4C;
-  border-radius: 12px;
-  padding: 6px 12px;
-  background: #000;
-  gap: 8px;
-}
-
-#playPauseBtn {
-  background: none;
-  border: none;
-  color: #F3CC4C;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.mini-title {
+  gap: 10px;
+  padding: 10px 14px;
+  background: black;
+  border: 2px solid #f0d878;
+  border-radius: 20px;
+  color: #f0d878;
   font-weight: bold;
-  color: #F3CC4C;
 }
 
-.mini-live-dot {
-  width: 10px;
-  height: 10px;
-  background: red;
-  border-radius: 50%;
-  margin-left: 6px;
+/* STOP IMAGES FROM EXPLODING FULL SCREEN! */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.mini-live-text {
-  color: red;
-  font-size: 14px;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.hero-img {
-  width: 320px;
-  max-width: 90%;
-}
-
-/* CONTENT BOXES */
-.home-container {
-  max-width: 900px;
+/* ADD THIS: prevents logo explosion bug */
+.big-logo {
+  width: 350px;
+  display: block;
   margin: 40px auto;
 }
 
-.home-box {
-  background: #F6F0E3;
-  border: 3px solid #000;
-  padding: 26px;
-  margin-bottom: 26px;
-  border-radius: 12px;
+/* MOBILE FRIENDLY NAV */
+@media (max-width: 900px) {
+  nav ul {
+    gap: 20px;
+  }
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 18px;
-  background: #000;
-  color: #F3CC4C;
-  border-radius: 8px;
-  margin-right: 10px;
-}
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-.btn-light {
-  display: inline-block;
-  padding: 10px 18px;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 8px;
-}
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.link {
-  color: #000;
-  font-weight: bold;
-}
-
-/* FOOTER */
-.footer {
-  background: #000;
-  color: #F3CC4C;
-  padding: 15px;
-  text-align: center;
-  margin-top: 60px;
+  .player-container {
+    align-self: center;
+  }
 }
