@@ -28,83 +28,83 @@ header {
     z-index: 1000;
 }
 
-.logo-container {
+header .left {
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
-.logo {
-    height: 60px;
-    margin-right: 20px;
+header .left img {
+    height: 45px;
 }
 
-.header-text {
-    font-size: 14px;
-    color: #ffcf48;
-    font-weight: bold;
-}
-
-nav ul {
+header nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #ffcf48;
 }
 
 /* MINI PLAYER */
-.live-player {
+#mini-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     background: black;
-    border: 2px solid #ffcf48;
-    padding: 8px 14px;
-    border-radius: 20px;
+    border: 2px solid #FFD54F;
+    border-radius: 30px;
+    padding: 8px 16px;
     display: flex;
     align-items: center;
     gap: 8px;
+    z-index: 2000;
 }
 
-.live-text {
-    color: #ffcf48;
+#mini-player button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#mini-player span {
+    color: #FFD54F;
     font-weight: bold;
 }
 
-.live-dot {
-    width: 10px;
-    height: 10px;
-    background: red;
-    border-radius: 50%;
-}
-
-/* MAIN CONTENT */
-main {
-    width: 100%;
+/* PAGE CONTAINER */
+.page-content {
     max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-.section-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border: 3px solid black;
+/* FIX: Remove giant center logo */
+.hero-logo {
+    display: none !important;
+}
+
+/* LINKS + BUTTONS */
+.button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #000;
+    color: #FFD54F;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-right: 10px;
 }
 
 /* FOOTER */
 footer {
-    background-color: #000;
-    color: white;
-    padding: 40px;
+    margin-top: 60px;
+    padding: 20px;
     text-align: center;
-    margin-top: 40px;
+    color: black;
 }
