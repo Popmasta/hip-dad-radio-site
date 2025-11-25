@@ -1,149 +1,137 @@
-/* GLOBAL COLORS */
-:root {
-  --black: #000;
-  --gold: #d4b050;
-  --tan: #e4c97b;
-  --cream: #f7f1de;
-  --yellow: #ffcc33;
-}
+/* ========== GLOBAL ========== */
 
-/* RESET */
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--tan);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #dec983;
 }
 
-/* HEADER */
+/* ========== HEADER ========== */
+
 header {
-  background: var(--black);
-  color: var(--yellow);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: #000;
+    color: #f6d76b;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-  width: 90px;
+    height: 80px;
+    margin-right: 20px;
 }
 
-.header-left .tagline {
-  font-size: 12px;
-  color: var(--yellow);
-  margin-top: 4px;
+.header-text {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
 }
 
-nav a {
-  color: var(--yellow);
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: bold;
+/* ========== NAVIGATION ========== */
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav ul li a {
+    color: #f6d76b;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: opacity 0.2s;
 }
 
-/* GLOBAL AUDIO PLAYER */
-#global-player {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: var(--black);
-  border: 2px solid var(--yellow);
-  padding: 10px 14px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 9999;
+nav ul li a:hover {
+    opacity: 0.6;
 }
 
-#global-player button {
-  background: none;
-  border: none;
-  color: var(--yellow);
-  font-size: 20px;
-  cursor: pointer;
+/* ========== MINI PLAYER (RIGHT SIDE) ========== */
+
+.mini-player {
+    display: flex;
+    align-items: center;
+    background: #000;
+    border: 3px solid #f6d76b;
+    border-radius: 14px;
+    padding: 8px 16px;
+    cursor: pointer;
+    gap: 14px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 99999;
 }
 
-.player-title {
-  color: var(--yellow);
-  font-weight: bold;
+.mini-player:hover {
+    background: #111;
 }
 
-.player-live {
-  color: red;
-  font-weight: bold;
+.mini-player-icon {
+    font-size: 26px;
+    color: #f6d76b;
 }
 
-/* PAGES */
-.page {
-  display: none;
-  padding: 40px;
+.mini-player-text {
+    font-size: 20px;
+    color: #f6d76b;
+    font-weight: bold;
 }
 
-.page.active {
-  display: block;
+.live-dot {
+    height: 12px;
+    width: 12px;
+    background: red;
+    border-radius: 50%;
 }
 
-/* CARDS */
-.card {
-  background: var(--cream);
-  padding: 30px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  border: 3px solid #000;
+/* ========== PAGE TITLES ========== */
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-left: 40px;
 }
 
-/* BUTTONS */
-.button {
-  background: #000;
-  color: var(--yellow);
-  padding: 12px 20px;
-  border-radius: 8px;
-  margin-right: 12px;
-  text-decoration: none;
+/* ========== GENERAL PAGE CONTAINERS ========== */
+
+.page-container {
+    padding: 40px;
 }
 
-.button-outline {
-  border: 2px solid #000;
-  padding: 10px 18px;
-  text-decoration: none;
-  color: #000;
-  border-radius: 8px;
+/* VIDEO GRID */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
 }
 
-/* VIDEO WRAPPER */
-.video-wrapper {
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16/9;
-  margin: 25px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+.video-card {
+    background: #fff3d1;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
 }
 
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* INSTAGRAM */
-.insta-wrapper iframe {
-  width: 100%;
-  height: 600px;
-  border: none;
-}
-
-/* LISTEN */
-.listen-card {
-  background: var(--cream);
-  padding: 30px;
-  border-radius: 12px;
-  border: 3px solid #000;
+/* CONTACT PAGE */
+.contact-box {
+    background: #fff3d1;
+    padding: 25px;
+    border-radius: 14px;
+    width: 460px;
+    font-size: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
