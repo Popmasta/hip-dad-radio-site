@@ -1,68 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hip Dad Radio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="player.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hip Dad Radio – Chicago’s Meat ’N Potatoes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
 </head>
-
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="logo-area">
-            <img src="hdr-logo.png" alt="Hip Dad Radio Logo" class="logo-img">
-            <span class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</span>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <!-- Logo + tagline -->
+      <a href="index.html" class="logo-block">
+        <img src="hdr-logo.png" alt="Hip Dad Radio logo" class="logo-image" />
+        <div class="logo-text">
+          <div class="site-title">Hip Dad Radio</div>
+          <div class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
         </div>
+      </a>
 
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="videos.html">Videos</a>
-            <a href="the-scoop.html">The Scoop</a>
-            <a href="listen-live.html">Listen Live</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      <!-- Centered nav links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="videos.html" class="nav-link">Videos</a></li>
+          <li><a href="the-scoop.html" class="nav-link">The Scoop</a></li>
+          <li><a href="listen-live.html" class="nav-link">Listen Live</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
-        <!-- FIXED PLAYER BUTTON -->
-        <button id="player-btn" class="player-button">
-            ▶ Hip Dad Radio • LIVE
+      <!-- Player pill (top-right) -->
+      <div class="player-pill">
+        <button
+          id="player-toggle"
+          class="player-button"
+          type="button"
+          aria-label="Play Hip Dad Radio"
+        >
+          <span id="player-icon" class="player-icon">▶</span>
+          <span class="player-text">Hip Dad Radio</span>
+          <span class="player-live-dot">•</span>
+          <span class="player-live-label">LIVE</span>
         </button>
-    </header>
 
-    <!-- HIDDEN AUDIO ELEMENT -->
-    <audio id="live-audio" src="https://streaming.live365.com/a27079"></audio>
+        <!-- Hidden audio element using your Live365 MP3 stream -->
+        <audio id="hipdad-audio" preload="none">
+          <source src="https://streaming.live365.com/a27079" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <div class="content-box">
-            <h1>Welcome to Hip Dad Radio</h1>
-            <p>
-                A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.
-            </p>
+  <!-- MAIN CONTENT -->
+  <main class="page-main">
+    <!-- Hero card -->
+    <section class="card hero-card">
+      <h1>Welcome to Hip Dad Radio</h1>
+      <p>
+        A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads
+        everywhere.
+      </p>
 
-            <button class="cta-btn">Start Listening →</button>
-            <button class="cta-btn">Read The Scoop</button>
-        </div>
+      <div class="hero-buttons">
+        <a href="#"
+           class="btn btn-primary">
+          Start Listening →
+        </a>
+        <a href="the-scoop.html"
+           class="btn btn-secondary">
+          Read The Scoop
+        </a>
+      </div>
 
-        <div class="content-box">
-            <h2>Record Club • Playlists</h2>
-            <p>
-                Each week we pick one new album and one old album to spin and talk about.
-            </p>
-        </div>
+      <p class="hero-note">
+        The Live365 stream is always ready in the top-right — hit play and cruise around the site.
+      </p>
+    </section>
 
-        <div class="content-box">
-            <h2>More Stuff</h2>
-            <p>
-                Some example text so we can test scrolling, layout, spacing, and responsive design.
-                Hip Dad Radio is Chicago’s soundtrack for dads who love riffs, coffee, and good vibes.
-            </p>
-        </div>
-    </main>
+    <!-- Record Club card -->
+    <section class="card">
+      <h2>Record Club • Playlists</h2>
+      <p>
+        Each week we pick one new album and one old album to spin and talk about. Follow along,
+        bring your hot takes, and send us your own picks. Sometimes it’s deep cuts, sometimes it’s
+        dad classics, sometimes it’s just whatever was on the turntable.
+      </p>
+      <p>
+        Placeholder copy so you can test scrolling:
+        Hip Dad Radio is powered by coffee, dusty records, and that one neighbor who insists on
+        playing air guitar in the alley. This paragraph doesn’t really say anything important —
+        it’s just here so you can see how the layout feels when there’s more text on the page.
+      </p>
+    </section>
 
-    <footer>
-        © 2025 Hip Dad Radio — Chicago, IL
-    </footer>
+    <!-- Upcoming themes card -->
+    <section class="card">
+      <h2>Upcoming Show Themes</h2>
+      <ul class="theme-list">
+        <li>“Car Wash Classics” – songs you sing while hosing down the driveway.</li>
+        <li>“Yard Work Bangers” – mowing-the-lawn riffs and hedge-trimmer hooks.</li>
+        <li>“Basement Hi-Fi Night” – full-album deep dives with crackly intros.</li>
+        <li>“Sunday Sauce” – simmering slow jams for all-day cooking.</li>
+      </ul>
+      <p>
+        More filler text for scroll testing: someday this will be replaced with real show info,
+        playlists, and maybe embarrassing photos of the DJs’ first bands.
+      </p>
+    </section>
+
+    <!-- Extra card just to force some scroll -->
+    <section class="card">
+      <h2>Behind The Turntables</h2>
+      <p>
+        This is just another block of made-up words so you can scroll the page and watch the
+        player stick around at the top. Imagine some charming backstory here about flea-market
+        record hunts, late-night radio obsessions, and that one time the needle skipped right in
+        the middle of the big chorus.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Hip Dad Radio — Chicago, IL</p>
+  </footer>
 </body>
 </html>
