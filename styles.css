@@ -369,3 +369,33 @@ header {
     flex: 0 0 auto;
   }
 }
+/* SCOOP PAGE */
+.content-section {
+  max-width: 900px;
+  margin: 130px auto 60px;
+  padding: 0 20px;
+}
+
+.content-section h1 {
+  margin-bottom: 10px;
+}
+
+.section-intro {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.instagram-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.box {
+  background: #fdf7e2;  /* light gold like homepage boxes */
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
