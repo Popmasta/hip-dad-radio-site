@@ -5,27 +5,30 @@
   box-sizing: border-box;
 }
 
-/* GLOBAL */
+/* BASE */
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #d9c27c; /* gold-ish background */
+  background-color: #d9c27c; /* gold background */
   color: #000;
+  line-height: 1.6;
+  padding-top: 90px; /* room for fixed header */
 }
 
-/* LINKS */
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+/* HEADER / NAV / PLAYER */
 
-/* HEADER + NAV */
 header {
-  background-color: #000;
-  color: #ffd253; /* yellow for text in header */
+  background-color: #000; /* black bar */
+  color: #f7d96d; /* yellow text */
+  padding: 15px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,207 +36,336 @@ header {
   z-index: 999;
 }
 
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 12px 20px;
+.header-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
 
-/* Logo block */
-.logo-block {
+.brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1 1 auto;
 }
 
-.logo-image {
-  height: 44px;
-  width: auto;
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
-.logo-text {
+.brand-text {
   display: flex;
   flex-direction: column;
 }
 
-.site-title {
-  font-weight: 700;
-  font-size: 1.1rem;
+.brand-title {
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.tagline {
-  font-size: 0.85rem;
-  color: #ffd253; /* same yellow */
+.brand-tagline {
+  font-size: 12px;
 }
 
-/* Nav */
-nav {
-  flex: 1 1 auto;
-}
+/* NAV */
 
-.nav-links {
-  list-style: none;
+.main-nav {
   display: flex;
+  gap: 24px;
+  margin: 0 24px;
+  flex: 1;
   justify-content: center;
-  gap: 28px;
 }
 
 .nav-link {
-  font-weight: 600;
-  font-size: 0.98rem;
-  color: #ffd253; /* yellow links */
+  font-size: 14px;
+  color: #f7d96d;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  border-bottom-color: #f7d96d;
+}
+
 .nav-link.active {
-  text-decoration: underline;
+  border-bottom-color: #f7d96d;
 }
 
-/* PLAYER PILL (top right) */
+/* PLAYER PILL */
+
 .player-pill {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.player-button {
+  border-radius: 999px;
+  border: 2px solid #f7d96d;
+  background: transparent;
+  padding: 6px 16px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 2px solid #ffd253;
-  background: #000;
-  color: #ffd253;
-  font-weight: 700;
-  font-size: 0.9rem;
+  gap: 8px;
   cursor: pointer;
+  color: #f7d96d;
+  font-size: 13px;
 }
 
-.player-button:hover {
-  background-color: #222;
-}
-
-.player-button.is-playing {
-  background-color: #ffd253;
-  color: #000;
-}
-
-.player-button.is-playing .player-live-dot {
-  color: #b10000;
+.player-pill:hover {
+  background-color: #111;
 }
 
 .player-icon {
-  font-size: 0.9rem;
+  display: inline-block;
+  width: 16px;
+  text-align: center;
 }
 
-.player-text {
-  white-space: nowrap;
+.player-pill.playing {
+  background-color: #f7d96d;
+  color: #000;
+  border-color: #f7d96d;
 }
 
-.player-live-dot {
-  color: #ff3b30; /* red dot */
-  font-size: 1.1rem;
-  line-height: 1;
+.player-pill.playing #playerIcon {
+  /* keep same width */
 }
 
-.player-live-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+/* PAGE WRAPPER */
+
+.page-wrapper {
+  max-width: 960px;
+  margin: 32px auto 40px;
+  padding: 0 16px 40px;
 }
 
-/* MAIN LAYOUT */
-.page-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 110px 20px 40px; /* top padding to clear fixed header */
-}
+/* CARDS (HOME + GENERAL) */
 
-/* CARDS */
 .card {
-  background-color: #fdf4dd;
-  border-radius: 16px;
-  border: 2px solid #000;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
-  padding: 24px 24px 26px;
+  background-color: #f9f1dd; /* light cream */
+  border-radius: 12px;
+  padding: 24px 28px;
   margin-bottom: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
-.hero-card {
+.card h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card p + p {
   margin-top: 8px;
 }
 
-.card h1,
-.card h2 {
-  margin-bottom: 10px;
-}
-
-.card p {
-  margin-bottom: 10px;
-}
-
-/* Hero buttons */
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0;
-}
+/* BUTTONS */
 
 .btn {
-  display: inline-flex;
+  display: inline-block;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn.primary {
+  background-color: #000;
+  color: #f7d96d;
+  border-color: #000;
+}
+
+.btn.primary:hover {
+  background-color: #222;
+}
+
+.btn.secondary {
+  background-color: #f7d96d;
+  color: #000;
+  border-color: #f7d96d;
+}
+
+.btn.secondary:hover {
+  background-color: #f4c93d;
+}
+
+.btn.linkish {
+  background: none;
+  border-color: transparent;
+  color: #000;
+  padding-left: 0;
+}
+
+.card-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+/* BULLET LISTS */
+
+.bullet-list {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.bullet-list li {
+  margin-bottom: 6px;
+}
+
+/* INSTAGRAM FEED LAYOUT (Version A: image left, caption right) */
+
+.insta-card {
+  background-color: #f9f1dd;
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.insta-image-wrap {
+  flex: 0 0 140px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 2px solid #000;
-  font-weight: 700;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
-.btn-primary {
-  background: #000;
-  color: #ffd253;
+.insta-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 16px;
+  background-color: #000;
 }
 
-.btn-primary:hover {
-  background: #222;
+.insta-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.btn-secondary {
-  background: #fffbe4;
-  color: #000;
+.insta-meta {
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
-.btn-secondary:hover {
-  background: #f4ebd2;
+.insta-handle {
+  font-weight: bold;
 }
 
-.hero-note {
-  font-size: 0.9rem;
-  margin-top: 4px;
+.insta-dot {
+  margin: 0 4px;
 }
 
-/* Theme list */
-.theme-list {
-  padding-left: 18px;
+.insta-caption {
+  font-size: 14px;
   margin-bottom: 10px;
+  max-height: 4.5em; /* ~3 lines */
+  overflow: hidden;
 }
 
-.theme-list li {
-  margin-bottom: 4px;
+.insta-actions {
+  margin-top: auto;
+}
+
+/* FULL POST PAGE */
+
+.full-post {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.full-post-image-wrap {
+  flex: 0 0 260px;
+}
+
+.full-post-image {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  background-color: #000;
+}
+
+.full-post-body h1 {
+  font-size: 24px;
+  margin: 6px 0 10px;
+}
+
+.full-post-body p + p {
+  margin-top: 8px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* VIDEO PLACEHOLDER */
+
+.video-embed-placeholder {
+  margin-top: 12px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 2px dashed #c2ab6a;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
 }
 
 /* FOOTER */
-footer {
+
+.site-footer {
   text-align: center;
-  padding: 20px 10px 25px;
-  font-size: 0.85rem;
+  font-size: 13px;
+  padding: 16px;
   color: #000;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .main-nav {
+    order: 3;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .player-pill {
+    order: 2;
+  }
+
+  .page-wrapper {
+    margin-top: 24px;
+  }
+
+  .insta-card {
+    flex-direction: column;
+  }
+
+  .insta-image-wrap {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+  }
+
+  .full-post {
+    flex-direction: column;
+  }
+
+  .full-post-image-wrap {
+    flex: 0 0 auto;
+  }
 }
