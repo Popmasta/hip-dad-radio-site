@@ -1,58 +1,57 @@
-// app.js
-// Simple audio player controller for Hip Dad Radio
+// Simple audio player for Hip Dad Radio using the Live365 MP3 stream
+// MP3 URL you gave: https://streaming.live365.com/a27079
 
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hipdad-audio");
-  const toggleBtn = document.getElementById("player-toggle");
-  const iconSpan = document.getElementById("player-icon");
+const STREAM_URL = "https://streaming.live365.com/a27079";
 
-  if (!audio || !toggleBtn || !iconSpan) {
-    // If we're on a page that doesn't have the player markup, just bail.
-    return;
-  }
+let audio;
+let isPlaying = false;
 
-  let isPlaying = false;
+function getEl(id) {
+  return document.getElementById(id);
+}
 
-  const setPlayingState = (playing) => {
-    isPlaying = playing;
+function initPlayer() {
+  const button = getEl("playPauseButton");
+  const icon = getEl("playerIcon");
+  const statusSpan = getEl("playerStatus");
 
-    if (playing) {
-      iconSpan.textContent = "⏸";
-      toggleBtn.classList.add("is-playing");
-      toggleBtn.setAttribute("aria-label", "Pause Hip Dad Radio");
+  if (!button || !icon || !statusSpan) return;
+
+  // Create audio element once
+  audio = new Audio(STREAM_URL);
+  audio.preload = "none";
+
+  button.addEventListener("click", () => {
+    if (!audio) return;
+
+    if (!isPlaying) {
+      audio
+        .play()
+        .then(() => {
+          isPlaying = true;
+          button.classList.add("playing");
+          icon.textContent = "⏸";
+          statusSpan.textContent = "ON AIR";
+        })
+        .catch((err) => {
+          console.error("Error playing stream:", err);
+        });
     } else {
-      iconSpan.textContent = "▶";
-      toggleBtn.classList.remove("is-playing");
-      toggleBtn.setAttribute("aria-label", "Play Hip Dad Radio");
-    }
-  };
-
-  toggleBtn.addEventListener("click", async () => {
-    try {
-      if (!isPlaying) {
-        // Start the stream
-        await audio.play();
-        setPlayingState(true);
-      } else {
-        // Pause the stream
-        audio.pause();
-        setPlayingState(false);
-      }
-    } catch (err) {
-      console.error("Error playing Hip Dad Radio stream:", err);
-      alert("Sorry, the stream is having trouble loading right now.");
-      setPlayingState(false);
-    }
-  });
-
-  // If the stream ends or errors, reset the button
-  audio.addEventListener("ended", () => setPlayingState(false));
-  audio.addEventListener("error", () => setPlayingState(false));
-
-  // Optional: pause if the user leaves the page
-  window.addEventListener("beforeunload", () => {
-    if (!audio.paused) {
       audio.pause();
+      isPlaying = false;
+      button.classList.remove("playing");
+      icon.textContent = "▶";
+      statusSpan.textContent = "LIVE";
     }
   });
-});
+
+  // If the stream stops for any reason, reset state
+  audio.addEventListener("ended", () => {
+    isPlaying = false;
+    button.classList.remove("playing");
+    icon.textContent = "▶";
+    statusSpan.textContent = "LIVE";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initPlayer);
