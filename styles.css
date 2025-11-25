@@ -7,101 +7,98 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #d9c27c;
+    background-color: #d9c27c;
     color: black;
-    line-height: 1.6;
-    padding-top: 110px; /* space for fixed header */
+    padding-top: 90px;
 }
 
 /* HEADER */
 header {
-    background: black;
-    color: white;
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 15px 25px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 999;
 }
 
-/* LEFT LOGO */
-.left-logo {
+/* LOGO + TAGLINE */
+.logo-area {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.logo {
-    height: 55px;
+.logo-img {
+    height: 45px;
 }
 
 .tagline {
     font-size: 14px;
-    color: #ffd868;
+    color: #f4d256; /* your yellow */
 }
 
-/* NAV MENU (CENTERED NOW) */
-nav {
-    display: flex;
-    gap: 40px;
-    flex: 1;
-    justify-content: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+/* NAVIGATION */
+.nav-links a {
+    color: #f4d256;
+    margin: 0 12px;
     font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
 }
 
 /* PLAYER BUTTON */
-.player-box {
-    background: black;
-    border: 2px solid #ffd868;
-    padding: 10px 18px;
+.player-button {
+    background-color: transparent;
+    border: 2px solid #f4d256;
+    color: #f4d256;
+    padding: 10px 16px;
+    font-size: 16px;
     border-radius: 12px;
+    cursor: pointer;
     font-weight: bold;
-    color: #ffd868;
-    cursor: pointer;
 }
 
-.live-dot {
-    height: 10px;
-    width: 10px;
-    background: red;
-    display: inline-block;
-    border-radius: 50%;
-}
-
-/* MAIN CONTENT */
-main {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-.btn {
-    background: black;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    margin-right: 10px;
-    cursor: pointer;
-    border: none;
-}
-
-.secondary {
-    background: white;
+.player-button.playing {
+    background-color: #f4d256;
     color: black;
 }
 
+/* CONTENT BOXES */
+.content-box {
+    background-color: #f9f2da;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px auto;
+    width: 85%;
+    max-width: 900px;
+    border: 3px solid #b79f62;
+}
+
+.cta-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    opacity: 0.8;
+}
+
 footer {
-    margin-top: 40px;
     text-align: center;
-    color: #333;
+    padding: 40px 0;
+    font-size: 14px;
 }
