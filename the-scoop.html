@@ -2,128 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Scoop • Hip Dad Radio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Scoop – Hip Dad Radio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+
   <!-- HEADER -->
   <header>
-    <div class="header-left">
-      <a href="index.html" class="brand">
-        <img src="hdr-logo.png" alt="Hip Dad Radio logo" class="brand-logo" />
-        <div class="brand-text">
-          <div class="brand-title">Hip Dad Radio</div>
-          <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
-        </div>
-      </a>
-    </div>
+    <a href="index.html" class="logo">
+      <img src="assets/hdr-logo.png" alt="Hip Dad Radio Logo" />
+      <div class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
+    </a>
 
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="videos.html" class="nav-link">Videos</a>
-      <a href="the-scoop.html" class="nav-link active">The Scoop</a>
-      <a href="listen-live.html" class="nav-link">Listen Live</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="the-scoop.html" class="active">The Scoop</a>
+      <a href="listen-live.html">Listen Live</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
-    <button class="player-pill" id="playPauseButton" type="button">
-      <span class="player-icon" id="playerIcon">▶</span>
-      <span class="player-text">
-        Hip Dad Radio • <span id="playerStatus">LIVE</span>
-      </span>
-    </button>
+    <!-- PLAYER BUTTON -->
+    <button id="player-btn" class="play-btn">▶ Hip Dad Radio • LIVE</button>
   </header>
 
-  <main class="page-wrapper">
-    <section class="card">
-      <h1>The Scoop</h1>
-      <p>
-        Follow Hip Dad Radio on Instagram for updates, playlists, behind-the-scenes, and weekly
-        record club picks.
-      </p>
-      <a
-        href="https://www.instagram.com/hipdadradio/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn secondary"
-      >
-        Open Instagram →
-      </a>
-    </section>
+  <!-- INSTALLED GLOBAL AUDIO PLAYER -->
+  <audio id="hipdad-player" src="https://streaming.live365.com/a27079"></audio>
 
-    <!-- INSTAGRAM-STYLE POST CARDS -->
+  <!-- PAGE CONTAINER -->
+  <div class="content-section">
 
-    <section class="insta-card">
-      <div class="insta-image-wrap">
-        <!-- Swap hdr-logo.png for a real IG screenshot later -->
-        <img src="hdr-logo.png" alt="Hip Dad Radio Instagram post" class="insta-image" />
-      </div>
-      <div class="insta-body">
-        <div class="insta-meta">
-          <span class="insta-handle">@hipdadradio</span>
-          <span class="insta-dot">•</span>
-          <span class="insta-date">Nov 5</span>
-        </div>
-        <p class="insta-caption">
-          “Basement Hi-Fi Night” recap: we spun Big Star, some deep-cut Tom Petty, and a brand-new
-          Chicago band that sounds like they time-traveled from 1974. Shout-out to everyone who
-          hung out in the chat and told us about the records they grew up with in their parents’
-          living rooms.
-        </p>
-        <div class="insta-actions">
-          <a href="scoop-post.html" class="btn secondary">Read full story</a>
-        </div>
-      </div>
-    </section>
+    <h1>The Scoop</h1>
+    <p class="section-intro">
+      Fresh cuts, radio updates, behind-the-scenes, and all the Hip Dad happenings.
+      Here’s what we’ve been posting lately →
+    </p>
 
-    <section class="insta-card">
-      <div class="insta-image-wrap">
-        <img src="hdr-logo.png" alt="Hip Dad Radio Instagram post" class="insta-image" />
-      </div>
-      <div class="insta-body">
-        <div class="insta-meta">
-          <span class="insta-handle">@hipdadradio</span>
-          <span class="insta-dot">•</span>
-          <span class="insta-date">Oct 22</span>
-        </div>
-        <p class="insta-caption">
-          New episode of Record Club is live: one new album from this year and one dusty gem from
-          the 70s. We argued about which one your dad would actually put on during a cookout and
-          took way too long ranking the best side-one-track-ones of all time.
-        </p>
-        <div class="insta-actions">
-          <a href="scoop-post.html" class="btn secondary">Read full story</a>
-        </div>
-      </div>
-    </section>
+    <!-- BOX CONTAINER -->
+    <div class="box">
+      <h2>Recent Instagram Posts</h2>
 
-    <section class="insta-card">
-      <div class="insta-image-wrap">
-        <img src="hdr-logo.png" alt="Hip Dad Radio Instagram post" class="insta-image" />
+      <!-- SnapWidget Embed -->
+      <div class="instagram-wrapper">
+        <iframe 
+          src="https://snapwidget.com/embed/1113336"
+          class="snapwidget-widget"
+          allowtransparency="true"
+          frameborder="0"
+          scrolling="no"
+          style="border:none; overflow:hidden; width:100%; max-width:800px; height:510px;"
+          title="Posts from Instagram">
+        </iframe>
       </div>
-      <div class="insta-body">
-        <div class="insta-meta">
-          <span class="insta-handle">@hipdadradio</span>
-          <span class="insta-dot">•</span>
-          <span class="insta-date">Oct 3</span>
-        </div>
-        <p class="insta-caption">
-          Live show from the Hip Dad kitchen: we tested a new playlist while making wings and
-          arguing about whether CCR counts as “background music” or “everyone stop talking
-          right now” music. The answer, obviously, depends on the song.
-        </p>
-        <div class="insta-actions">
-          <a href="scoop-post.html" class="btn secondary">Read full story</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="site-footer">
-    © 2025 Hip Dad Radio — Chicago, IL
-  </footer>
+  </div>
 
-  <script src="app.js"></script>
+  <script src="player.js"></script>
 </body>
 </html>
