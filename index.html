@@ -1,67 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hip Dad Radio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
   <!-- HEADER -->
-  <header class="top-header">
+  <header>
     <div class="header-left">
-      <img src="hdr-logo.png" class="logo" alt="Hip Dad Radio Logo" />
+      <a href="/"><img src="hdr-logo.png" alt="Hip Dad Radio Logo"></a>
       <div class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
     </div>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="scoop.html">The Scoop</a>
-      <a href="listen-live.html">Listen Live</a>
-      <a href="contact.html">Contact</a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/videos">Videos</a></li>
+        <li><a href="/scoop">The Scoop</a></li>
+        <li><a href="/listen-live">Listen Live</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <div id="mini-player" class="mini-player">
-      <button id="playPauseBtn">▶</button>
-      <span class="mini-title">Hip Dad Radio</span>
-      <span class="mini-live-dot"></span>
-      <span class="mini-live-text">LIVE</span>
+    <div class="player-container">
+      <a class="player-btn" href="/listen-live">
+        ▶️ Hip Dad Radio • <span style="color:red;">LIVE</span>
+      </a>
     </div>
   </header>
 
-  <!-- HERO IMAGE -->
+  <!-- HERO SECTION -->
   <section class="hero">
-    <img src="hdr-logo.png" class="hero-img" alt="Hip Dad Radio Logo" />
+    <img src="hdr-logo.png" class="big-logo" alt="Hip Dad Radio Logo">
   </section>
 
   <!-- MAIN CONTENT -->
-  <main class="home-container">
-    <section class="home-box">
+  <main>
+    <section class="intro-box">
       <h1>Welcome to Hip Dad Radio</h1>
       <p>A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.</p>
 
-      <a class="btn" href="listen-live.html">Start Listening →</a>
-      <a class="btn-light" href="scoop.html">Read The Scoop</a>
+      <div class="intro-buttons">
+        <a class="btn" href="/listen-live">Start Listening →</a>
+        <a class="btn" href="/scoop">Read The Scoop</a>
+      </div>
     </section>
 
-    <section class="home-box">
+    <section class="content-box">
       <h2>Record Club • Playlists</h2>
       <p>Each week we pick one new album and one old album to spin and talk about.</p>
-      <a class="link" href="scoop.html">See this week’s picks →</a>
-    </section>
-
-    <section class="home-box">
-      <h2>Hip Dad Videos</h2>
-      <p>Intros, deep cuts, Chicago show clips, and quick hits from the vault.</p>
-      <a class="link" href="videos.html">Go to Videos →</a>
     </section>
   </main>
 
-  <footer class="footer">
-    © 2025 Hip Dad Radio • Chicago IL
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Hip Dad Radio — Chicago, IL</p>
   </footer>
+
 </body>
 </html>
