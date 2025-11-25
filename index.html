@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hip Dad Radio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- GLOBAL AUDIO PLAYER (persistent) -->
+  <div id="global-player">
+    <button id="playPauseBtn">▶</button>
+    <span class="player-title">Hip Dad Radio</span>
+    <span class="player-live">● LIVE</span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="hdr-logo.png" class="logo" />
+      <div class="tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
+    </div>
+
+    <nav>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#videos" class="nav-link">Videos</a>
+      <a href="#scoop" class="nav-link">The Scoop</a>
+      <a href="#listen" class="nav-link">Listen Live</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PAGES -->
+
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="card">
+      <h1>Welcome to Hip Dad Radio</h1>
+      <p>
+        A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.
+        Stream live, watch videos, dig into playlists, and hang in the chat when shows are on.
+      </p>
+      <a href="#listen" class="button">Start Listening →</a>
+      <a href="#scoop" class="button-outline">Read The Scoop</a>
+    </div>
+
+    <div class="card">
+      <h2>Record Club • Playlists</h2>
+      <p>
+        Each week we pick one new album and one old album to spin and talk about on air.
+        Follow along and send us your picks.
+      </p>
+      <a href="#scoop">See this week’s picks →</a>
+    </div>
+
+    <div class="card">
+      <h2>Hip Dad Videos</h2>
+      <p>
+        Intros, deep cuts, Chicago show clips, and quick hits from the vault.
+      </p>
+      <a href="#videos">Go to Videos →</a>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos" class="page">
+    <h1>Hip Dad Radio Videos</h1>
+    <p>Clips, interviews, behind-the-scenes, and highlights.</p>
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed?listType=user_uploads&list=hipdadradioclips5791"
+        title="Hip Dad Radio YouTube Videos"
+        frameborder="0"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      ></iframe>
+    </div>
+
+    <p>
+      Visit the full channel →
+      <a href="https://www.youtube.com/@hipdadradioclips5791" target="_blank">
+        YouTube.com/@hipdadradioclips5791
+      </a>
+    </p>
+  </section>
+
+  <!-- SCOOP -->
+  <section id="scoop" class="page">
+    <h1>The Scoop</h1>
+    <p>
+      Follow Hip Dad Radio on Instagram for updates, playlists, behind-the-scenes, and weekly record club picks.
+    </p>
+
+    <div class="insta-wrapper">
+      <iframe
+        src="https://www.instagram.com/hipdadradio/embed"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- LISTEN LIVE -->
+  <section id="listen" class="page">
+    <h1>Listen Live</h1>
+    <p>The stream is live 24/7 — hit play anytime.</p>
+
+    <div class="listen-card">
+      <h2>Live Stream Player</h2>
+      <p>Use the mini-player in the top right to listen while browsing the site.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="page">
+    <h1>Contact</h1>
+    <p>Email: hipdadradio@gmail.com</p>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
