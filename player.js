@@ -1,17 +1,38 @@
-// Hip Dad Radio Player Logic
-const audio = document.getElementById("hdrAudio");
-const playerPill = document.getElementById("playerPill");
-const playerIcon = document.getElementById("playerIcon");
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("hdrAudio");
+  const toggle = document.getElementById("playerToggle");
+  const icon = toggle.querySelector(".player-icon");
 
-// toggle play/pause
-playerPill.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    playerPill.classList.add("playing");
-    playerIcon.textContent = "⏸";
-  } else {
-    audio.pause();
-    playerPill.classList.remove("playing");
-    playerIcon.textContent = "▶";
+  let isPlaying = false;
+
+  function updateUI() {
+    if (isPlaying) {
+      toggle.classList.add("playing");
+      icon.textContent = "❚❚"; // pause icon
+    } else {
+      toggle.classList.remove("playing");
+      icon.textContent = "▶";
+    }
   }
+
+  toggle.addEventListener("click", async () => {
+    try {
+      if (!isPlaying) {
+        await audio.play();
+        isPlaying = true;
+      } else {
+        audio.pause();
+        isPlaying = false;
+      }
+      updateUI();
+    } catch (err) {
+      console.error("Audio play error:", err);
+    }
+  });
+
+  // If audio ends (unlikely for live, but just in case)
+  audio.addEventListener("ended", () => {
+    isPlaying = false;
+    updateUI();
+  });
 });
