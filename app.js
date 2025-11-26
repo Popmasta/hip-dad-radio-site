@@ -1,54 +1,45 @@
-// Simple SPA Router
+/* SPA ROUTER */
 
-async function loadPage(page) {
-  const app = document.getElementById("app");
+const spaContainer = document.getElementById("spa-container");
+
+// Map routes to page files
+const routes = {
+  "/home": "pages/home.html",
+  "/videos": "pages/videos.html",
+  "/the-scoop": "pages/the-scoop.html",
+  "/listen-live": "pages/listen-live.html",
+  "/contact": "pages/contact.html",
+  "/post": "pages/scoop-post.html"
+};
+
+// Load a page into the <main> container
+async function loadPage(route) {
+  const file = routes[route] || routes["/home"];
 
   try {
-    const res = await fetch(`pages/${page}.html`);
+    const res = await fetch(file);
     const html = await res.text();
-    app.innerHTML = html;
-  } catch (err) {
-    app.innerHTML = `<div class="card"><h1>Page Not Found</h1></div>`;
+    spaContainer.innerHTML = html;
+    highlightNav(route);
+  } catch (e) {
+    spaContainer.innerHTML = "<p>Page failed to load.</p>";
   }
-
-  highlightActiveNav();
 }
 
-// Highlight active nav link
-function highlightActiveNav() {
-  const links = document.querySelectorAll(".nav-link");
-  const current = location.hash.replace("#/", "") || "";
-
-  links.forEach((link) => {
-    const href = link.getAttribute("href").replace("#/", "");
-    link.classList.toggle("active", href === current || (href === "" && current === ""));
+// Highlight nav link
+function highlightNav(route) {
+  document.querySelectorAll("[data-route]").forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${route}`) {
+      link.classList.add("active");
+    }
   });
 }
 
-// Routing logic
-function router() {
-  const hash = location.hash.replace("#/", "");
+// Handle hash changes
+window.addEventListener("hashchange", () => {
+  loadPage(location.hash.replace("#", "") || "/home");
+});
 
-  switch (hash) {
-    case "":
-      loadPage("home");
-      break;
-    case "videos":
-      loadPage("videos");
-      break;
-    case "the-scoop":
-      loadPage("the-scoop");
-      break;
-    case "live":
-      loadPage("live");
-      break;
-    case "contact":
-      loadPage("contact");
-      break;
-    default:
-      loadPage("home");
-  }
-}
-
-window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
+// Initial load
+loadPage(location.hash.replace("#", "") || "/home");
