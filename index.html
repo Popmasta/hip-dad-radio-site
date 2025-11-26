@@ -2,90 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hip Dad Radio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <!-- HEADER / NAV / PLAYER -->
-  <header>
-    <div class="header-left">
-      <a href="index.html" class="brand">
-        <img src="hdr-logo.png" alt="Hip Dad Radio logo" class="brand-logo" />
-        <div class="brand-text">
-          <div class="brand-title">Hip Dad Radio</div>
-          <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
-        </div>
-      </a>
-    </div>
 
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="videos.html" class="nav-link">Videos</a>
-      <a href="the-scoop.html" class="nav-link">The Scoop</a>
-      <a href="listen-live.html" class="nav-link">Listen Live</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-
-    <button class="player-pill" id="playPauseButton" type="button">
-      <span class="player-icon" id="playerIcon">▶</span>
-      <span class="player-text">
-        Hip Dad Radio • <span id="playerStatus">LIVE</span>
-      </span>
-    </button>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="page-wrapper">
-    <section class="card">
-      <h1>Welcome to Hip Dad Radio</h1>
-      <p>
-        A 24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.
-      </p>
-      <p>
-        The Live365 stream is always ready in the top-right — hit play and cruise around the site.
-      </p>
-
-      <div class="card-actions">
-        <a href="listen-live.html" class="btn primary">Start Listening →</a>
-        <a href="the-scoop.html" class="btn secondary">Read The Scoop</a>
+<header>
+  <div class="header-left">
+    <div class="brand">
+      <img src="assets/hdr-logo.png" class="brand-logo" alt="Hip Dad Radio Logo">
+      <div class="brand-text">
+        <div class="brand-title">HIP DAD RADIO</div>
+        <div class="brand-tagline">Chicago’s Meat & Potatoes</div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="card">
-      <h2>Record Club • Playlists</h2>
-      <p>
-        Each week we pick one new album and one old album to spin and talk about. Follow along, bring
-        your hot takes, and send us your own picks.
-      </p>
-      <p>
-        Sometimes it’s deep cuts, sometimes it’s dad classics, sometimes it’s just whatever was on
-        the turntable when we hit record.
-      </p>
-      <p>
-        Placeholder copy so you can test scrolling: Hip Dad Radio is powered by coffee, dusty
-        records, and that one neighbor who insists on playing air guitar in the alley. This paragraph
-        doesn’t really say anything important — it’s just here so you can see how the layout feels
-        when there’s more text on the page.
-      </p>
-      <a href="videos.html" class="btn linkish">See this week’s picks →</a>
-    </section>
+  <nav class="main-nav">
+    <a href="#/" class="nav-link">Home</a>
+    <a href="#/videos" class="nav-link">Videos</a>
+    <a href="#/the-scoop" class="nav-link">The Scoop</a>
+    <a href="#/live" class="nav-link">Listen Live</a>
+    <a href="#/contact" class="nav-link">Contact</a>
+  </nav>
 
-    <section class="card">
-      <h2>Upcoming Show Themes</h2>
-      <ul class="bullet-list">
-        <li><strong>Car Wash Classics</strong> – songs you sing while hosing down the driveway.</li>
-        <li><strong>Yard Work Bangers</strong> – mowing-the-lawn riffs and hedge-trimmer hooks.</li>
-        <li><strong>Basement Hi-Fi Night</strong> – full-album deep dives with crackly intros.</li>
-        <li><strong>Sunday Sauce</strong> – simmering slow jams for all-day cooking.</li>
-      </ul>
-    </section>
-  </main>
+  <button id="playerPill" class="player-pill">
+    <span class="player-label">Hip Dad Radio</span>
+    <span id="playerIcon" class="player-icon">▶</span>
+  </button>
+</header>
 
-  <footer class="site-footer">
-    © 2025 Hip Dad Radio — Chicago, IL
-  </footer>
+<!-- SPA CONTENT AREA -->
+<div id="app" class="page-wrapper">
+  Loading…
+</div>
 
-  <script src="app.js"></script>
+<footer class="site-footer">
+  © 2025 Hip Dad Radio — Chicago’s Meat & Potatoes
+</footer>
+
+<script src="player.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
