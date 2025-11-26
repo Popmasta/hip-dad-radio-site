@@ -1,217 +1,43 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* LISTEN LIVE PAGE  ------------------------------- */
 
-/* BASE */
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #d9c27c; /* gold */
-  color: #000;
-  line-height: 1.6;
-  padding-top: 90px; /* fixed header space */
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/**************************************
- HEADER / NAV / PLAYER
-***************************************/
-
-header {
-  background-color: #000; /* black header */
-  color: #f7d96d;         /* yellow text */
-  padding: 15px 32px;
+.live-layout {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand-logo {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.brand-tagline {
-  font-size: 12px;
-}
-
-/* NAVIGATION */
-
-.main-nav {
-  display: flex;
-  gap: 24px;
-  margin: 0 24px;
-  flex: 1;
-  justify-content: center;
-}
-
-.nav-link {
-  font-size: 14px;
-  color: #f7d96d;
-  padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-link:hover {
-  border-bottom-color: #f7d96d;
-}
-
-.nav-link.active {
-  border-bottom-color: #f7d96d;
-}
-
-/* PLAYER PILL */
-
-.player-pill {
-  border-radius: 999px;
-  border: 2px solid #f7d96d;
-  background: transparent;
-  padding: 6px 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #f7d96d;
-  font-size: 13px;
-}
-
-.player-pill:hover {
-  background-color: #111;
-}
-
-.player-pill.playing {
-  background-color: #f7d96d;
-  color: #000;
-}
-
-/**************************************
- PAGE WRAPPER
-***************************************/
-
-.page-wrapper {
-  max-width: 960px;
-  margin: 32px auto 40px;
-  padding: 0 16px 40px;
-}
-
-/**************************************
- CARD LAYOUT (stacked)
-***************************************/
-
-.card {
-  background-color: #f9f1dd; /* light cream */
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
-}
-
-.card h1 {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
-.card h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.card p + p {
-  margin-top: 10px;
-}
-
-/**************************************
- INSTAGRAM WIDGET
-***************************************/
-
-.instagram-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.lightwidget-widget {
-  width: 100% !important;
-  border-radius: 14px !important;
-  border: none !important;
-  overflow: hidden !important;
-}
-
-/**************************************
- FOOTER
-***************************************/
-
-.site-footer {
-  text-align: center;
-  font-size: 13px;
-  padding: 16px;
-  color: #000;
+  gap: 40px;
   margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/**************************************
- RESPONSIVE
-***************************************/
+.live-box {
+  background: #0f2f12; /* dark green from your mockup */
+  border-radius: 40px;
+  padding: 40px 30px;
+  flex: 1 1 420px;
+  max-width: 520px;
+  min-height: 600px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
-@media (max-width: 768px) {
-  header {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px 18px;
+.live-box-title {
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #33aa33; /* green text */
+  margin-bottom: 25px;
+}
+
+.live-embed-wrap {
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .live-layout {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .main-nav {
-    order: 3;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .player-pill {
-    order: 2;
-  }
-
-  .brand-logo {
-    width: 36px;
-    height: 36px;
-  }
-
-  .page-wrapper {
-    margin-top: 20px;
-    padding-bottom: 30px;
+  .live-box {
+    max-width: 100%;
   }
 }
