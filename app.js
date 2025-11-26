@@ -1,45 +1,29 @@
-/* SPA ROUTER */
+// SPA Router for Hip Dad Radio
+document.addEventListener("DOMContentLoaded", () => {
+  const pageContainer = document.getElementById("spa-page");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-const spaContainer = document.getElementById("spa-container");
+  async function loadPage(hash) {
+    let page = hash.replace("#", "");
+    if (!page) page = "home";
 
-// Map routes to page files
-const routes = {
-  "/home": "pages/home.html",
-  "/videos": "pages/videos.html",
-  "/the-scoop": "pages/the-scoop.html",
-  "/listen-live": "pages/listen-live.html",
-  "/contact": "pages/contact.html",
-  "/post": "pages/scoop-post.html"
-};
+    const url = `/pages/${page}.html`;
 
-// Load a page into the <main> container
-async function loadPage(route) {
-  const file = routes[route] || routes["/home"];
+    try {
+      const response = await fetch(url);
+      const html = await response.text();
+      pageContainer.innerHTML = html;
 
-  try {
-    const res = await fetch(file + `?v=${Date.now()}`);
-    const html = await res.text();
-    spaContainer.innerHTML = html;
-    highlightNav(route);
-  } catch (e) {
-    spaContainer.innerHTML = "<div class='card'><h1>Page failed to load.</h1></div>";
-  }
-}
+      // update active nav styling
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${page}`);
+      });
 
-// Highlight nav link
-function highlightNav(route) {
-  document.querySelectorAll("[data-route]").forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${route}`) {
-      link.classList.add("active");
+    } catch (err) {
+      pageContainer.innerHTML = `<div class="card"><h2>404 — Page Not Found</h2></div>`;
     }
-  });
-}
+  }
 
-// Handle hash changes
-window.addEventListener("hashchange", () => {
-  loadPage(location.hash.replace("#", "") || "/home");
+  window.addEventListener("hashchange", () => loadPage(location.hash));
+  loadPage(location.hash);
 });
-
-// Initial load
-loadPage(location.hash.replace("#", "") || "/home");
