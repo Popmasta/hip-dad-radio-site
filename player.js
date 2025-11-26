@@ -1,25 +1,17 @@
-// Hip Dad Radio MP3 stream
-const STREAM_URL = "https://streaming.live365.com/a27079";
+// Hip Dad Radio Player Logic
+const audio = document.getElementById("hdrAudio");
+const playerPill = document.getElementById("playerPill");
+const playerIcon = document.getElementById("playerIcon");
 
-const audio = new Audio(STREAM_URL);
-audio.preload = "none";
-audio.crossOrigin = "anonymous";
-
-let isPlaying = false;
-
-const pill = document.getElementById("playerPill");
-const icon = document.getElementById("playerIcon");
-
-pill.addEventListener("click", () => {
-  if (!isPlaying) {
+// toggle play/pause
+playerPill.addEventListener("click", () => {
+  if (audio.paused) {
     audio.play();
-    isPlaying = true;
-    icon.textContent = "⏸";
-    pill.classList.add("playing");
+    playerPill.classList.add("playing");
+    playerIcon.textContent = "⏸";
   } else {
     audio.pause();
-    isPlaying = false;
-    icon.textContent = "▶";
-    pill.classList.remove("playing");
+    playerPill.classList.remove("playing");
+    playerIcon.textContent = "▶";
   }
 });
