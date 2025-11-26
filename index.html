@@ -9,43 +9,42 @@
 
 <body>
 
-  <!-- HEADER (unchanged – stays persistent) -->
-  <header>
-    <div class="header-left">
-      <div class="brand">
-        <img src="assets/hdr-logo.png" class="brand-logo" />
-        <div class="brand-text">
-          <div class="brand-title">Hip Dad Radio</div>
-          <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
-        </div>
+<header>
+  <div class="header-left">
+    <div class="brand">
+      <img src="assets/hdr-logo.png" class="brand-logo" alt="Hip Dad Radio Logo">
+      <div class="brand-text">
+        <div class="brand-title">Hip Dad Radio</div>
+        <div class="brand-tagline">Chicago’s Meat & Potatoes</div>
       </div>
     </div>
+  </div>
 
-    <nav class="main-nav">
-      <a href="#/home" class="nav-link" data-route>Home</a>
-      <a href="#/videos" class="nav-link" data-route>Videos</a>
-      <a href="#/the-scoop" class="nav-link" data-route>The Scoop</a>
-      <a href="#/listen-live" class="nav-link" data-route>Listen Live</a>
-      <a href="#/contact" class="nav-link" data-route>Contact</a>
-    </nav>
+  <nav class="main-nav">
+    <a href="#/home" class="nav-link" data-route>Home</a>
+    <a href="#/videos" class="nav-link" data-route>Videos</a>
+    <a href="#/the-scoop" class="nav-link" data-route>The Scoop</a>
+    <a href="#/listen-live" class="nav-link" data-route>Listen Live</a>
+    <a href="#/contact" class="nav-link" data-route>Contact</a>
+  </nav>
 
-    <div id="playerPill" class="player-pill">
-      <span id="playerIcon" class="player-icon">▶</span>
-      Hip Dad Radio • <span class="live-dot">LIVE</span>
-    </div>
-  </header>
+  <div id="playerPill" class="player-pill">
+    <span id="playerIcon" class="player-icon">▶</span>
+    Hip Dad Radio • LIVE
+  </div>
+</header>
 
-  <!-- 🔥 THIS is where pages load without reloading -->
-  <main id="spa-container" class="page-wrapper">
-    Loading…
-  </main>
+<!-- SPA PAGE CONTAINER -->
+<main id="spa-container" class="page-wrapper">
+  Loading…
+</main>
 
-  <footer class="site-footer">
-    © 2025 Hip Dad Radio — Chicago, IL
-  </footer>
+<footer class="site-footer">
+  © 2025 Hip Dad Radio — Chicago’s Meat & Potatoes
+</footer>
 
-  <!-- Scripts -->
-  <script src="player.js"></script>
-  <script src="app.js"></script>
+<script src="player.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
