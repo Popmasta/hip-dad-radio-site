@@ -2,44 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Hip Dad Radio — Chicago’s Meat ’N Potatoes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hip Dad Radio</title>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-
-  <!-- FIXED HEADER -->
-  <header id="mainHeader">
+  <header class="site-header">
     <div class="header-left">
-      <img src="assets/hdr-logo.png" class="brand-logo" />
-      <div class="brand-text">
-        <div class="brand-title">Hip Dad Radio</div>
-        <div class="brand-tagline">Chicago’s Meat & Potatoes • Streaming 24/7</div>
-      </div>
+      <a href="#/home" class="brand">
+        <img src="assets/hdr-logo.png" alt="Hip Dad Radio Logo" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-title">Hip Dad Radio</div>
+          <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
+        </div>
+      </a>
     </div>
 
     <nav class="main-nav">
-      <a href="#/" data-route="home" class="nav-link">Home</a>
-      <a href="#/videos" data-route="videos" class="nav-link">Videos</a>
-      <a href="#/the-scoop" data-route="the-scoop" class="nav-link">The Scoop</a>
-      <a href="#/listen-live" data-route="listen-live" class="nav-link">Listen Live</a>
-      <a href="#/contact" data-route="contact" class="nav-link">Contact</a>
+      <a href="#/home" class="nav-link" data-page="home">Home</a>
+      <a href="#/videos" class="nav-link" data-page="videos">Videos</a>
+      <a href="#/the-scoop" class="nav-link" data-page="the-scoop">The Scoop</a>
+      <a href="#/listen-live" class="nav-link" data-page="listen-live">Listen Live</a>
+      <a href="#/contact" class="nav-link" data-page="contact">Contact</a>
     </nav>
 
-    <div class="player-pill" id="globalPlayer">
+    <button id="headerPlayerButton" class="player-pill">
       <span class="player-icon">▶</span>
-      Hip Dad Radio • <span class="live-dot"></span> LIVE
-    </div>
-
+      <span>Hip Dad Radio</span>
+      <span class="live-dot"></span>
+      <span class="live-label">LIVE</span>
+    </button>
   </header>
 
-  <!-- SPA CONTENT AREA -->
-  <main id="app"></main>
+  <main id="page-content" class="page-wrapper">
+    <!-- SPA content injected here by app.js -->
+  </main>
 
-  <!-- PLAYER SCRIPT + SPA ROUTER -->
-  <script src="player.js"></script>
+  <footer class="site-footer">
+    © 2025 Hip Dad Radio — Chicago’s Meat &amp; Potatoes
+  </footer>
+
+  <!-- Optional small hidden iframe for header player.
+       This just mirrors the Listen Live player so audio keeps going as you click around. -->
+  <iframe
+    id="backgroundPlayer"
+    src="https://live365.com/embeds/v1/player/a27079?s=sm&m=dark&c=mp3"
+    frameborder="0"
+    allow="autoplay"
+    class="background-player"
+  ></iframe>
+
   <script src="app.js"></script>
 </body>
 </html>
