@@ -17,12 +17,12 @@ async function loadPage(route) {
   const file = routes[route] || routes["/home"];
 
   try {
-    const res = await fetch(file);
+    const res = await fetch(file + `?v=${Date.now()}`);
     const html = await res.text();
     spaContainer.innerHTML = html;
     highlightNav(route);
   } catch (e) {
-    spaContainer.innerHTML = "<p>Page failed to load.</p>";
+    spaContainer.innerHTML = "<div class='card'><h1>Page failed to load.</h1></div>";
   }
 }
 
