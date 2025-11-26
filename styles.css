@@ -6,12 +6,13 @@
 }
 
 /* BASE */
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #d9c27c; /* gold background */
+  background-color: #d9c27c; /* gold */
   color: #000;
   line-height: 1.6;
-  padding-top: 90px; /* room for fixed header */
+  padding-top: 90px; /* fixed header space */
 }
 
 a {
@@ -19,10 +20,13 @@ a {
   color: inherit;
 }
 
-/* HEADER / NAV / PLAYER */
+/**************************************
+ HEADER / NAV / PLAYER
+***************************************/
+
 header {
-  background-color: #000; /* black bar */
-  color: #f7d96d; /* yellow text */
+  background-color: #000; /* black header */
+  color: #f7d96d;         /* yellow text */
   padding: 15px 32px;
   display: flex;
   justify-content: space-between;
@@ -31,7 +35,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .header-left {
@@ -65,7 +69,8 @@ header {
   font-size: 12px;
 }
 
-/* NAV */
+/* NAVIGATION */
+
 .main-nav {
   display: flex;
   gap: 24px;
@@ -90,6 +95,7 @@ header {
 }
 
 /* PLAYER PILL */
+
 .player-pill {
   border-radius: 999px;
   border: 2px solid #f7d96d;
@@ -112,20 +118,26 @@ header {
   color: #000;
 }
 
-/* PAGE WRAPPER */
+/**************************************
+ PAGE WRAPPER
+***************************************/
+
 .page-wrapper {
   max-width: 960px;
   margin: 32px auto 40px;
   padding: 0 16px 40px;
 }
 
-/* CARDS */
+/**************************************
+ CARD LAYOUT (stacked)
+***************************************/
+
 .card {
   background-color: #f9f1dd; /* light cream */
   border-radius: 12px;
   padding: 24px 28px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
 }
 
 .card h1 {
@@ -135,51 +147,71 @@ header {
 
 .card h2 {
   font-size: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* THE SCOOP WRAPPER */
+.card p + p {
+  margin-top: 10px;
+}
+
+/**************************************
+ INSTAGRAM WIDGET
+***************************************/
+
 .instagram-wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 10px 0;
 }
 
 .lightwidget-widget {
   width: 100% !important;
   border-radius: 14px !important;
-  border: 0 !important;
+  border: none !important;
   overflow: hidden !important;
 }
 
-/* FOOTER */
+/**************************************
+ FOOTER
+***************************************/
+
 .site-footer {
   text-align: center;
   font-size: 13px;
   padding: 16px;
   color: #000;
+  margin-top: 40px;
 }
 
-/* RESPONSIVE */
+/**************************************
+ RESPONSIVE
+***************************************/
+
 @media (max-width: 768px) {
   header {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    padding: 12px 18px;
   }
 
   .main-nav {
     order: 3;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 6px;
+    justify-content: center;
   }
 
   .player-pill {
     order: 2;
   }
 
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
   .page-wrapper {
-    margin-top: 24px;
+    margin-top: 20px;
+    padding-bottom: 30px;
   }
 }
