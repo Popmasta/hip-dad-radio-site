@@ -1,17 +1,45 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hip Dad Radio</title>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-  <!-- This empty div is where ALL pages will load -->
-  <div id="app"></div>
+  <!-- FIXED HEADER -->
+  <header id="mainHeader">
+    <div class="header-left">
+      <img src="assets/hdr-logo.png" class="brand-logo" />
+      <div class="brand-text">
+        <div class="brand-title">Hip Dad Radio</div>
+        <div class="brand-tagline">Chicago’s Meat & Potatoes • Streaming 24/7</div>
+      </div>
+    </div>
 
+    <nav class="main-nav">
+      <a href="#/" data-route="home" class="nav-link">Home</a>
+      <a href="#/videos" data-route="videos" class="nav-link">Videos</a>
+      <a href="#/the-scoop" data-route="the-scoop" class="nav-link">The Scoop</a>
+      <a href="#/listen-live" data-route="listen-live" class="nav-link">Listen Live</a>
+      <a href="#/contact" data-route="contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="player-pill" id="globalPlayer">
+      <span class="player-icon">▶</span>
+      Hip Dad Radio • <span class="live-dot"></span> LIVE
+    </div>
+
+  </header>
+
+  <!-- SPA CONTENT AREA -->
+  <main id="app"></main>
+
+  <!-- PLAYER SCRIPT + SPA ROUTER -->
+  <script src="player.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
