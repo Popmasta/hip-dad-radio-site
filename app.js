@@ -1,66 +1,65 @@
-<div class="card hero-card">
-  <div class="hero-grid">
-    <div class="hero-main">
-      <h1>Welcome to Hip Dad Radio</h1>
-      <p>
-        24/7 internet station for classic cuts, deep crates, and new tunes for hip dads everywhere.
-        Stream live, watch videos, dig into playlists, and hang in the chat when shows are on.
-      </p>
+/* ------------ SIMPLE SPA ROUTER ------------ */
 
-      <div class="hero-video">
-        <iframe
-          src="https://www.youtube.com/embed/4MRzNQ7_OAU"
-          title="Hip Dad Radio Intro"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+async function loadPage(page) {
+  const app = document.getElementById("app");
 
-    <div class="hero-side card">
-      <h2>Start Listening</h2>
-      <p>Hit play on the stream and let the meat ’n potatoes flow.</p>
-      <div class="card-actions" style="margin-top: 12px;">
-        <a href="#/listen-live" class="btn primary">Listen Live</a>
-        <a href="#/the-scoop" class="btn secondary">Read The Scoop</a>
-      </div>
-    </div>
-  </div>
-</div>
+  try {
+    const res = await fetch(`pages/${page}.html`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch ${page}.html`);
+    }
+    const html = await res.text();
+    app.innerHTML = html;
+    window.scrollTo(0, 0);
+  } catch (err) {
+    console.error(err);
+    app.innerHTML = `<div class="card"><h1>Oops.</h1><p>Page failed to load.</p></div>`;
+  }
+}
 
-<div class="card playlist-section">
-  <h2 class="playlist-row-title">HDR Playlists</h2>
-  <div class="playlist-row">
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/61kTpjSdYzOyEqKmOSvK6J?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/2sSQCfTVRWDmfE5PzbUygj?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/1Xoh86TDstkslZW13Lr1x8?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/6nTJUbjmpJBxkUUdHzDpNl?utm_source=generator"></iframe>
-    </div>
-  </div>
-</div>
+/* Set active nav item */
+function setActiveNav(page) {
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    const linkPage = link.getAttribute("data-page");
+    if (linkPage === page) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+}
 
-<div class="card playlist-section">
-  <h2 class="playlist-row-title">HDR Golden Years</h2>
-  <div class="playlist-row">
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/52XrHvGTE5KSAnHPsqFN5i?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/2x3nM9CXaDh2Q7MUqn0XVv?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/7oZbNVrzrYjuUe1aEsKNYc?utm_source=generator"></iframe>
-    </div>
-    <div class="playlist-embed">
-      <iframe src="https://open.spotify.com/embed/playlist/3MP1dljT2saiW1SKp4gOjz?utm_source=generator"></iframe>
-    </div>
-  </div>
-</div>
+/* Handle hash changes: #home, #videos, etc. */
+function handleRoute() {
+  let hash = window.location.hash || "#home";
+  if (!hash.startsWith("#")) hash = "#" + hash;
+
+  // remove # and leading /
+  const clean = hash.replace(/^#\/?/, "");
+  const page = clean || "home";
+
+  loadPage(page);
+  setActiveNav(page);
+}
+
+/* Setup */
+
+window.addEventListener("hashchange", handleRoute);
+
+window.addEventListener("DOMContentLoaded", () => {
+  // if no hash, go home
+  if (!window.location.hash) {
+    window.location.hash = "#home";
+  } else {
+    handleRoute();
+  }
+
+  // Make sure nav links just change hash (no full reload)
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const page = link.getAttribute("data-page");
+      window.location.hash = "#" + page;
+    });
+  });
+});
