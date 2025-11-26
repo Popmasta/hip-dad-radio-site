@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     } catch (err) {
-      pageContainer.innerHTML = `<div class="card"><h2>404 — Page Not Found</h2></div>`;
+      pageContainer.innerHTML = `
+        <div class="card">
+          <h2>404 — Page Not Found</h2>
+          <p>The page you're trying to reach does not exist.</p>
+        </div>`;
     }
   }
 
