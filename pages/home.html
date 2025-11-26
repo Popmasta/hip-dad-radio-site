@@ -1,47 +1,88 @@
-<!-- HOME PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hip Dad Radio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-<div class="card">
-  <h1>Welcome to Hip Dad Radio</h1>
-  <p>Chicago’s Meat & Potatoes — 24/7 deep cuts, classics, and dusty gems.</p>
-</div>
+<body>
 
-<!-- VIDEO SECTION -->
-<div class="card">
-  <h2>Featured Video</h2>
-  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
-    <iframe 
-      src="https://www.youtube.com/embed/4MRzNQ7_OAU" 
-      frameborder="0" 
-      allowfullscreen 
-      style="position:absolute;top:0;left:0;width:100%;height:100%;">
-    </iframe>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <strong>Hip Dad Radio</strong><br>
+      Chicago’s Meat ‘N Potatoes • Streaming 24/7
+    </div>
+
+    <div class="nav-links">
+      <a href="#/">Home</a>
+      <a href="#/videos">Videos</a>
+      <a href="#/the-scoop">The Scoop</a>
+      <a href="#/listen-live">Listen Live</a>
+      <a href="#/contact">Contact</a>
+    </div>
+
+    <div class="live-button">
+      <span class="live-indicator"></span>
+      Hip Dad Radio • LIVE
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- HERO VIDEO -->
+    <div class="hero-video">
+      <iframe
+        src="https://www.youtube.com/embed/4MRzNQ7_OAU"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- PLAYLIST ROW 1 -->
+    <div class="playlist-row">
+      <h2>HDR Playlists</h2>
+
+      <div class="playlist-grid">
+
+        <iframe src="https://open.spotify.com/embed/playlist/61kTpjSdYzOyEqKmOSvK6J?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/2sSQCfTVRWDmfE5PzbUygj?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/1Xoh86TDstkslZW13Lr1x8?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/6nTJUbjmpJBxkUUdHzDpNl?utm_source=generator"></iframe>
+
+      </div>
+    </div>
+
+    <!-- PLAYLIST ROW 2 -->
+    <div class="playlist-row">
+      <h2>HDR Golden Years</h2>
+
+      <div class="playlist-grid">
+
+        <iframe src="https://open.spotify.com/embed/playlist/52XrHvGTE5KSAnHPsqFN5i?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/2x3nM9CXaDh2Q7MUqn0XVv?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/7oZbNVrzrYjuUe1aEsKNYc?utm_source=generator"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/3MP1dljT2saiW1SKp4gOjz?utm_source=generator"></iframe>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<!-- PLAYLIST ROW 1 -->
-<div class="card">
-  <h2>HDR Playlists</h2>
-  <div class="playlist-grid">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/61kTpjSdYzOyEqKmOSvK6J?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
+  <footer>
+    © 2025 Hip Dad Radio — Chicago’s Meat & Potatoes
+  </footer>
 
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2sSQCfTVRWDmfE5PzbUygj?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
+  <script src="app.js"></script>
 
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1Xoh86TDstkslZW13Lr1x8?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6nTJUbjmpJBxkUUdHzDpNl?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-  </div>
-</div>
-
-<!-- PLAYLIST ROW 2 -->
-<div class="card">
-  <h2>HDR Golden Years</h2>
-  <div class="playlist-grid">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/52XrHvGTE5KSAnHPsqFN5i?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2x3nM9CXaDh2Q7MUqn0XVv?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7oZbNVrzrYjuUe1aEsKNYc?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3MP1dljT2saiW1SKp4gOjz?utm_source=generator" width="100%" height="360" frameBorder="0" allow="encrypted-media"></iframe>
-  </div>
-</div>
+</body>
+</html>
