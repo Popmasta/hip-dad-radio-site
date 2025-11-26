@@ -1,57 +1,54 @@
-// Simple audio player for Hip Dad Radio using the Live365 MP3 stream
-// MP3 URL you gave: https://streaming.live365.com/a27079
+// Simple SPA Router
 
-const STREAM_URL = "https://streaming.live365.com/a27079";
+async function loadPage(page) {
+  const app = document.getElementById("app");
 
-let audio;
-let isPlaying = false;
+  try {
+    const res = await fetch(`pages/${page}.html`);
+    const html = await res.text();
+    app.innerHTML = html;
+  } catch (err) {
+    app.innerHTML = `<div class="card"><h1>Page Not Found</h1></div>`;
+  }
 
-function getEl(id) {
-  return document.getElementById(id);
+  highlightActiveNav();
 }
 
-function initPlayer() {
-  const button = getEl("playPauseButton");
-  const icon = getEl("playerIcon");
-  const statusSpan = getEl("playerStatus");
+// Highlight active nav link
+function highlightActiveNav() {
+  const links = document.querySelectorAll(".nav-link");
+  const current = location.hash.replace("#/", "") || "";
 
-  if (!button || !icon || !statusSpan) return;
-
-  // Create audio element once
-  audio = new Audio(STREAM_URL);
-  audio.preload = "none";
-
-  button.addEventListener("click", () => {
-    if (!audio) return;
-
-    if (!isPlaying) {
-      audio
-        .play()
-        .then(() => {
-          isPlaying = true;
-          button.classList.add("playing");
-          icon.textContent = "⏸";
-          statusSpan.textContent = "ON AIR";
-        })
-        .catch((err) => {
-          console.error("Error playing stream:", err);
-        });
-    } else {
-      audio.pause();
-      isPlaying = false;
-      button.classList.remove("playing");
-      icon.textContent = "▶";
-      statusSpan.textContent = "LIVE";
-    }
-  });
-
-  // If the stream stops for any reason, reset state
-  audio.addEventListener("ended", () => {
-    isPlaying = false;
-    button.classList.remove("playing");
-    icon.textContent = "▶";
-    statusSpan.textContent = "LIVE";
+  links.forEach((link) => {
+    const href = link.getAttribute("href").replace("#/", "");
+    link.classList.toggle("active", href === current || (href === "" && current === ""));
   });
 }
 
-document.addEventListener("DOMContentLoaded", initPlayer);
+// Routing logic
+function router() {
+  const hash = location.hash.replace("#/", "");
+
+  switch (hash) {
+    case "":
+      loadPage("home");
+      break;
+    case "videos":
+      loadPage("videos");
+      break;
+    case "the-scoop":
+      loadPage("the-scoop");
+      break;
+    case "live":
+      loadPage("live");
+      break;
+    case "contact":
+      loadPage("contact");
+      break;
+    default:
+      loadPage("home");
+  }
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
