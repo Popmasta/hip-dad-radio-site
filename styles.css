@@ -20,12 +20,12 @@ a {
   color: inherit;
 }
 
-/* HEADER / NAV */
+/* HEADER / NAV / PLAYER */
 
-.site-header {
+header {
   background-color: #000;
   color: #f7d96d;
-  padding: 14px 32px;
+  padding: 15px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,6 +67,8 @@ a {
   font-size: 12px;
 }
 
+/* NAV */
+
 .main-nav {
   display: flex;
   gap: 24px;
@@ -90,7 +92,7 @@ a {
   border-bottom-color: #f7d96d;
 }
 
-/* PLAYER PILL IN HEADER */
+/* PLAYER PILL */
 
 .player-pill {
   border-radius: 999px;
@@ -119,29 +121,24 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #e53935; /* bright red */
+  background-color: #e8001a; /* bright red */
+  display: inline-block;
 }
 
-.live-label {
+.live-text {
   font-size: 11px;
   letter-spacing: 0.08em;
 }
 
-/* when we later wire up play/pause, we can add .playing */
+/* Playing state */
 .player-pill.playing {
   background-color: #f7d96d;
   color: #000;
+  border-color: #f7d96d;
 }
 
-/* HIDDEN BACKGROUND PLAYER */
-
-.background-player {
-  position: fixed;
-  bottom: -9999px;
-  left: -9999px;
-  width: 0;
-  height: 0;
-  border: none;
+.player-pill.playing .player-icon {
+  width: 16px;
 }
 
 /* PAGE WRAPPER */
@@ -163,7 +160,7 @@ a {
 }
 
 .card h1 {
-  font-size: 28px;
+  font-size: 26px;
   margin-bottom: 10px;
 }
 
@@ -214,69 +211,85 @@ a {
   padding-left: 0;
 }
 
-/* HOME PAGE SPECIFICS */
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 24px;
-  align-items: stretch;
+.card-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.hero-main {
+/* HOME PAGE — HERO VIDEO */
+
+.hero-card {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
-.hero-video {
+.hero-card p {
+  max-width: 640px;
+}
+
+.video-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
   border-radius: 14px;
   overflow: hidden;
-  margin-top: 14px;
+  background-color: #000;
 }
 
-.hero-video iframe {
+.video-wrapper iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* PLAYLIST ROWS (HOME) */
+/* PLAYLIST ROWS */
 
-.playlist-section {
-  margin-top: 8px;
-}
-
-.playlist-row-title {
+.playlist-section-title {
   font-size: 18px;
-  margin-bottom: 12px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .playlist-row {
+  background-color: #123018; /* deep green */
+  border-radius: 28px;
+  padding: 20px 24px;
+  margin-bottom: 22px;
+  color: #16a034; /* bright green text */
+}
+
+.playlist-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+  margin-top: 18px;
 }
 
-.playlist-embed {
-  border-radius: 10px;
+.playlist-tile {
+  background-color: #ffb200; /* orange/yellow */
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.playlist-embed iframe {
+.playlist-tile iframe {
   width: 100%;
   height: 100%;
-  min-height: 232px;
+  min-height: 160px;
   border: 0;
 }
 
 /* SCOOP PAGE */
+
+.content-section {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
 
 .section-intro {
   margin-bottom: 16px;
@@ -288,86 +301,74 @@ a {
 }
 
 .instagram-wrapper iframe {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-height: 520px;
+  width: 100%;
   border: 0;
+  overflow: hidden;
+  min-height: 380px; /* make sure posts aren't cut off */
 }
 
-/* LISTEN LIVE LAYOUT */
+/* LISTEN LIVE PAGE */
 
 .live-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
 }
 
-.live-box {
-  background-color: #1a3a1a; /* deep green inside */
-  border-radius: 26px;
-  padding: 24px;
-  color: #f7f7f7;
+.live-card {
+  background-color: #f9f1dd;
+  border-radius: 24px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.live-box-inner {
+  background-color: #123018;
+  border-radius: 18px;
+  padding: 18px 18px;
+  color: #16a034;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
 }
 
-.live-box h2 {
-  font-size: 20px;
+.live-box-inner h2 {
   margin-bottom: 12px;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.live-player-shell {
+.live-box-inner p {
+  color: #e5f5e5;
+  font-size: 14px;
+}
+
+/* Live365 embed should fit nicely */
+.live-player-embed {
   flex: 1;
   margin-top: 10px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #000;
 }
 
-.live-player-shell iframe {
+.live-player-embed iframe {
   width: 100%;
-  height: 480px;
+  height: 100%;
+  min-height: 320px;
   border: 0;
 }
 
-/* CHAT PLACEHOLDER */
+/* CHAT PLACEHOLDER BOX */
 
-.chat-placeholder {
+.chat-body {
   flex: 1;
-  margin-top: 10px;
-  border-radius: 20px;
-  background-color: #0e2610;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  text-align: center;
 }
 
-/* VIDEOS PAGE */
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.video-embed {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #000;
-}
-
-.video-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+.chat-body p {
+  color: #d9fdd9;
+  font-size: 14px;
 }
 
 /* CONTACT PAGE */
@@ -381,16 +382,17 @@ a {
 
 .contact-form input,
 .contact-form textarea {
-  border-radius: 8px;
-  border: 1px solid #b79b57;
-  padding: 8px 10px;
-  font-size: 14px;
   width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #b8a86a;
+  font-size: 14px;
+  font-family: inherit;
 }
 
 .contact-form textarea {
-  min-height: 120px;
   resize: vertical;
+  min-height: 120px;
 }
 
 /* FOOTER */
@@ -404,22 +406,18 @@ a {
 
 /* RESPONSIVE */
 
-@media (max-width: 860px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .playlist-row {
+@media (max-width: 900px) {
+  .playlist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .live-layout {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 640px) {
-  .site-header {
+@media (max-width: 768px) {
+  header {
     flex-wrap: wrap;
     gap: 8px;
   }
@@ -435,7 +433,13 @@ a {
     order: 2;
   }
 
-  .playlist-row {
-    grid-template-columns: minmax(0, 1fr);
+  .page-wrapper {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .playlist-grid {
+    grid-template-columns: 1fr;
   }
 }
