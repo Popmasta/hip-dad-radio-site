@@ -1,12 +1,70 @@
-<section class="card"><h1>The Scoop</h1><p>Show notes, DJ picks, &amp; cool rants.</p></section>
+<section class="card">
+  <h1>The Scoop</h1>
+  <p>Classic blog vibes incoming. For now: sample feed &amp; image uploads allowed.</p>
+</section>
 
-<div class="blog-list">
-  <article class="blog-post-card">
-    <img src="../assets/dj-guy.png" alt="DJ" class="blog-image"/>
-    <div>
-      <div class="blog-title">Prototype Note</div>
-      <div class="blog-meta">Guest DJ post system coming soon</div>
-      <p class="blog-excerpt">Each DJ will post their show notes like a blog post with a featured image.</p>
-    </div>
-  </article>
-</div>
+<section class="card mailing-card">
+  <h2>Join Our Mailing List</h2>
+  <p>Show + Blog updates. No spam, all jams.</p>
+  <form id="mailForm2">
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <button class="btn primary">Join List</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Submit a blog post</h2>
+  <form id="postForm">
+    <input type="text" id="postTitle" placeholder="Post title" required />
+    <textarea id="postBody" placeholder="Write your scoop…"></textarea>
+
+    <input type="file" id="postImage" accept="image/*" style="margin-top:10px" />
+    <button class="btn primary" style="margin-top:10px">Publish</button>
+  </form>
+</section>
+
+<div id="posts"></div>
+
+<script>
+const posts = [];
+document.getElementById("postForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const title = postTitle.value;
+  const body = postBody.value;
+  const file = postImage.files[0];
+  const img = file ? URL.createObjectURL(file) : "";
+
+  posts.unshift({title,body,img,date:new Date().toLocaleDateString()});
+  render();
+});
+
+function render() {
+  posts.innerHTML = posts.map(p => `
+    <article class="card blog-post-card">
+      ${p.img ? `<img src="${p.img}" class="blog-image">` : ""}
+      <div>
+        <div class="blog-meta">${p.date} • Guest DJ</div>
+        <h2>${p.title}</h2>
+        <p>${p.body}</p>
+      </div>
+    </article>
+  `).join("");
+}
+</script>
+
+<style>
+.blog-post-card{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+}
+
+.blog-post-card img{
+  width:140px;
+  height:140px;
+  border-radius:10px;
+  object-fit:cover;
+}
+</style>
