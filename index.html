@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hip Dad Radio</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hip Dad Radio</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-<header class="site-header">
-  <div class="logo">🎙 Hip Dad Radio</div>
-  <nav class="main-nav">
-    <a href="#videos">Videos</a>
+<body>
+<header class="header">
+  <div class="brand-title">🎧 Hip Dad Radio — 24/7 Meat & Potatoes</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#videos">YouTube</a>
     <a href="#scoop">The Scoop</a>
     <a href="#listen">Listen Live</a>
     <a href="#shows">Radio Shows</a>
@@ -19,112 +20,62 @@
 </header>
 
 <main>
+<section id="home">
+  <h1>Welcome to Hip Dad Radio</h1>
+  <p>Classic cuts, deep crates, Chicago flavor, 24/7 rotation.<br>We are literally open all the time. 😂</p>
+  <div class="playlist-grid">
+    <div class="playlist-card"><img src="assets/playlist1.jpg"><h3>Playlist 1</h3><button onclick="gotoSpotify()">Explore More Playlists</button></div>
+    <div class="playlist-card"><img src="assets/playlist2.jpg"><h3>Playlist 2</h3><button onclick="gotoSpotify()">Explore More Playlists</button></div>
+    <div class="playlist-card"><img src="assets/playlist3.jpg"><h3>Playlist 3</h3><button onclick="gotoSpotify()">Explore More Playlists</button></div>
+    <div class="playlist-card"><img src="assets/playlist4.jpg"><h3>Playlist 4</h3><button onclick="gotoSpotify()">Explore More Playlists</button></div>
+  </div>
+  <div class="mailing-list">
+    <h2>Join Our Mailing List</h2>
+    <input type="email" id="mail-input" placeholder="you@cooldad.com">
+    <button onclick="subscribeMail()">Join Up</button>
+    <p id="mail-status"></p>
+  </div>
+</section>
 
-  <!-- Videos -->
-  <section id="videos" class="video-section">
-    <h2>Latest YouTube Clips</h2>
-    <div class="video-grid" id="youtube-container">
-      <!-- JS will populate -->
-    </div>
-    <div class="center-box">
-      <button class="nav-btn" onclick="location.hash='#listen'">Go Listen Live</button>
-    </div>
-  </section>
+<section id="videos">
+  <h2>Latest Videos on the Site</h2>
+  <div class="video-grid" id="youtube-container"></div>
+  <button class="center-nav" onclick="location.hash='#listen'">Go Listen Live</button>
+</section>
 
-  <!-- Scoop Blog -->
-  <section id="scoop" class="scoop-section">
-    <h2>The Scoop (Classic Blog Vibes)</h2>
+<section id="scoop">
+  <h2>The Scoop — Classic Blog Vibes</h2>
+  <div class="blog-container" id="blog-container"></div>
+  <button class="center-nav" onclick="gotoSpotify()">Explore More Playlists</button>
+  <div class="mailing-list">
+    <h3>Join the List, Get the Scoop</h3>
+    <input type="email" id="mail-input-2" placeholder="you@cooldad.com">
+    <button onclick="subscribeMail2()">Let Me In</button>
+    <p id="mail-status-2"></p>
+  </div>
+</section>
 
-    <div class="blog-feed" id="blog-container">
-      <!-- JS will populate blog posts -->
-    </div>
+<section id="listen">
+  <h2>Listen Live</h2>
+  <div class="listen-layout">
+    <div class="widget"><h3>📡 Live Stream</h3><iframe id="live365-player" allow="autoplay"></iframe></div>
+    <div class="widget"><h3>💬 Live Chat</h3><iframe id="chat-frame"></iframe></div>
+  </div>
+  <div class="played-widget">
+    <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
+  </div>
+</section>
 
-    <div class="center-box">
-      <button class="nav-btn" onclick="location.hash='#listen'">Tune In Now</button>
-    </div>
-
-    <div class="mailing-list-box">
-      <h3>Join Our Mailing List</h3>
-      <input type="email" placeholder="Enter your email..." id="mail-input" />
-      <button onclick="subscribeMail()">Subscribe</button>
-      <p id="mail-status"></p>
-    </div>
-  </section>
-
-  <!-- Listen Live -->
-  <section id="listen" class="listen-section">
-    <h2>Listen Live</h2>
-    <div class="live-widgets">
-      <div class="live-block">
-        <h3>Live Stream</h3>
-        <div class="widget-box">
-          <iframe id="live365-player" frameborder="0" allow="autoplay" scrolling="no"></iframe>
-        </div>
-      </div>
-
-      <div class="live-block">
-        <h3>Live Chat</h3>
-        <div class="widget-box">
-          <iframe id="chat-frame" frameborder="0" scrolling="yes"></iframe>
-        </div>
-      </div>
-    </div>
-
-    <div class="played-widget">
-      <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
-    </div>
-  </section>
-
-  <!-- Radio Shows -->
-  <section id="shows" class="shows-section">
-    <h2>Radio Shows</h2>
-    <div class="shows-list">
-      <div class="show-card">
-        <h3>📻 All-80s Night</h3>
-        <p>Live every Wednesday at 8 PM</p>
-      </div>
-
-      <div class="show-card">
-        <h3>🌆 1978 Spotlight</h3>
-        <p>This week’s theme: 1978 jams only</p>
-      </div>
-
-      <div class="show-card">
-        <h3>🎸 60s-80s Deep Crate Dive</h3>
-        <p>Format: Obscure classics + new Chicago artists</p>
-      </div>
-
-      <div class="show-card">
-        <h3>🔔 Schedules</h3>
-        <p>Shows go live on your local timezone at show start</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Playlist Grids at Home -->
-  <section id="home" class="home-section">
-    <h2>HDR Playlists</h2>
-    <div class="playlist-grid">
-      <div class="playlist-card">
-        <img src="assets/playlist1.jpg" alt="Playlist 1" />
-        <button class="explore-btn">Explore More Playlists</button>
-      </div>
-
-      <div class="playlist-card">
-        <img src="assets/playlist2.jpg" alt="Playlist 2" />
-        <button class="explore-more-btn">Explore More Playlists</button>
-      </div>
-
-      <div class="playlist-card">
-        <img src="assets/playlist3.jpg" alt="Playlist 3" />
-        <button class="explore-more-btn">Explore More Playlists</button>
-      </div>
-    </div>
-  </section>
-
+<section id="shows">
+  <h2>Radio Shows — When the DJs Actually Talk</h2>
+  <div class="shows-list">
+    <div class="show"><h3>🎙 All-80s Night</h3><p>Goes live Wednesdays at 8PM, full send dad mode.</p></div>
+    <div class="show"><h3>🌆 Year Spotlight</h3><p>This week: 1978 classics & chaotic trivia.</p></div>
+    <div class="show"><h3>🎸 Deep Crates</h3><p>Obscure 60s→80s treasures + new Chicago gems.</p></div>
+  </div>
+</section>
 </main>
 
 <script src="app.js"></script>
-
 </body>
 </html>
