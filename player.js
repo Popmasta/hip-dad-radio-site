@@ -1,37 +1,13 @@
-\document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hdr-audio");
-  const button = document.getElementById("playerToggle");
-  const icon = button.querySelector(".player-icon");
-
-  let isPlaying = false;
-
-  function updateUI() {
-    if (isPlaying) {
-      button.classList.add("playing");
-      icon.textContent = "❚❚"; // pause icon
-    } else {
-      button.classList.remove("playing");
-      icon.textContent = "▶";
-    }
-  }
-
-  button.addEventListener("click", async () => {
-    try {
-      if (!isPlaying) {
-        await audio.play();
-        isPlaying = true;
-      } else {
-        audio.pause();
-        isPlaying = false;
-      }
-      updateUI();
-    } catch (err) {
-      console.error("Error toggling audio:", err);
-    }
-  });
-
-  audio.addEventListener("ended", () => {
-    isPlaying = false;
-    updateUI();
-  });
-});
+document.addEventListener("DOMContentLoaded",()=>{
+  const a=document.getElementById("hdr-audio")
+  const b=document.getElementById("playerToggle")
+  const i=b.querySelector(".player-icon")
+  let p=0
+  b.addEventListener("click",async()=>{
+    p?a.pause():await a.play()
+    p=!p
+    b.classList.toggle("playing",p)
+    i.textContent=p?"❚❚":"▶"
+  })
+  a.onended=()=>{p=0;b.classList.remove("playing");i.textContent="▶"}
+})
