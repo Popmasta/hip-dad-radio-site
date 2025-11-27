@@ -1,31 +1,50 @@
-const app = document.getElementById("app");
-
-function setActiveNav(page) {
-  document.querySelectorAll(".nav-link").forEach(link => {
-    link.classList.toggle("active", link.dataset.page === page);
-  });
-}
+/* ------------ SIMPLE SPA ROUTER ------------- */
 
 async function loadPage(page) {
-  try {
-    const res = await fetch(`pages/${page}.html`);
-    const html = await res.text();
-    app.innerHTML = html;
-    window.scrollTo(0,0);
-  } catch(err) {
-    app.innerHTML = `<section class="card"><h1>Error</h1><p>Page failed</p></section>`;
-  }
+    const app = document.getElementById("app");
+
+    try {
+        const res = await fetch(`pages/${page}.html`);
+        const html = await res.text();
+        app.innerHTML = html;
+    } catch (err) {
+        app.innerHTML = "<h2 style='padding:40px'>Page failed to load.</h2>";
+        console.error(err);
+    }
 }
 
-function router() {
-  const hash = window.location.hash.replace("#","");
-  const page = hash || "home";
-  setActiveNav(page);
-  loadPage(page);
+/* SET ACTIVE NAV */
+function setActive(navId) {
+    document.querySelectorAll(".hdr-nav a").forEach(a => a.classList.remove("active"));
+    const el = document.getElementById(navId);
+    if (el) el.classList.add("active");
 }
 
-window.addEventListener("hashchange", router);
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-  router();
-});
+/* HASH ROUTER */
+function handleRoute() {
+    const hash = window.location.hash;
+
+    if (!hash || hash === "#/home") {
+        loadPage("home");
+        setActive("nav-home");
+    } 
+    else if (hash.startsWith("#/videos")) {
+        loadPage("videos");
+        setActive("nav-videos");
+    } 
+    else if (hash.startsWith("#/the-scoop")) {
+        loadPage("the-scoop");
+        setActive("nav-scoop");
+    }
+    else if (hash.startsWith("#/listen-live")) {
+        loadPage("listen-live");
+        setActive("nav-listen");
+    }
+    else if (hash.startsWith("#/contact")) {
+        loadPage("contact");
+        setActive("nav-contact");
+    }
+}
+
+window.addEventListener("hashchange", handleRoute);
+window.addEventListener("load", handleRoute);
