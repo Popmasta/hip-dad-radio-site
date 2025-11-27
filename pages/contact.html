@@ -1,21 +1,22 @@
 <section class="card">
-  <h1>Contact the Hip Dad Crew</h1>
-  <p>Got something to share? A band? A DJ? A very urgent discord about reverb levels? Drop it below.</p>
+  <h1>Contact</h1>
+  <p>Fellow DJs, bands, labels, or emotional-support hall-of-fame nominees: drop a note.</p>
 </section>
 
 <section class="card">
-  <form class="contact-form" id="contactForm">
-    <input type="text" name="name" placeholder="Name / Band / DJ / Org" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Your message, your vibe, your truth"></textarea>
-    <button class="btn primary" type="submit">Send Message</button>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name / Band / DJ / Org" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <textarea name="message" placeholder="Message"></textarea>
+    <button class="btn primary">Send</button>
   </form>
 </section>
 
 <script>
-  document.getElementById("contactForm").addEventListener("submit", e => {
-    e.preventDefault();
-    window.location.href = `mailto:hipdadradio@gmail.com?subject=Website%20Contact&body=` +
-      encodeURIComponent(e.target.name.value + "\n\n" + e.target.message.value);
-  });
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  window.location.href = `mailto:hipdadradio@gmail.com?subject=WEBSITE%20MESSAGE&amp;body=` +
+    encodeURIComponent(`Name: ${f.name.value}\nEmail: ${f.email.value}\n\n${f.message.value}`);
+});
 </script>
