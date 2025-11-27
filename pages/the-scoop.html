@@ -1,22 +1,56 @@
 <section class="card">
-  <h1>The Scoop</h1>
-  <p>Show notes, DJ picks, blog posts, and whatever else the Hip Dad crew feels like ranting about.</p>
+  <h1 style="text-align:center;">The Scoop</h1>
+  <p style="text-align:center;">
+    Show notes, DJ picks, record-club thoughts, and whatever else the Hip Dad crew feels like writing about.
+  </p>
 </section>
 
-<section id="blogContainer" class="blog-list"></section>
+<!-- Blog feed container (real posts will load here later via Drive API or direct file links) -->
+<section class="blog-list" id="posts">
+  <!-- SAMPLE POST (visible now, removable later) -->
+  <article class="blog-post-card">
+    <img
+      src="../assets/dj-guy.png"
+      alt="DJ"
+      class="blog-image"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Nov 2025 • Main DJ</div>
+      <h2 class="blog-title">This is where posts will load</h2>
+      <p class="blog-excerpt">
+        This will function like a real blog feed. You'll connect it to Google Drive later.
+      </p>
+    </div>
+  </article>
+</section>
 
+<!-- Mailing list block -->
 <section class="card mailing-card">
-  <h2>Join our mailing list</h2>
-  <p>Show alerts + DJ blog drops + playlist updates (no spam, promise).</p>
-  <form id="mailingForm">
-    <input type="email" placeholder="email..." required style="padding:8px;width:70%;border-radius:6px;border:1px solid #aaa"/>
-    <button type="submit" class="btn primary">Join</button>
-  </form>
+  <h2>Stay in the Loop</h2>
+  <p>
+    Get show announcements, new blog posts, and big playlist updates.
+  </p>
+  <div class="btn-row">
+    <a href="mailto:hipdadradio@gmail.com?subject=Join%20the%20Mailing%20List" class="btn primary">
+      Join via email
+    </a>
+  </div>
 </section>
 
-<script>
-  document.getElementById("mailingForm").addEventListener("submit",e=>{
-    e.preventDefault()
-    alert("Mailing list not wired yet — you can connect to drive later!")
-  })
-</script>
+<!-- Instagram feed -->
+<section class="card instagram-card">
+  <h2 style="text-align:center;">Instagram — @hipdadradio</h2>
+  <p style="text-align:center;">Latest posts from the Hip Dad Radio feed.</p>
+
+  <div class="instagram-wrapper">
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe
+      src="https://cdn.lightwidget.com/widgets/1b5b975fe43053578eadbc12fdca4c7d.html"
+      scrolling="no"
+      allowtransparency="true"
+      class="lightwidget-widget"
+      style="width:100%;border:0;overflow:hidden;"
+    ></iframe>
+  </div>
+</section>
