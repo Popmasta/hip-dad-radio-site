@@ -1,90 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Hip Dad Radio</title>
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-<nav>
-<a href="#home">Home</a>
-<a href="#videos">Videos</a>
-<a href="#scoop">The Scoop</a>
-<a href="#listen">Listen Live</a>
-<a href="#shows">Radio Shows</a>
-</nav>
+<header class="site-header">
+  <nav class="top-nav">
+    <a href="#home">Home</a>
+    <a href="#videos">Videos</a>
+    <a href="#scoop">The Scoop</a>
+    <a href="#listen">Listen Live</a>
+    <a href="#shows">Radio Shows</a>
+  </nav>
 </header>
 
 <main>
+  <!-- HOME -->
+  <section id="home">
+    <h1 class="centered">Welcome to Hip Dad Radio</h1>
 
-<!-- HOME -->
-<section id="home">
-  <div class="live-widgets">
-    <div class="live-block">
-      <h2>Live Stream</h2>
-      <div class="widget-box">
-        <iframe id="live365-player"></iframe>
+    <div class="live-widgets">
+      <div class="live-block">
+        <h2>Live Stream</h2>
+        <div class="widget-box perfect-fit">
+          <iframe src="https://live365.com/embed/player/a27079?autoplay=1" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="live-block">
+        <h2>Live Chat</h2>
+        <div class="widget-box">
+          <iframe src="https://tlk.io/hipdadradio" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
 
-    <div class="live-block">
-      <h2>Live Chat</h2>
+    <div class="played-widget">
+      <h3>Recently Played</h3>
       <div class="widget-box">
-        <iframe id="chat-frame"></iframe>
+        <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
       </div>
     </div>
-  </div>
 
-  <div class="played-widget">
-    <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
-  </div>
+    <div class="mailing-list-box centered">
+      <h3>Join Our Mailing List</h3>
+      <input type="email" placeholder="Enter your email..." id="mail-input">
+      <button onclick="subscribeMail()">Subscribe</button>
+      <p id="mail-status"></p>
+    </div>
+  </section>
 
-  <div class="mailing-list-box">
-    <h3>Join Our Mailing List</h3>
-    <input type="email" placeholder="Enter your email..." id="mail-input" />
-    <button onclick="subscribeMail()">Subscribe</button>
-    <p id="mail-status"></p>
-  </div>
-</section>
+  <!-- VIDEOS -->
+  <section id="videos">
+    <h2 class="centered">Latest YouTube Clips</h2>
+    <div class="video-grid" id="youtube-container"></div>
+  </section>
 
-<!-- VIDEOS -->
-<section id="videos">
-  <h2>Latest YouTube Clips</h2>
-  <div class="video-grid" id="youtube-container"></div>
-</section>
+  <!-- THE SCOOP (BLOG PAGE) -->
+  <section id="scoop">
+    <h2 class="centered">The Scoop</h2>
+    <div class="blog-feed centered" id="blog-container">
+      <!-- posts injected here -->
+    </div>
 
-<!-- THE SCOOP (BLOG) -->
-<section id="scoop">
-  <h2 class="centered">The Scoop Blog</h2>
-  <div class="blog-feed centered" id="blog-container"></div>
-  <div class="center-box">
-    <button class="explore-btn" onclick="window.open('https://open.spotify.com/user/hipdadradio')">
-      Explore More Playlists
-    </button>
-  </div>
-</section>
+    <div class="centered">
+      <h3>Join Our Mailing List</h3>
+      <input type="email" placeholder="Enter your email..." id="mail-input-2">
+      <button onclick="subscribeMailAlt()">Subscribe</button>
+      <p id="mail-status-2"></p>
+    </div>
 
-<!-- LISTEN LIVE -->
-<section id="listen">
-  <h2>Listen Live</h2>
-  <div class="widget-box perfect-fit">
-    <iframe src="https://live365.com/embed/player/a27079?autoplay=1" frameborder="0"></iframe>
-  </div>
-</section>
+    <div class="centered played-widget">
+      <h3>Recently Played Songs</h3>
+      <div class="widget-box">
+        <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
+      </div>
+    </div>
 
-<!-- RADIO SHOWS -->
-<section id="shows">
-  <h2>Radio Shows</h2>
-  <div class="shows-list">
-    <div class="show-card"><h3>All-80s Night</h3><p>Wednesday 8 PM</p></div>
-    <div class="show-card"><h3>1978 Spotlight</h3><p>Weekly Theme Show</p></div>
-    <div class="show-card"><h3>Deep Crate Dive</h3><p>60s-80s + Chicago</p></div>
-  </div>
-</section>
+    <div class="centered">
+      <h3>Latest Instagram Posts</h3>
+      <iframe src="https://snapwidget.com/embed/123456" frameborder="0" class="insta-frame"></iframe>
+    </div>
+  </section>
 
+  <!-- LISTEN LIVE -->
+  <section id="listen">
+    <h2 class="centered">Listen Live</h2>
+    <div class="widget-box perfect-fit">
+      <iframe src="https://live365.com/embed/player/a27079?autoplay=1" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- RADIO SHOWS -->
+  <section id="shows">
+    <h2 class="centered">Radio Shows</h2>
+    <div class="shows-list">
+      <div class="show-card">
+        <h3>All-80s Night</h3>
+        <p><strong>When:</strong> Wednesdays at 8:00 PM</p>
+        <p>Only 80s jams. Neon windbreaker required (not really but kinda).</p>
+      </div>
+
+      <div class="show-card">
+        <h3>1978 Spotlight</h3>
+        <p><strong>When:</strong> Every week, theme changes</p>
+        <p>This week: 1978 deep cuts + trivia nobody asked for but everybody needs.</p>
+      </div>
+
+      <div class="show-card">
+        <h3>Deep Crate Dive</h3>
+        <p><strong>When:</strong> Tuesdays 7:00 PM</p>
+        <p>We go digging in obsure 70s crates like it's a church basement vinyl sale.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script src="app.js"></script>
