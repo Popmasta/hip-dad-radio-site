@@ -1,22 +1,7 @@
-<section class="card">
-  <h1>Contact</h1>
-  <p>Fellow DJs, bands, labels, or emotional-support hall-of-fame nominees: drop a note.</p>
-</section>
+<h1>Contact</h1>
 
-<section class="card">
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="Your Name / Band / DJ / Org" required/>
-    <input type="email" name="email" placeholder="Email" required/>
-    <textarea name="message" placeholder="Message"></textarea>
-    <button class="btn primary">Send</button>
-  </form>
-</section>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const f = e.target;
-  window.location.href = `mailto:hipdadradio@gmail.com?subject=WEBSITE%20MESSAGE&amp;body=` +
-    encodeURIComponent(`Name: ${f.name.value}\nEmail: ${f.email.value}\n\n${f.message.value}`);
-});
-</script>
+<div class="box contact-box">
+    <input placeholder="Your Name">
+    <input placeholder="Email">
+    <textarea rows="5" placeholder="Message"></textarea>
+</div>
