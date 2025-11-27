@@ -1,28 +1,31 @@
-const navLinks = document.querySelectorAll(".main-nav a");
+const app = document.getElementById("app");
 
-function setActiveNav(page){
-  navLinks.forEach(link=>{
+function setActiveNav(page) {
+  document.querySelectorAll(".nav-link").forEach(link => {
     link.classList.toggle("active", link.dataset.page === page);
   });
 }
 
-async function loadPage(page){
-  const app = document.getElementById("app");
+async function loadPage(page) {
   try {
-    const res = await fetch(`pages/${page}.html?cb=${Date.now()}`);
-    if(!res.ok) throw new Error("404");
-    app.innerHTML = await res.text();
+    const res = await fetch(`pages/${page}.html`);
+    const html = await res.text();
+    app.innerHTML = html;
     window.scrollTo(0,0);
-  } catch {
-    app.innerHTML = `<section class="card"><h1>Page not found</h1></section>`;
+  } catch(err) {
+    app.innerHTML = `<section class="card"><h1>Error</h1><p>Page failed</p></section>`;
   }
 }
 
-function handleRoute(){
-  const hash = location.hash.replace("#","") || "home";
-  setActiveNav(hash);
-  loadPage(hash);
+function router() {
+  const hash = window.location.hash.replace("#","");
+  const page = hash || "home";
+  setActiveNav(page);
+  loadPage(page);
 }
 
-window.addEventListener("hashchange", handleRoute);
-window.addEventListener("DOMContentLoaded", handleRoute);
+window.addEventListener("hashchange", router);
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  router();
+});
