@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded",()=>{
-  const a=document.getElementById("hdr-audio")
-  const b=document.getElementById("playerToggle")
-  const i=b.querySelector(".player-icon")
-  let p=0
-  b.addEventListener("click",async()=>{
-    p?a.pause():await a.play()
-    p=!p
-    b.classList.toggle("playing",p)
-    i.textContent=p?"❚❚":"▶"
-  })
-  a.onended=()=>{p=0;b.classList.remove("playing");i.textContent="▶"}
-})
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("hdr-audio");
+  const button = document.getElementById("playerToggle");
+
+  button.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play().then(() => button.classList.add("playing"));
+    } else {
+      audio.pause();
+      button.classList.remove("playing");
+    }
+  });
+});
