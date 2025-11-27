@@ -1,108 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hip Dad Radio</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hip Dad Radio</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#videos">Videos</a>
-  <a href="#scoop">The Scoop</a>
-  <a href="#listen-live">Listen Live</a>
-  <a href="#shows">Radio Shows</a>
-</nav>
+<header>
+  <nav class="navbar">
+    <div class="logo">🎧 Hip Dad Radio</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="the-scoop.html">The Scoop</a></li>
+      <li><a href="listen-live.html">Listen Live</a></li>
+      <li><a href="shows.html">Radio Shows</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- HOME -->
-<section id="home">
-  <h1 class="centered">Welcome to Hip Dad Radio</h1>
+<footer>
+  <p>© 2025 Hip Dad Radio — Chicago’s Meat & Potatoes</p>
+</footer>
 
-  <div class="stream-row">
-    <div class="widget-card">
-      <h2>Live Stream</h2>
-      <iframe
-        frameborder="0"
-        allow="autoplay"
-        src="https://live365.com/embeds/v1/station/a27079"
-        class="live-player">
-      </iframe>
-
-      <!-- Recently Played Widget -->
-      <iframe
-        frameborder="0"
-        src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
-        class="played-widget">
-      </iframe>
-    </div>
-
-    <div class="widget-card">
-      <h2>Live Chat</h2>
-      <iframe src="https://tlk.io/hipdadradio?theme=light" class="live-chat"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEOS PAGE -->
-<section id="videos">
-  <h2 class="centered">Recent Clips</h2>
-  <div id="video-grid"></div>
-</section>
-
-<!-- SCOOP BLOG (SIMPLE PLACEHOLDER FOR NOW) -->
-<section id="scoop">
-  <h1 class="centered">The Scoop</h1>
-  <p class="centered">Blog coming soon...</p>
-
-  <div class="mailing-box centered">
-    <h3>Join our mailing list</h3>
-    <input type="email" placeholder="your email" id="mailing-input"/>
-    <button id="mailing-btn">Subscribe</button>
-  </div>
-</section>
-
-<!-- LISTEN LIVE -->
-<section id="listen-live">
-  <h1 class="centered">Listen Live</h1>
-
-  <div class="widget-card centered">
-    <iframe
-      frameborder="0"
-      allow="autoplay"
-      src="https://live365.com/embeds/v1/station/a27079"
-      class="live-player">
-    </iframe>
-
-    <div class="mailing-box">
-      <button class="explore-more">Explore More Playlists</button>
-    </div>
-  </div>
-
-  <!-- Recently Played Under Both Widgets -->
-  <iframe
-    frameborder="0"
-    width="600"
-    height="531"
-    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
-    class="played-widget below-widgets">
-  </iframe>
-
-  <!-- Global chat embed under stream too -->
-  <div id="chat-box" class="widget-card centered below-widgets">
-    <h2>Chat</h2>
-    <iframe src="https://tlk.io/hipdadradio?theme=light" class="live-chat"></iframe>
-  </div>
-</section>
-
-<!-- RADIO SHOWS -->
-<section id="shows">
-  <h2 class="centered">Radio Shows</h2>
-  <div id="shows-grid" class="shows-grid"></div>
-</section>
-
-<script src="app.js"></script>
-
+<script defer src="app.js"></script>
 </body>
 </html>
