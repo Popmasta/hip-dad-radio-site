@@ -1,13 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hdr-audio");
-  const button = document.getElementById("playerToggle");
-
-  button.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play().then(() => button.classList.add("playing"));
-    } else {
-      audio.pause();
-      button.classList.remove("playing");
-    }
-  });
+const stream = document.getElementById("hdr-audio");
+const toggle = document.getElementById("playerToggle");
+toggle.addEventListener("click", () => {
+  if (stream.paused) {
+    stream.play();
+    toggle.classList.add("playing");
+  } else {
+    stream.pause();
+    toggle.classList.remove("playing");
+  }
 });
