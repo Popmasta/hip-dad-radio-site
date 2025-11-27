@@ -1,17 +1,91 @@
 <section class="card">
   <h1>The Scoop</h1>
-  <p class="section-intro">
-    Fresh updates, music posts, playlist notes, show themes, and record-club vibes — straight from
-    Instagram.
+  <p>
+    Show notes, DJ picks, record-club thoughts, and whatever else the Hip Dad crew feels like writing about.
   </p>
 </section>
 
-<section class="card">
-  <h2>Instagram Feed</h2>
-  <p>Latest posts from <strong>@hipdadradio</strong></p>
+<!-- Simple classic blog list -->
+<section class="blog-list">
+  <!-- BLOG POST 1 -->
+  <article class="blog-post-card">
+    <img
+      src="assets/blog-1.jpg"
+      alt="Turntable and records"
+      class="blog-image"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Nov 2025 • Matt</div>
+      <div class="blog-title">Building a 24/7 Dad-Radio Station</div>
+      <p class="blog-excerpt">
+        A little rundown of how Hip Dad Radio went from scattered playlists to a proper Live365 stream,
+        with shows, themes, and way too many late-night tweaks…
+      </p>
+      <p style="font-size: 13px; color: #333;">
+        (Full blog system coming — for now these are sample posts you can edit right in
+        <code>pages/the-scoop.html</code> or keep notes in a shared Google Drive.)
+      </p>
+    </div>
+  </article>
 
-  <div class="instagram-wrapper" style="margin-top: 14px;">
-    <!-- LightWidget embed -->
+  <!-- BLOG POST 2 -->
+  <article class="blog-post-card">
+    <img
+      src="assets/blog-2.jpg"
+      alt="Cassette tapes and Walkman"
+      class="blog-image"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Oct 2025 • Guest DJ</div>
+      <div class="blog-title">Five Songs for a Late-Night Drive Home</div>
+      <p class="blog-excerpt">
+        Guest DJ pulls some favorites for the drive home after a gig — slow burners, weirdos, and a couple
+        tracks that sound way better at 1:30 AM than they do at noon…
+      </p>
+    </div>
+  </article>
+
+  <!-- BLOG POST 3 -->
+  <article class="blog-post-card">
+    <img
+      src="assets/blog-3.jpg"
+      alt="Band playing live"
+      class="blog-image"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Sept 2025 • Record Club</div>
+      <div class="blog-title">Record Club Recap: New vs Old Picks</div>
+      <p class="blog-excerpt">
+        Each month: one brand-new album, one older record. Here’s what the crew picked, what we loved, and
+        what we argued about…
+      </p>
+    </div>
+  </article>
+</section>
+
+<!-- Mailing list on The Scoop as well -->
+<section class="card mailing-card">
+  <h2>Stay in the Loop</h2>
+  <p>
+    Get show announcements, new blog posts, and big playlist updates.
+  </p>
+  <div class="btn-row">
+    <a href="mailto:hipdadradio@gmail.com?subject=Join%20the%20mailing%20list" class="btn primary">
+      Join via email
+    </a>
+  </div>
+</section>
+
+<!-- Instagram feed under blog -->
+<section class="card instagram-card">
+  <h2>Instagram — @hipdadradio</h2>
+  <p>Latest posts from the Hip Dad Radio feed.</p>
+
+  <div class="instagram-wrapper">
+    <!-- LightWidget WIDGET -->
     <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
     <iframe
       src="https://cdn.lightwidget.com/widgets/1b5b975fe43053578eadbc12fdca4c7d.html"
