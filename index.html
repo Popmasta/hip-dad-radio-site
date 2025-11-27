@@ -1,46 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hip Dad Radio — Chicago’s Meat &amp; Potatoes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="brand">
-      <img src="assets/hdr-logo.png" alt="Hip Dad Radio" class="brand-logo" />
-      <div class="brand-text">
-        <div class="brand-title">Hip Dad Radio</div>
-        <div class="brand-tagline">Chicago’s Meat &amp; Potatoes • Streaming 24/7</div>
-      </div>
+ <section class="card hero-card">
+  <div class="hero-intro">
+    <h1>Welcome to Hip Dad Radio</h1>
+    <p>
+      24/7 internet station for classic cuts, deep crates, and new tunes for Hip Dads (and non-dads) everywhere.
+    </p>
+
+    <div class="btn-row">
+      <a href="#listen-live" class="btn primary">Listen Live</a>
+      <a href="#the-scoop" class="btn secondary">Read The Scoop</a>
     </div>
 
-    <nav class="main-nav">
-      <a href="#home" data-page="home" class="nav-link">Home</a>
-      <a href="#videos" data-page="videos" class="nav-link">Videos</a>
-      <a href="#the-scoop" data-page="the-scoop" class="nav-link">The Scoop</a>
-      <a href="#listen-live" data-page="listen-live" class="nav-link">Listen Live</a>
-      <a href="#radio-shows" data-page="radio-shows" class="nav-link">Radio Shows</a>
-      <a href="#contact" data-page="contact" class="nav-link">Contact</a>
-    </nav>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/4MRzNQ7_OAU"
+        title="Hip Dad Radio Feature"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
 
-    <button id="playerToggle" class="player-pill" type="button">
-      ▶ LIVE
-    </button>
-
-    <audio id="hdr-audio" preload="none">
-      <source src="https://streaming.live365.com/a27079" type="audio/mpeg" />
-    </audio>
-  </header>
-
-  <main id="app"></main>
-
-  <footer class="site-footer">
-    © <span id="year"></span> Hip Dad Radio • Chicago IL
-  </footer>
-
-  <script src="player.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+<!-- Playlists section -->
+<section class="card">
+  <h2>HDR Playlists</h2>
+  <p>New music, themes, and mixes for coffee and chaos.</p>
+  <div class="playlist-grid">
+    <div class="playlist-tile"><iframe src="https://open.spotify.com/embed/playlist/61kTpjSdYzOyEqKmOSvK6J"></iframe></div>
+    <div class="playlist-tile"><iframe src="https://open.spotify.com/embed/playlist/2sSQCfTVRWDmfE5PzbUygj"></iframe></div>
+    <div class="playlist-tile"><iframe src="https://open.spotify.com/embed/playlist/1Xoh86TDstkslZW13Lr1x8"></iframe></div>
+    <div class="playlist-tile"><iframe src="https://open.spotify.com/embed/playlist/6nTJUbjmpJBxkUUdHzDpNl"></iframe></div>
+  </div>
+</section>
