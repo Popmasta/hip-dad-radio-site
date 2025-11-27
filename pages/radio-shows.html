@@ -1,56 +1,55 @@
 <section class="card">
   <h1>Radio Shows</h1>
-  <p>All killer, no iframe filler.</p>
+  <p>Upcoming shows from the crew</p>
 </section>
 
 <section class="shows-grid">
   <article class="show-card">
-    <img src="assets/dj-guy.png" alt="DJ" class="show-thumb"/>
+    <img src="../assets/dj-guy.png" alt="DJ" class="show-thumb"/>
     <div>
       <h3>Morning Brew Cuts</h3>
       <p class="show-meta">Next airing: Wed 8PM</p>
-      <p>Soft rock to caffeinate your soul.</p>
+      <p>Soft rock to caffeinate your soul</p>
     </div>
   </article>
 
   <article class="show-card">
-    <img src="assets/dj-guy.png" alt="DJ" class="show-thumb"/>
+    <img src="../assets/dj-guy.png" alt="DJ" class="show-thumb"/>
     <div>
       <h3>Dusty Crates N’ Chats</h3>
       <p class="show-meta">Next airing: Sun 3PM</p>
-      <p>Obscure 70s gems and mild existential dread.</p>
+      <p>Obscure 70s gems and mild existential dread</p>
     </div>
   </article>
 </section>
 
 <style>
-  .shows-grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
+.shows-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
 
-  .show-card {
-    background:#fff;
-    border-radius:18px;
-    padding:16px;
-    gap:14px;
-    display:flex;
-    align-items:flex-start;
-    box-shadow:0 2px 5px rgba(0,0,0,0.12);
-  }
+.show-thumb{
+  width:60px;
+  height:60px;
+  border-radius:10px;
+  object-fit:cover;
+  flex-shrink:0;
+}
 
-  .show-thumb {
-    width:60px;
-    height:60px;
-    border-radius:12px;
-    object-fit:cover;
-    flex-shrink:0;
-  }
+.show-card{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  display:flex;
+  flex-shrink:0;
+  gap:14px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.12);
+}
 
-  .show-meta {
-    font-size:12px;
-    opacity:0.7;
-  }
+.show-meta{
+  font-size:12px;
+  opacity:0.6;
 }
 </style>
