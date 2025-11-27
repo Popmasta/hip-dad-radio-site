@@ -1,29 +1,34 @@
-<section class="card">
-  <h1>Welcome to Hip Dad Radio</h1>
-  <p>24/7 internet station for classic cuts, dusty records, fresh Chicago scene stuff, plus your cousin’s DJ neighbor’s opinion.</p>
-</section>
+<h1>Welcome to Hip Dad Radio</h1>
 
-<section class="card">
-  <h2>Latest Videos</h2>
-  <div class="btn-row"><a href="#videos" class="btn primary">View Videos</a></div>
-  <div style="margin-top:14px">
-    <iframe src="https://www.youtube.com/embed/4MRzNQ7_OAU"></iframe>
-  </div>
-</section>
+<div class="box">
+    <iframe width="100%" height="500"
+        src="https://www.youtube.com/embed/4MRzNQ7_OAU"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</div>
 
-<section class="card">
-  <h2>Mailing List</h2>
-  <p>Join for show updates &amp; playlists.</p>
-  <form id="mailForm">
-    <input type="text" placeholder="Name" required/>
-    <input type="email" placeholder="Email" required/>
-    <button class="btn primary">Join List</button>
-  </form>
-</section>
+<!-- PLAYLIST ROW 1 -->
+<div class="playlist-row">
+    <div class="playlist-title">HDR Playlists</div>
 
-<script>
-document.getElementById("mailForm").addEventListener("submit", e => {
-  e.preventDefault();
-  window.location.href = `mailto:hipdadradio@gmail.com?subject=JOIN%20THE%20LIST&amp;body=Hi!%20Add%20me%20to%20the%20list!`;
-});
-</script>
+    <div class="playlist-grid">
+        <iframe src="https://open.spotify.com/embed/playlist/61kTpjSdYzOyEqKmOSvK6J"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/2sSQCfTVRWDmfE5PzbUygj"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/1Xoh86TDstkslZW13Lr1x8"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/6nTJUbjmpJBxkUUdHzDpNl"></iframe>
+    </div>
+</div>
+
+<!-- PLAYLIST ROW 2 -->
+<div class="playlist-row">
+    <div class="playlist-title">HDR Golden Years</div>
+
+    <div class="playlist-grid">
+        <iframe src="https://open.spotify.com/embed/playlist/52XrHvGTE5KSAnHPsqFN5i"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/2x3nM9CXaDh2Q7MUqn0XVv"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/7oZbNVrzrYjuUe1aEsKNYc"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/3MP1dljT2saiW1SKp4gOjz"></iframe>
+    </div>
+</div>
