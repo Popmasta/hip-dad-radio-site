@@ -1,11 +1,10 @@
-<section class="card">
-  <h1>Contact</h1>
-  <p>Fill out the form or just email us.</p>
+<section class="card"><h1>Contact</h1><p>Send bands, weird ideas, or love letters.</p></section>
 
-  <form class="contact-form">
-    <input type="text" placeholder="Org / Band / Name" required />
-    <input type="email" placeholder="Email" required />
-    <textarea placeholder="Your message"></textarea>
-    <button type="submit" class="btn primary">Send</button>
-  </form>
-</section>
+<form class="contact-form" onsubmit="event.preventDefault(); alert('Use the email link for now!');">
+  <input type="text" name="name" placeholder="Your Name or Org/Band Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Message"></textarea>
+  <button type="submit" class="btn primary">Send</button>
+</form>
+
+<p class="card" style="font-size:13px; padding:16px;">Or just email us: <a href="mailto:hipdadradio@gmail.com">hipdadradio@gmail.com</a></p>
