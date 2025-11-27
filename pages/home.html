@@ -1,71 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hip Dad Radio</title>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hip Dad Radio — Home</title>
+  <link rel="stylesheet" href="../styles.css"/>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#home">Home</a>
-  <a href="#videos">Videos</a>
-  <a href="#scoop">The Scoop</a>
-  <a href="#listen-live">Listen Live</a>
-  <a href="#shows">Radio Shows</a>
-</nav>
+<div class="window">
+  <h1>Welcome to Hip Dad Radio</h1>
+  <p>A 24/7 station spinning classic cuts, deep crates, and new tunes for Hip Dads everywhere.</p>
 
-<!-- HOME -->
-<section id="home">
-  <h1 class="centered">Welcome to Hip Dad Radio</h1>
+  <button onclick="location.href='https://open.spotify.com/playlist'" class="explore-btn">
+    Join our mailing list 📬
+  </button>
+</div>
 
-  <div class="stream-row">
-
-    <!-- STREAM PLAYER -->
-    <div class="widget-card">
-      <h2>Live Stream</h2>
-      <iframe
-        frameborder="0"
-        src="https://live365.com/embeds/v1/station/a27079"
-        class="live-player"
-        allow="autoplay">
-      </iframe>
-
-      <!-- PREVIOUS PLAYED SONGS -->
-      <iframe
-        width="600"
-        height="531"
-        frameborder="0"
-        src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
-        class="played-widget">
-      </iframe>
-
-    </div>
-
-    <!-- LIVE CHAT -->
-    <div class="widget-card">
-      <h2>Live Chat</h2>
-      <iframe src="https://tlk.io/hipdadradio?theme=light" class="live-chat"></iframe>
-    </div>
-
-  </div>
-</section>
-
-<!-- PLAYLIST GRID -->
-<section id="playlists">
-  <h2 class="centered">Playlists</h2>
-  <div class="playlist-grid" id="playlist-container"></div>
-</section>
-
-<!-- RADIO SHOWS GRID -->
-<section id="shows">
-  <h2 class="centered">Radio Shows</h2>
-  <div id="shows-container" class="shows-grid"></div>
-</section>
-
-<script src="app.js"></script>
+<script defer src="../app.js"></script>
 </body>
 </html>
