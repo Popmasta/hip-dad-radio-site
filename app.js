@@ -1,58 +1,69 @@
-/* SIMPLE SPA ROUTER USING HASH: #home, #videos, etc. */
+// SPA routing logic
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
 
-function setActiveNav(page) {
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    const p = link.getAttribute("data-page");
-    link.classList.toggle("active", p === page);
-  });
+function router() {
+  const routes = {
+    "": showHome,
+    "#videos": showVideos,
+    "#scoop": showScoop,
+    "#listen": showListen,
+    "#shows": showShows
+  };
+
+  const hash = window.location.hash;
+  (routes[hash] || showHome)();
 }
 
-async function loadPage(page) {
-  const app = document.getElementById("app");
-  try {
-    const res = await fetch(`pages/${page}.html?cacheBust=${Date.now()}`);
-    if (!res.ok) throw new Error(`Failed to fetch pages/${page}.html`);
-    const html = await res.text();
-    app.innerHTML = html;
-    window.scrollTo(0, 0);
-  } catch (err) {
-    console.error(err);
-    app.innerHTML = `
-      <div class="card">
-        <h1>Oops.</h1>
-        <p>That page failed to load. Try refreshing.</p>
-      </div>
-    `;
-  }
+function showHome() {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById("videos").style.display = "grid";
 }
 
-function handleRoute() {
-  let hash = window.location.hash || "#home";
-  if (!hash.startsWith("#")) hash = "#" + hash;
-  const page = hash.replace(/^#\/?/, "") || "home";
-  setActiveNav(page);
-  loadPage(page);
+function showVideos() {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById("videos").style.display = "block";
 }
 
-window.addEventListener("hashchange", handleRoute);
+function showScoop() {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById("scoop").style.display = "block";
+}
 
-window.addEventListener("DOMContentLoaded", () => {
-  // set year in footer
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+function showListen() {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById("listen").style.display = "block";
+}
 
-  // nav click behavior
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const page = link.getAttribute("data-page");
-      window.location.hash = "#" + page;
-    });
-  });
+function showShows() {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById("shows").style.display = "block";
+}
 
-  if (!window.location.hash) {
-    window.location.hash = "#home";
-  } else {
-    handleRoute();
-  }
+// Initialize live stream player + chat
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("live365-player").src = "https://live365.com/embed/player/a27079?autoplay=1";
+  document.getElementById("chat-frame").src = "https://tlk.io/hipdadradio";
 });
+
+// Load blog posts from Google Drive public folder feed
+const blogPostsDriveFolder = "https://drive.google.com/drive/folders/1exampleYOURBLOGFOLDER";
+
+fetch(`https://www.googleapis.com/drive/v3/files?q='1exampleYOURBLOGFOLDER'+in+parents&key=AIzaDUMMY&fields=files(id,name,thumbnailLink)`)
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("blog-container");
+    container.innerHTML = "";
+
+    data.files.forEach(file => {
+      const post = document.createElement("div");
+      post.className = "blog-card";
+      post.innerHTML = `
+        <h3>${file.name}</h3>
+        <img src="${file.thumbnailLink}" alt="blog image"/>
+        <p>Dj blog upload coming from Drive</p>
+      `;
+      container.appendChild(post);
+    });
+  })
+  .catch(err => console.error("Drive fetch error:", err));
