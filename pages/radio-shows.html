@@ -1,72 +1,30 @@
-<section class="card">
-  <h1>Radio Shows</h1>
-  <p>Weekly hosted shows, crate-dig specials, and caffeine moments.</p>
-</section>
+<section class="card"><h1>Radio Shows</h1><p>Upcoming shows, themes, guest nerd DJs.</p></section>
 
-<div id="shows" class="show-grid">
-
-  <article class="card show-card">
-    <img src="../assets/dj-guy.png" class="show-image"/>
+<div class="blog-list">
+  <article class="blog-post-card">
+    <img src="../assets/blog-1.jpg" class="blog-image"/>
     <div>
-      <div class="show-title">1976 Cookout Hour</div>
-      <div class="show-meta">Every Wednesday • 8PM CST</div>
-      <p class="show-desc">Steak grease, Strat jangle, and questionable lyrics.</p>
+      <div class="blog-title">1976 Groove-o-Matic</div>
+      <div class="blog-meta">Next: Wednesday 8PM</div>
+      <p class="blog-excerpt">All-76 jams with stuff-it confidence + lead-guitar energy.</p>
     </div>
   </article>
 
-  <article class="card show-card">
-    <img src="../assets/hdr-logo.png" class="show-image"/>
+  <article class="blog-post-card">
+    <img src="../assets/blog-2.jpg" class="blog-image"/>
     <div>
-      <div class="show-title">Deep 70s B-Side Dive</div>
-      <div class="show-meta">Friday Nights • Rotating Guest DJs</div>
-      <p class="show-desc">The weird & wonderful stuff dads pretend they always knew.</p>
+      <div class="blog-title">Fractured Folk-Funk Hour</div>
+      <div class="blog-meta">Next: Monday 9PM</div>
+      <p class="blog-excerpt">Meandering cuts, bass rumors, and pedalboard gossip.</p>
     </div>
   </article>
 
+  <article class="blog-post-card">
+    <img src="../assets/blog-3.jpg" class="blog-image"/>
+    <div>
+      <div class="blog-title">Jorts in the Control Room</div>
+      <div class="blog-meta">Next: Sunday 3PM</div>
+      <p class="blog-excerpt">Jean-short DJs spinning unexpected road-trip staples.</p>
+    </div>
+  </article>
 </div>
-
-<style>
-.show-grid {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:22px;
-  margin-top:12px;
-}
-
-.show-card {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-
-@media (max-width:600px){
-  .show-card { grid-template-columns:1fr; }
-  .show-image { width:100%; height:180px; }
-}
-
-.show-image {
-  width:120px;
-  height:120px;
-  border-radius:14px;
-  object-fit:cover;
-  background:#ddd;
-}
-
-.show-title {
-  font-size:19px;
-  margin-bottom:3px;
-  color:#000;
-  font-weight:bold;
-}
-
-.show-meta {
-  font-size:12px;
-  color:#444;
-  margin-bottom:6px;
-}
-
-.show-desc {
-  font-size:14px;
-}
-</style>
