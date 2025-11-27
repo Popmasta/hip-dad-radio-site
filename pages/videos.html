@@ -1,80 +1,27 @@
-<section class="card">
-  <h1>Videos</h1>
-  <p>
-    Clips, intros, and random Hip Dad experiments. Everything lives on the Hip Dad Radio Clips YouTube
-    channel.
-  </p>
-  <div class="btn-row">
-    <a
-      href="https://www.youtube.com/@hipdadradioclips5791/videos"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn primary"
-    >
-      Open YouTube Channel
-    </a>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hip Dad Radio — Videos</title>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
 
-<section class="card">
-  <h2>Recent Clips</h2>
-  <p>Here are a few recent uploads pulled into a simple grid. You can swap links as new videos drop.</p>
+<div class="window">
+  <h2>Recent YouTube Clips</h2>
 
   <div class="video-grid">
-    <!-- TILE 1 -->
-    <div class="video-tile">
-      <h3>Hip Dad Radio Intro</h3>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/4MRzNQ7_OAU"
-          title="Hip Dad Radio Intro"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- TILE 2 (example – replace with another video ID) -->
-    <div class="video-tile">
-      <h3>Another Clip</h3>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/4MRzNQ7_OAU"
-          title="Hip Dad Radio Clip"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- TILE 3 -->
-    <div class="video-tile">
-      <h3>Live Show Moment</h3>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/4MRzNQ7_OAU"
-          title="Hip Dad Radio Live Clip"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- TILE 4 -->
-    <div class="video-tile">
-      <h3>Deep Cut Spotlight</h3>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/4MRzNQ7_OAU"
-          title="Hip Dad Radio Deep Cut"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+    <div class="card"><iframe src="VIDEO1_URL"></iframe></div>
+    <div class="card"><iframe src="VIDEO2_URL"></iframe></div>
+    <div class="card"><iframe src="VIDEO3_URL"></iframe></div>
+    <div class="card"><iframe src="VIDEO4_URL"></iframe></div>
+    <div class="card"><iframe src="VIDEO5_URL"></iframe></div>
+    <div class="card"><iframe src="VIDEO6_URL"></iframe></div>
   </div>
-</section>
+</div>
+
+<script defer src="../player.js"></script>
+<script defer src="../app.js"></script>
+</body>
+</html>
