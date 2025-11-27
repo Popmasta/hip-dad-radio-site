@@ -9,7 +9,7 @@
 <body>
 
 <header class="site-header">
-  <div class="logo">Hip Dad Radio</div>
+  <div class="logo">🎙 Hip Dad Radio</div>
   <nav class="main-nav">
     <a href="#videos">Videos</a>
     <a href="#scoop">The Scoop</a>
@@ -20,23 +20,38 @@
 
 <main>
 
+  <!-- Videos -->
   <section id="videos" class="video-section">
-    <h2>Latest Videos</h2>
-    <div class="video-grid">
-      <iframe src="app.js"></iframe>
+    <h2>Latest YouTube Clips</h2>
+    <div class="video-grid" id="youtube-container">
+      <!-- JS will populate -->
+    </div>
+    <div class="center-box">
+      <button class="nav-btn" onclick="location.hash='#listen'">Go Listen Live</button>
     </div>
   </section>
 
+  <!-- Scoop Blog -->
   <section id="scoop" class="scoop-section">
-    <h2>The Scoop (Blog)</h2>
-    <div id="blog-container"></div>
+    <h2>The Scoop (Classic Blog Vibes)</h2>
+
+    <div class="blog-feed" id="blog-container">
+      <!-- JS will populate blog posts -->
+    </div>
+
+    <div class="center-box">
+      <button class="nav-btn" onclick="location.hash='#listen'">Tune In Now</button>
+    </div>
+
     <div class="mailing-list-box">
-      <h3>Join our mailing list</h3>
-      <input type="email" placeholder="Enter your email..." />
-      <button>Subscribe</button>
+      <h3>Join Our Mailing List</h3>
+      <input type="email" placeholder="Enter your email..." id="mail-input" />
+      <button onclick="subscribeMail()">Subscribe</button>
+      <p id="mail-status"></p>
     </div>
   </section>
 
+  <!-- Listen Live -->
   <section id="listen" class="listen-section">
     <h2>Listen Live</h2>
     <div class="live-widgets">
@@ -46,6 +61,7 @@
           <iframe id="live365-player" frameborder="0" allow="autoplay" scrolling="no"></iframe>
         </div>
       </div>
+
       <div class="live-block">
         <h3>Live Chat</h3>
         <div class="widget-box">
@@ -55,21 +71,53 @@
     </div>
 
     <div class="played-widget">
-      <iframe width="600" height="531" frameborder="0"></iframe>
+      <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
     </div>
-
   </section>
 
+  <!-- Radio Shows -->
   <section id="shows" class="shows-section">
     <h2>Radio Shows</h2>
     <div class="shows-list">
       <div class="show-card">
-        <h3>All-80s Night</h3>
-        <p>Live every Wednesday @ 8 PM</p>
+        <h3>📻 All-80s Night</h3>
+        <p>Live every Wednesday at 8 PM</p>
       </div>
+
       <div class="show-card">
-        <h3>1978 Spotlight</h3>
-        <p>This week’s theme: 1978 classics</p>
+        <h3>🌆 1978 Spotlight</h3>
+        <p>This week’s theme: 1978 jams only</p>
+      </div>
+
+      <div class="show-card">
+        <h3>🎸 60s-80s Deep Crate Dive</h3>
+        <p>Format: Obscure classics + new Chicago artists</p>
+      </div>
+
+      <div class="show-card">
+        <h3>🔔 Schedules</h3>
+        <p>Shows go live on your local timezone at show start</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playlist Grids at Home -->
+  <section id="home" class="home-section">
+    <h2>HDR Playlists</h2>
+    <div class="playlist-grid">
+      <div class="playlist-card">
+        <img src="assets/playlist1.jpg" alt="Playlist 1" />
+        <button class="explore-btn">Explore More Playlists</button>
+      </div>
+
+      <div class="playlist-card">
+        <img src="assets/playlist2.jpg" alt="Playlist 2" />
+        <button class="explore-more-btn">Explore More Playlists</button>
+      </div>
+
+      <div class="playlist-card">
+        <img src="assets/playlist3.jpg" alt="Playlist 3" />
+        <button class="explore-more-btn">Explore More Playlists</button>
       </div>
     </div>
   </section>
@@ -77,5 +125,6 @@
 </main>
 
 <script src="app.js"></script>
+
 </body>
 </html>
