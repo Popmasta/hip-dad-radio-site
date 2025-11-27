@@ -1,21 +1,31 @@
 function setActiveNav(page) {
-  document.querySelectorAll(".nav-link").forEach(l => {
-    l.classList.toggle("active", l.dataset.page === page);
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("data-page") === page);
   });
 }
 
 async function loadPage(page) {
   const app = document.getElementById("app");
-  const res = await fetch(`pages/${page}.html?cb=${Date.now()}`);
-  app.innerHTML = await res.text();
-  window.scrollTo(0,0);
+  try {
+    const res = await fetch(`../pages/${page}.html?cacheBust=${Date.now()}`);
+    if (!res.ok) throw new Error("Page not found");
+    const html = await res.text();
+    app.innerHTML = html;
+    window.scrollTo(0, 0);
+  } catch {
+    app.innerHTML = `<section class="card"><h1>404</h1><p>Page failed to load</p></section>`;
+  }
 }
 
 function handleRoute() {
-  const hash = window.location.hash.replace("#","") || "home";
-  setActiveNav(hash);
-  loadPage(hash);
+  const hash = window.location.hash.replace("#", "") || "home";
+  const page = hash === "the-scoop" ? "the-scoop" : hash;
+  setActiveNav(page);
+  loadPage(page);
 }
 
-window.addEventListener("hashchange", handleRoute);
-window.addEventListener("DOMContentLoaded", handleRoute);
+window.addEventListener("hashchange", () => handleRoute());
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  handleRoute();
+});
