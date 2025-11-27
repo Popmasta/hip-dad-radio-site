@@ -1,21 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hdrAudio");
-  const toggle = document.getElementById("playerToggle");
-  const icon = toggle.querySelector(".player-icon");
+\document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("hdr-audio");
+  const button = document.getElementById("playerToggle");
+  const icon = button.querySelector(".player-icon");
 
   let isPlaying = false;
 
   function updateUI() {
     if (isPlaying) {
-      toggle.classList.add("playing");
+      button.classList.add("playing");
       icon.textContent = "❚❚"; // pause icon
     } else {
-      toggle.classList.remove("playing");
+      button.classList.remove("playing");
       icon.textContent = "▶";
     }
   }
 
-  toggle.addEventListener("click", async () => {
+  button.addEventListener("click", async () => {
     try {
       if (!isPlaying) {
         await audio.play();
@@ -26,11 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       updateUI();
     } catch (err) {
-      console.error("Audio play error:", err);
+      console.error("Error toggling audio:", err);
     }
   });
 
-  // If audio ends (unlikely for live, but just in case)
   audio.addEventListener("ended", () => {
     isPlaying = false;
     updateUI();
