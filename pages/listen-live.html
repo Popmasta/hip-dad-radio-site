@@ -1,23 +1,30 @@
 <section class="card">
   <h1>Listen Live</h1>
-  <p>Big player + live chat + recently played songs</p>
+  <p>Full player + live chat + recently played tracks</p>
 </section>
 
 <div class="live-layout">
-  <div class="live-panel">
+  <!-- LIVE365 PLAYER -->
+  <div class="live-panel live-player-embed">
     <h2>Live Stream</h2>
-    <iframe src="https://live365.com/embeds/player/a27079" allowfullscreen></iframe>
+    <div class="live-player-embed">
+      <iframe src="https://live365.com/embeds/v1/player/a27079"></iframe>
+    </div>
   </div>
 
-  <div class="live-panel">
+  <!-- TLK CHAT -->
+  <div class="live-panel chat-embed">
     <h2>Live Chat</h2>
-    <iframe src="https://tlk.io/hipdadradio" allowfullscreen></iframe>
+    <div class="chat-embed">
+      <iframe src="https://tlk.io/hipdadradio"></iframe>
+    </div>
   </div>
-</div>
 
-<section class="card">
-  <h2>Past Played Songs</h2>
-  <div class="playlist-grid">
-    <div class="playlist-tile"><div class="placeholder-box">Coming soon…</div></div>
-  </div>
-</section>
+  <!-- PAST PLAYED SONGS -->
+  <section class="card full-width recently-played">
+    <h2>Past Played Songs</h2>
+    <div class="recently-played">
+      <iframe src="https://live365.com/embeds/v1/played/a27079"></iframe>
+    </div>
+  </section>
+</div>
