@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <title>Hip Dad Radio — Chicago’s Meat &amp; Potatoes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <header class="site-header">
     <div class="brand">
-      <img src="../assets/hdr-logo.png" alt="Hip Dad Radio Logo" class="brand-logo" />
+      <img src="assets/hdr-logo.png" alt="HDR logo" class="brand-logo" />
       <div class="brand-text">
         <div class="brand-title">Hip Dad Radio</div>
         <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
@@ -23,20 +22,25 @@
       <a href="#the-scoop" class="nav-link" data-page="the-scoop">The Scoop</a>
       <a href="#listen-live" class="nav-link" data-page="listen-live">Listen Live</a>
       <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+      <a href="#shows" class="nav-link" data-page="shows">Radio Shows</a>
     </nav>
 
-    <button id="playerToggle" class="player-pill">▶ Hip Dad Radio <span class="live-dot"></span> LIVE</button>
+    <button id="playerToggle" class="player-pill" type="button">
+      ▶ <span class="live-dot"></span> LIVE
+    </button>
 
     <audio id="hdr-audio" preload="none">
       <source src="https://streaming.live365.com/a27079" type="audio/mpeg" />
     </audio>
   </header>
 
-  <main id="app"></main>
+  <main id="app" class="app"></main>
 
-  <footer class="site-footer">© <span id="year"></span> Hip Dad Radio • Chicago IL</footer>
+  <footer class="site-footer">
+    <div>© <span id="year"></span> Hip Dad Radio — Chicago IL</div>
+  </footer>
 
-  <script src="../player.js"></script>
-  <script src="../app.js"></script>
+  <script src="player.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
