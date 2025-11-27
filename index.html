@@ -2,51 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hip Dad Radio — Chicago’s Meat & Potatoes</title>
+  <title>Hip Dad Radio — Chicago’s Meat &amp; Potatoes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<header class="site-header">
-  <div class="brand">
-    <img src="assets/hdr-logo.png" alt="Hip Dad Radio logo" class="brand-logo"/>
-    <div class="brand-text">
-      <div class="brand-title">Hip Dad Radio</div>
-      <div class="brand-tagline">Chicago’s Meat ’N Potatoes • Streaming 24/7</div>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/hdr-logo.png" alt="Hip Dad Radio" class="brand-logo" />
+      <div class="brand-text">
+        <div class="brand-title">Hip Dad Radio</div>
+        <div class="brand-tagline">Chicago’s Meat &amp; Potatoes • Streaming 24/7</div>
+      </div>
     </div>
-  </div>
 
-  <nav class="main-nav">
-    <a href="#home" class="nav-link" data-page="home">Home</a>
-    <a href="#videos" class="nav-link" data-page="videos">Videos</a>
-    <a href="#the-scoop" class="nav-link" data-page="the-scoop">The Scoop</a>
-    <a href="#listen-live" class="nav-link" data-page="listen-live">Listen Live</a>
-    <a href="#radio-shows" class="nav-link" data-page="radio-shows">Radio Shows</a>
-    <a href="#contact" class="nav-link" data-page="contact">Contact</a>
-  </nav>
+    <nav class="main-nav">
+      <a href="#home" data-page="home" class="nav-link">Home</a>
+      <a href="#videos" data-page="videos" class="nav-link">Videos</a>
+      <a href="#the-scoop" data-page="the-scoop" class="nav-link">The Scoop</a>
+      <a href="#listen-live" data-page="listen-live" class="nav-link">Listen Live</a>
+      <a href="#radio-shows" data-page="radio-shows" class="nav-link">Radio Shows</a>
+      <a href="#contact" data-page="contact" class="nav-link">Contact</a>
+    </nav>
 
-  <button id="playerToggle" class="player-pill" type="button">
-    <span class="player-icon">▶</span> 
-    <span class="player-label">Hip Dad Radio</span> 
-    <span class="live-dot"></span> 
-    <span class="live-text">LIVE</span>
-  </button>
+    <button id="playerToggle" class="player-pill" type="button">
+      ▶ LIVE
+    </button>
 
-  <!-- GLOBAL AUDIO STREAM -->
-  <audio id="hdr-audio" preload="none" loop>
-    <source src="https://streaming.live365.com/a27079" type="audio/mpeg"/>
-  </audio>
+    <audio id="hdr-audio" preload="none">
+      <source src="https://streaming.live365.com/a27079" type="audio/mpeg" />
+    </audio>
+  </header>
 
-</header>
+  <main id="app"></main>
 
-<!-- SPA PAGE CONTENT LOADER -->
-<main id="app" class="app"></main>
+  <footer class="site-footer">
+    © <span id="year"></span> Hip Dad Radio • Chicago IL
+  </footer>
 
-<footer class="site-footer">© <span id="year"></span> Hip Dad Radio — Chicago IL</footer>
-
-<script src="player.js"></script>
-<script src="app.js"></script>
-
+  <script src="player.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
