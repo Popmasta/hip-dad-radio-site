@@ -1,91 +1,121 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; }
 
+/* BODY */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #d9c27c;
-  color: #111;
-  line-height: 1.6;
-  padding-top: 90px;
+  font-family: system-ui, -apple-system, sans-serif;
+  background:#d9c27c;
+  color:#111;
+  padding-top:85px;
+  line-height:1.6;
 }
 
+/* HEADER */
 .site-header {
-  background-color: #000;
-  color: #f7d96d;
-  padding: 12px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  gap: 18px;
-}
-
-.brand { display: flex; align-items: center; gap: 10px; }
-.brand-logo { width: 42px; height: 42px; object-fit: contain; }
-.brand-title { font-weight: bold; font-size: 16px; color:#f7d96d; }
-.brand-tagline { font-size: 12px; color:#ffeeb5; }
-
-.main-nav { display:flex; flex:1; justify-content:center; gap:24px; }
-
-.nav-link {
-  font-size:14px;
+  background:#000;
   color:#f7d96d;
-  padding-bottom:3px;
-  border-bottom:2px solid transparent;
+  padding:12px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:fixed;
+  top:0; left:0; width:100%;
+  z-index:999;
+  gap:18px;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  border-bottom-color:#f7d96d;
-}
+.brand { display:flex; gap:10px; align-items:center; }
+.brand-logo { width:42px; height:42px; object-fit:contain; }
+.brand-title { font-weight:bold; font-size:15px; }
+.brand-tagline { font-size:12px; opacity:0.85; }
 
+/* NAV */
+.main-nav { display:flex; flex:1; justify-content:center; gap:22px; }
+.nav-link { color:#f7d96d; font-size:14px; padding-bottom:3px; border-bottom:2px solid transparent; }
+.nav-link:hover, .nav-link.active { border-bottom-color:#f7d96d; }
+
+/* PLAYER PILL */
 .player-pill {
-  border-radius:999px;
   border:2px solid #f7d96d;
   background:transparent;
-  padding:6px 16px;
+  color:#f7d96d;
+  padding:6px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:13px;
   display:inline-flex;
   align-items:center;
   gap:8px;
-  cursor:pointer;
-  color:#f7d96d;
-  font-size:13px;
   white-space:nowrap;
 }
-
 .player-pill:hover { background:#111; }
 .player-pill.playing { background:#f7d96d; color:#000; border-color:#f7d96d; }
-.player-icon { width:16px; text-align:center; display:inline-block; }
-.live-dot { width:8px; height:8px; border-radius:50%; background:#ff2222; display:inline-block; }
-.live-text { font-size:11px; letter-spacing:0.08em; }
 
+/* CARDS / BLOG / FORMS */
 .card {
   background:#f9f1dd;
   border-radius:18px;
-  padding:24px 28px;
-  margin-bottom:24px;
+  padding:22px 26px;
+  margin-bottom:22px;
   box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
-.app {
-  max-width:960px;
-  margin:32px auto;
-  padding:0 16px 40px;
-}
-
-.site-footer {
-  text-align:center;
-  font-size:13px;
+.blog-post-card {
+  background:#f9f1dd;
+  border-radius:18px;
   padding:16px;
-  color:#000;
+  margin-bottom:20px;
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:16px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.12);
+}
+.blog-image { width:140px; height:140px; border-radius:12px; object-fit:cover; background:#ccc; }
+.blog-meta { font-size:12px; opacity:0.7; margin-bottom:4px; }
+.blog-title { font-size:18px; font-weight:bold; margin-bottom:4px; }
+.blog-excerpt { font-size:14px; margin-bottom:6px; }
+
+.contact-form input, .contact-form textarea {
+  width:100%;
+  padding:8px 12px;
+  border:1px solid #b8a86a;
+  border-radius:10px;
+  margin-bottom:12px;
+  font-family:inherit;
+  font-size:14px;
+}
+.contact-form textarea { min-height:120px; resize:vertical; }
+.contact-form button { width:100%; }
+
+/* VIDEO + PLAYLIST GRIDS */
+.video-wrapper {
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:12px;
+  background:#000;
+}
+.video-wrapper iframe {
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  border:0;
 }
 
-@media (max-width:900px) { .main-nav{ flex-wrap:wrap; gap:16px; } }
-@media (max-width:600px) { .site-header{ flex-wrap:wrap; justify-content:center; } }
+.playlist-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.playlist-tile iframe {
+  width:100%;
+  height:200px;
+  border:0;
+  border-radius:12px;
+}
+
+/* FOOTER */
+.site-footer { text-align:center; font-size:13px; padding:16px; opacity:0.8; }
