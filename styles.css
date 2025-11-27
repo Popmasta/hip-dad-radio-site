@@ -1,29 +1,51 @@
-.card {
-  background: #f9f1dd;
-  padding: 22px;
-  border-radius: 18px;
-  margin-bottom: 22px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #d9c27c;
+  color:#111;
+  line-height:1.6;
+  padding-top:90px;
 }
 
-.hero-card {
-  max-width: 700px;
+.card {
+  background:#f9f1dd;
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:22px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.12);
+}
+
+.video-wrapper {
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  border-radius:14px;
+  overflow:hidden;
+  background:#000;
+  margin-top:12px;
+}
+.video-wrapper iframe {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
 }
 
 .playlist-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:12px;
 }
+@media(max-width:900px){ .playlist-grid{ grid-template-columns:repeat(2,1fr);} }
+@media(max-width:600px){ .playlist-grid{ grid-template-columns:1fr;} }
 
-@media (max-width: 900px) {
-  .playlist-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+.live-layout {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
-
-@media (max-width: 600px) {
-  .playlist-grid {
-    grid-template-columns: 1fr;
-  }
-}
+@media(max-width:700px){ .live-layout{ grid-template-columns:1fr;} }
