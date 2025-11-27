@@ -1,19 +1,60 @@
-<section class="card" style="text-align:center;">
-  <h1>The Scoop</h1>
-  <p>Show notes, DJ picks, record club recaps, and other hip-dad nonsense.</p>
-</section>
-
-<div id="posts"></div> <!-- where google drive posts will be wired later -->
-
 <section class="card">
-  <img src="../assets/dj-guy.png" class="blog-image" alt="DJ"/>
-  <div class="blog-meta">Nov 2025 • Matt</div>
-  <div class="blog-title">Building 24/7 Dad-Radio</div>
-  <p class="blog-excerpt">A little rundown of how HDR went from idea → stream deck → caffeine → live365…</p>
+  <h1>The Scoop</h1>
+  <p>Show notes, DJ picks, crate-digs, and general tomfoolery.</p>
 </section>
 
 <section class="card">
   <h2>Join our mailing list</h2>
-  <p>Get show updates without the spam hell.</p>
-  <a href="mailto:hipdadradio@gmail.com?subject=Join%20mailing%20list" class="btn primary">Join via email</a>
+  <p>Get updates when the hip dads hit publish.</p>
+  <form class="contact-form">
+    <input type="email" placeholder="Email" required />
+    <button class="btn primary">Join</button>
+  </form>
 </section>
+
+<div id="posts" class="blog-list"></div>
+
+<section class="card instagram-card">
+  <h2>Instagram Feed</h2>
+  <p>Latest posts:</p>
+  <div class="instagram-wrapper">
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe
+      src="https://cdn.lightwidget.com/widgets/1b5b975fe43053578eadbc12fdca4c7d.html"
+      scrolling="no"
+      allowtransparency="true"
+      class="lightwidget-widget"
+    ></iframe>
+  </div>
+</section>
+
+<script>
+const demoPosts = [
+  {
+    title: "DJ Pick: Coffee & Vinyl Rituals",
+    author: "Matt",
+    date: "Nov 27, 2025",
+    img: "../assets/dj-guy.png",
+    excerpt: "The perfect brew + 70s b-side therapy session, explained by someone who definitely owns cargo shorts."
+  },
+  {
+    title: "Midnight Drive: 5 Weird Classics",
+    author: "Guest DJ",
+    date: "Nov 26, 2025",
+    img: "",
+    excerpt: "Songs that hit different when the moon is out, the windshield is dusty, and your 401k is a *suggestion.*"
+  }
+];
+
+demoPosts.forEach(p => {
+  document.getElementById("posts").innerHTML += `
+  <article class="card blog-post-card">
+    ${p.img ? `<img src="${p.img}" class="blog-image"/>` : ""}
+    <div class="blog-content">
+      <div class="blog-meta">${p.date} • ${p.author}</div>
+      <div class="blog-title">${p.title}</div>
+      <p class="blog-excerpt">${p.excerpt}</p>
+    </div>
+  </article>`;
+});
+</script>
