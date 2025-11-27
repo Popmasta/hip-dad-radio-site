@@ -1,18 +1,23 @@
-/* RESET */
+\/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 /* BASE */
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #d9c27c; /* gold */
-  color: #000;
+  color: #111;
   line-height: 1.6;
-  padding-top: 90px; /* room for fixed header */
+  padding-top: 90px; /* space for fixed header */
 }
 
 a {
@@ -22,23 +27,19 @@ a {
 
 /* HEADER / NAV / PLAYER */
 
-header {
+.site-header {
   background-color: #000;
   color: #f7d96d;
-  padding: 15px 32px;
+  padding: 12px 32px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
 }
 
 .brand {
@@ -65,16 +66,16 @@ header {
 
 .brand-tagline {
   font-size: 12px;
+  color: #ffeeb5;
 }
 
 /* NAV */
 
 .main-nav {
   display: flex;
-  gap: 24px;
-  margin: 0 24px;
   flex: 1;
   justify-content: center;
+  gap: 24px;
 }
 
 .nav-link {
@@ -105,6 +106,7 @@ header {
   cursor: pointer;
   color: #f7d96d;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .player-pill:hover {
@@ -121,7 +123,7 @@ header {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #e8001a; /* bright red */
+  background-color: #ff2222; /* bright red dot */
   display: inline-block;
 }
 
@@ -137,46 +139,44 @@ header {
   border-color: #f7d96d;
 }
 
-.player-pill.playing .player-icon {
-  width: 16px;
-}
+/* APP WRAPPER */
 
-/* PAGE WRAPPER */
-
-.page-wrapper {
+.app {
   max-width: 960px;
   margin: 32px auto 40px;
   padding: 0 16px 40px;
 }
 
-/* GENERIC CARD */
+/* CARD / PANELS */
 
 .card {
-  background-color: #f9f1dd;
+  background-color: #f9f1dd; /* cream */
   border-radius: 18px;
   padding: 24px 28px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .card h1 {
   font-size: 26px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .card h2 {
   font-size: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.card p + p {
-  margin-top: 8px;
+.card p {
+  font-size: 14px;
 }
 
 /* BUTTONS */
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   padding: 8px 18px;
   font-size: 14px;
@@ -195,38 +195,35 @@ header {
 }
 
 .btn.secondary {
-  background-color: #f7d96d;
+  background-color: transparent;
   color: #000;
-  border-color: #f7d96d;
+  border-color: #000;
 }
 
 .btn.secondary:hover {
-  background-color: #f4c93d;
+  background-color: rgba(0, 0, 0, 0.07);
 }
 
-.btn.linkish {
-  background: none;
-  border-color: transparent;
-  color: #000;
-  padding-left: 0;
-}
-
-.card-actions {
+.btn-row {
   margin-top: 14px;
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* HOME PAGE — HERO VIDEO */
+/* HOME: HERO + VIDEO */
 
 .hero-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr);
   gap: 16px;
 }
 
-.hero-card p {
+.hero-card h1 {
+  font-size: 28px;
+}
+
+.hero-intro {
   max-width: 640px;
 }
 
@@ -237,6 +234,7 @@ header {
   border-radius: 14px;
   overflow: hidden;
   background-color: #000;
+  margin-top: 12px;
 }
 
 .video-wrapper iframe {
@@ -247,53 +245,102 @@ header {
   border: 0;
 }
 
-/* PLAYLIST ROWS */
+/* HOME: PLAYLISTS */
+
+.playlist-row {
+  margin-top: 4px;
+}
 
 .playlist-section-title {
   font-size: 18px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.playlist-row {
-  background-color: #123018; /* deep green */
-  border-radius: 28px;
-  padding: 20px 24px;
-  margin-bottom: 22px;
-  color: #16a034; /* bright green text */
+.playlist-row p {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .playlist-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 18px;
-}
-
-.playlist-tile {
-  background-color: #ffb200; /* orange/yellow */
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .playlist-tile iframe {
   width: 100%;
-  height: 100%;
-  min-height: 160px;
+  min-height: 200px;
+  border-radius: 12px;
   border: 0;
 }
 
-/* SCOOP PAGE */
-
-.content-section {
-  max-width: 900px;
-  margin: 0 auto 40px;
+.playlist-row .btn-row {
+  margin-top: 16px;
 }
 
-.section-intro {
-  margin-bottom: 16px;
-  font-size: 1.05rem;
+/* MAILING LIST BLOCK */
+
+.mailing-card {
+  text-align: left;
+}
+
+.mailing-card h2 {
+  margin-bottom: 6px;
+}
+
+.mailing-card p {
+  margin-bottom: 10px;
+}
+
+/* THE SCOOP: BLOG */
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.blog-post-card {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+  background-color: #f9f1dd;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.blog-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  background-color: #ddd;
+  object-fit: cover;
+}
+
+.blog-meta {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.blog-title {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.blog-excerpt {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* SCOOP: INSTAGRAM */
+
+.instagram-card h2 {
+  margin-bottom: 8px;
 }
 
 .instagram-wrapper {
@@ -301,83 +348,107 @@ header {
 }
 
 .instagram-wrapper iframe {
-  width: 100%;
+  width: 100% !important;
   border: 0;
   overflow: hidden;
-  min-height: 380px; /* make sure posts aren't cut off */
+  min-height: 550px; /* bigger so posts aren’t cut off */
 }
 
-/* LISTEN LIVE PAGE */
+/* LISTEN LIVE */
 
 .live-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 20px;
 }
 
-.live-card {
+.live-panel {
   background-color: #f9f1dd;
-  border-radius: 24px;
-  padding: 20px 22px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-
-.live-box-inner {
-  background-color: #123018;
   border-radius: 18px;
-  padding: 18px 18px;
-  color: #16a034;
-  min-height: 360px;
-  display: flex;
-  flex-direction: column;
+  padding: 20px 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.live-box-inner h2 {
-  margin-bottom: 12px;
+.live-panel h2 {
   font-size: 18px;
+  margin-bottom: 6px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.live-box-inner p {
-  color: #e5f5e5;
+.live-panel p {
   font-size: 14px;
 }
 
-/* Live365 embed should fit nicely */
 .live-player-embed {
-  flex: 1;
   margin-top: 10px;
 }
 
 .live-player-embed iframe {
   width: 100%;
-  height: 100%;
-  min-height: 320px;
+  height: 420px;
+  max-width: 100%;
   border: 0;
 }
 
-/* CHAT PLACEHOLDER BOX */
+/* TLK.io chat */
 
-.chat-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.chat-embed {
+  margin-top: 10px;
 }
 
-.chat-body p {
-  color: #d9fdd9;
-  font-size: 14px;
+.chat-embed iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  border-radius: 10px;
 }
 
-/* CONTACT PAGE */
+/* Recently played section */
+
+.recently-played {
+  margin-top: 20px;
+}
+
+.recently-played iframe {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* VIDEOS PAGE */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.video-tile {
+  background-color: #f9f1dd;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.video-tile h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.video-tile .video-wrapper {
+  margin-top: 8px;
+  padding-bottom: 56.25%;
+}
+
+/* CONTACT */
 
 .contact-form {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
 }
 
 .contact-form input,
@@ -407,39 +478,52 @@ header {
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .app {
+    margin-top: 26px;
+  }
+
   .playlist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .live-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  header {
+@media (max-width: 600px) {
+  .site-header {
     flex-wrap: wrap;
-    gap: 8px;
+    justify-content: center;
+  }
+
+  .brand {
+    order: 1;
   }
 
   .main-nav {
     order: 3;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 6px;
   }
 
   .player-pill {
     order: 2;
   }
 
-  .page-wrapper {
-    margin-top: 24px;
-  }
-}
-
-@media (max-width: 480px) {
   .playlist-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-post-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-image {
+    width: 100%;
+    height: 180px;
   }
 }
