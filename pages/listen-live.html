@@ -1,21 +1,39 @@
 <section class="card">
   <h1>Listen Live</h1>
-  <p>Big player view + live chat</p>
+  <p>Big player + chat window + past played tracks, all styled like the rest of the site.</p>
 </section>
 
-<section class="live-layout">
-  <div class="live-panel">
-    <h2>Live Stream</h2>
-    <iframe src="https://live365.com/embeds/v1/player/a27079"></iframe>
+<section class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <!-- TOP LEFT: Live365 Player -->
+  <div class="card" style="padding:0; overflow:hidden;">
+    <iframe
+      src="https://live365.com/embeds/v1/player/a27079?s=sm&m=dark&c=mp3"
+      title="Live365 Player"
+      frameborder="0"
+      height="360"
+      style="width:100%; border:0; border-radius:18px;"
+    ></iframe>
   </div>
 
-  <div class="live-panel">
-    <h2>Live Chat</h2>
-    <iframe src="https://tlk.io/hipdadradio"></iframe>
+  <!-- TOP RIGHT: Live Chat -->
+  <div class="card">
+    <iframe
+      src="https://tlk.io/hipdadradio"
+      title="Live Chat"
+      frameborder="0"
+      height="360"
+      style="width:100%; border:0; border-radius:18px;"
+    ></iframe>
   </div>
 </section>
 
-<section class="card">
-  <h2>Past Songs</h2>
-  <iframe src="https://live365.com/embeds/v1/played/a27079"></iframe>
+<!-- BOTTOM BIG BOX: Past Played Songs -->
+<section class="card" style="margin-top:20px; padding:0; overflow:hidden;">
+  <iframe
+    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
+    title="Recently Played"
+    frameborder="0"
+    height="460"
+    style="width:100%; border:0; border-radius:18px;"
+  ></iframe>
 </section>
