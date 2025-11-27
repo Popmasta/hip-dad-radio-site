@@ -1,50 +1,33 @@
-/* ------------ SIMPLE SPA ROUTER ------------- */
+// SPA Router for Hip Dad Radio
+document.addEventListener("DOMContentLoaded", () => {
+  const pageContainer = document.getElementById("spa-page");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-async function loadPage(page) {
-    const app = document.getElementById("app");
+  async function loadPage(hash) {
+    let page = hash.replace("#", "");
+    if (!page) page = "home";
+
+    const url = `/pages/${page}.html`;
 
     try {
-        const res = await fetch(`pages/${page}.html`);
-        const html = await res.text();
-        app.innerHTML = html;
+      const response = await fetch(url);
+      const html = await response.text();
+      pageContainer.innerHTML = html;
+
+      // update active nav styling
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${page}`);
+      });
+
     } catch (err) {
-        app.innerHTML = "<h2 style='padding:40px'>Page failed to load.</h2>";
-        console.error(err);
+      pageContainer.innerHTML = `
+        <div class="card">
+          <h2>404 — Page Not Found</h2>
+          <p>The page you're trying to reach does not exist.</p>
+        </div>`;
     }
-}
+  }
 
-/* SET ACTIVE NAV */
-function setActive(navId) {
-    document.querySelectorAll(".hdr-nav a").forEach(a => a.classList.remove("active"));
-    const el = document.getElementById(navId);
-    if (el) el.classList.add("active");
-}
-
-/* HASH ROUTER */
-function handleRoute() {
-    const hash = window.location.hash;
-
-    if (!hash || hash === "#/home") {
-        loadPage("home");
-        setActive("nav-home");
-    } 
-    else if (hash.startsWith("#/videos")) {
-        loadPage("videos");
-        setActive("nav-videos");
-    } 
-    else if (hash.startsWith("#/the-scoop")) {
-        loadPage("the-scoop");
-        setActive("nav-scoop");
-    }
-    else if (hash.startsWith("#/listen-live")) {
-        loadPage("listen-live");
-        setActive("nav-listen");
-    }
-    else if (hash.startsWith("#/contact")) {
-        loadPage("contact");
-        setActive("nav-contact");
-    }
-}
-
-window.addEventListener("hashchange", handleRoute);
-window.addEventListener("load", handleRoute);
+  window.addEventListener("hashchange", () => loadPage(location.hash));
+  loadPage(location.hash);
+});
