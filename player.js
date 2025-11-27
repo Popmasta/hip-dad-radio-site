@@ -1,16 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hdr-audio");
-  const pill = document.getElementById("playerToggle");
-  const icon = pill.querySelector(".player-icon");
-  let playing = false;
+/* SIMPLE ALWAYS-ON AUDIO PLAYER */
 
-  pill.addEventListener("click", () => {
-    if (!playing) audio.play();
-    else audio.pause();
-    playing = !playing;
-    pill.classList.toggle("playing", playing);
-    icon.textContent = playing ? "❚❚" : "▶";
-  });
+let audio = new Audio("https://streaming.live365.com/a27079");
 
-  pill.style.visibility = "visible"; /* ensure it's not hidden */
+document.getElementById("playerButton").addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
 });
