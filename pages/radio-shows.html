@@ -1,30 +1,56 @@
-<section class="card"><h1>Radio Shows</h1><p>Upcoming shows, themes, guest nerd DJs.</p></section>
+<section class="card">
+  <h1>Radio Shows</h1>
+  <p>All killer, no iframe filler.</p>
+</section>
 
-<div class="blog-list">
-  <article class="blog-post-card">
-    <img src="../assets/blog-1.jpg" class="blog-image"/>
+<section class="shows-grid">
+  <article class="show-card">
+    <img src="assets/dj-guy.png" alt="DJ" class="show-thumb"/>
     <div>
-      <div class="blog-title">1976 Groove-o-Matic</div>
-      <div class="blog-meta">Next: Wednesday 8PM</div>
-      <p class="blog-excerpt">All-76 jams with stuff-it confidence + lead-guitar energy.</p>
+      <h3>Morning Brew Cuts</h3>
+      <p class="show-meta">Next airing: Wed 8PM</p>
+      <p>Soft rock to caffeinate your soul.</p>
     </div>
   </article>
 
-  <article class="blog-post-card">
-    <img src="../assets/blog-2.jpg" class="blog-image"/>
+  <article class="show-card">
+    <img src="assets/dj-guy.png" alt="DJ" class="show-thumb"/>
     <div>
-      <div class="blog-title">Fractured Folk-Funk Hour</div>
-      <div class="blog-meta">Next: Monday 9PM</div>
-      <p class="blog-excerpt">Meandering cuts, bass rumors, and pedalboard gossip.</p>
+      <h3>Dusty Crates N’ Chats</h3>
+      <p class="show-meta">Next airing: Sun 3PM</p>
+      <p>Obscure 70s gems and mild existential dread.</p>
     </div>
   </article>
+</section>
 
-  <article class="blog-post-card">
-    <img src="../assets/blog-3.jpg" class="blog-image"/>
-    <div>
-      <div class="blog-title">Jorts in the Control Room</div>
-      <div class="blog-meta">Next: Sunday 3PM</div>
-      <p class="blog-excerpt">Jean-short DJs spinning unexpected road-trip staples.</p>
-    </div>
-  </article>
-</div>
+<style>
+  .shows-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .show-card {
+    background:#fff;
+    border-radius:18px;
+    padding:16px;
+    gap:14px;
+    display:flex;
+    align-items:flex-start;
+    box-shadow:0 2px 5px rgba(0,0,0,0.12);
+  }
+
+  .show-thumb {
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    object-fit:cover;
+    flex-shrink:0;
+  }
+
+  .show-meta {
+    font-size:12px;
+    opacity:0.7;
+  }
+}
+</style>
