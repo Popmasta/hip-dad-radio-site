@@ -1,38 +1,29 @@
 <section class="card">
-  <h1>Welcome to the Grill (And *Not* Getting Cut Off Edition)</h1>
-  <p>The 24/7 joint where the vibes are hot, the takes are lukewarm, and the exhaust is extra clean.</p>
+  <h1>Welcome to Hip Dad Radio</h1>
+  <p>24/7 internet station for classic cuts, dusty records, fresh Chicago scene stuff, plus your cousin’s DJ neighbor’s opinion.</p>
 </section>
 
 <section class="card">
   <h2>Latest Videos</h2>
-  <div class="video-grid">
-    <div class="video-tile">
-      <img src="assets/dj-guy.png" alt="DJ" class="blog-image"/>
-      <h3>Clip 1</h3>
-      <p>Fresh upload</p>
-    </div>
-    <div class="video-tile">
-      <img src="assets/hdr-logo.png" alt="HDR" class="blog-image"/>
-      <h3>Clip 2</h3>
-      <p>Deep classic cut</p>
-    </div>
-    <div class="video-tile">
-      <img src="assets/dj-guy.png" alt="DJ" class="blog-image"/>
-      <h3>Clip 3</h3>
-      <p>Certified dad banter</p>
-    </div>
-    <div class="video-tile">
-      <img src="assets/dj-guy.png" alt="DJ" class="blog-image"/>
-      <h3>Clip 4</h3>
-      <p>Suit stays intact</p>
-    </div>
+  <div class="btn-row"><a href="#videos" class="btn primary">View Videos</a></div>
+  <div style="margin-top:14px">
+    <iframe src="https://www.youtube.com/embed/4MRzNQ7_OAU"></iframe>
   </div>
 </section>
 
-<section class="card mailing-card">
-  <h2>Join Our Mailing List</h2>
-  <p>For updates that hit like a Burger King drive-thru receipt you forgot about but are weirdly excited to find.</p>
-  <div class="btn-row">
-    <a href="mailto:hipdadradio@gmail.com?subject=Join%20Mailing%20List" class="btn primary">Email to Join</a>
-  </div>
+<section class="card">
+  <h2>Mailing List</h2>
+  <p>Join for show updates &amp; playlists.</p>
+  <form id="mailForm">
+    <input type="text" placeholder="Name" required/>
+    <input type="email" placeholder="Email" required/>
+    <button class="btn primary">Join List</button>
+  </form>
 </section>
+
+<script>
+document.getElementById("mailForm").addEventListener("submit", e => {
+  e.preventDefault();
+  window.location.href = `mailto:hipdadradio@gmail.com?subject=JOIN%20THE%20LIST&amp;body=Hi!%20Add%20me%20to%20the%20list!`;
+});
+</script>
