@@ -1,51 +1,56 @@
-/* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #d9c27c;
+  font-family: system-ui, sans-serif;
+  background: #f2e6c2;
   color:#111;
   line-height:1.6;
-  padding-top:90px;
+  padding-top:86px;
 }
+
+.site-header {
+  background:#000;
+  color:#f7d96d;
+  padding:12px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:fixed;
+  inset:0 auto auto 0;
+  width:100%;
+  z-index:999;
+  gap:18px;
+}
+
+.nav-link { font-size:14px; color:#f7d96d; border-bottom:2px solid transparent; padding-bottom:3px; }
+.nav-link:hover { border-bottom-color:#f7d96d; }
+.nav-link.active { border-bottom-color:#f7d96d; }
+
+.player-pill {
+  border-radius:999px;
+  border:2px solid #f7d96d;
+  background:transparent;
+  padding:6px 16px;
+  cursor:pointer;
+  color:#f7d96d;
+  font-size:13px;
+  white-space:nowrap;
+}
+.player-pill.playing {
+  background:#f7d96d;
+  color:#000;
+}
+
+.site-footer { text-align:center; font-size:13px; padding:18px; color:#000; }
+.live-dot { width:8px; height:8px; border-radius:50%; background:#ff2222; margin-left:6px; display:inline-block; }
+
+/* STANDARD CARD STYLE (the rounded box vibe you want) */
 
 .card {
-  background:#f9f1dd;
-  padding:22px;
-  border-radius:18px;
-  margin-bottom:22px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.12);
+  background:#fff;
+  border-radius:20px;
+  padding:22px 26px;
+  margin:28px auto;
+  max-width:860px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
-
-.video-wrapper {
-  position:relative;
-  width:100%;
-  padding-bottom:56.25%;
-  border-radius:14px;
-  overflow:hidden;
-  background:#000;
-  margin-top:12px;
-}
-.video-wrapper iframe {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.playlist-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-top:12px;
-}
-@media(max-width:900px){ .playlist-grid{ grid-template-columns:repeat(2,1fr);} }
-@media(max-width:600px){ .playlist-grid{ grid-template-columns:1fr;} }
-
-.live-layout {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-@media(max-width:700px){ .live-layout{ grid-template-columns:1fr;} }
