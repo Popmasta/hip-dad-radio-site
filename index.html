@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hip Dad Radio</title>
-<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#home">Home</a>
   <a href="#videos">Videos</a>
@@ -23,49 +21,88 @@
   <h1 class="centered">Welcome to Hip Dad Radio</h1>
 
   <div class="stream-row">
-
-    <!-- STREAM PLAYER -->
     <div class="widget-card">
       <h2>Live Stream</h2>
       <iframe
         frameborder="0"
+        allow="autoplay"
         src="https://live365.com/embeds/v1/station/a27079"
-        class="live-player"
-        allow="autoplay">
+        class="live-player">
       </iframe>
 
-      <!-- PREVIOUS PLAYED SONGS -->
+      <!-- Recently Played Widget -->
       <iframe
-        width="600"
-        height="531"
         frameborder="0"
         src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
         class="played-widget">
       </iframe>
-
     </div>
 
-    <!-- LIVE CHAT -->
     <div class="widget-card">
       <h2>Live Chat</h2>
       <iframe src="https://tlk.io/hipdadradio?theme=light" class="live-chat"></iframe>
     </div>
-
   </div>
 </section>
 
-<!-- PLAYLIST GRID -->
-<section id="playlists">
-  <h2 class="centered">Playlists</h2>
-  <div class="playlist-grid" id="playlist-container"></div>
+<!-- VIDEOS PAGE -->
+<section id="videos">
+  <h2 class="centered">Recent Clips</h2>
+  <div id="video-grid"></div>
 </section>
 
-<!-- RADIO SHOWS GRID -->
+<!-- SCOOP BLOG (SIMPLE PLACEHOLDER FOR NOW) -->
+<section id="scoop">
+  <h1 class="centered">The Scoop</h1>
+  <p class="centered">Blog coming soon...</p>
+
+  <div class="mailing-box centered">
+    <h3>Join our mailing list</h3>
+    <input type="email" placeholder="your email" id="mailing-input"/>
+    <button id="mailing-btn">Subscribe</button>
+  </div>
+</section>
+
+<!-- LISTEN LIVE -->
+<section id="listen-live">
+  <h1 class="centered">Listen Live</h1>
+
+  <div class="widget-card centered">
+    <iframe
+      frameborder="0"
+      allow="autoplay"
+      src="https://live365.com/embeds/v1/station/a27079"
+      class="live-player">
+    </iframe>
+
+    <div class="mailing-box">
+      <button class="explore-more">Explore More Playlists</button>
+    </div>
+  </div>
+
+  <!-- Recently Played Under Both Widgets -->
+  <iframe
+    frameborder="0"
+    width="600"
+    height="531"
+    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
+    class="played-widget below-widgets">
+  </iframe>
+
+  <!-- Global chat embed under stream too -->
+  <div id="chat-box" class="widget-card centered below-widgets">
+    <h2>Chat</h2>
+    <iframe src="https://tlk.io/hipdadradio?theme=light" class="live-chat"></iframe>
+  </div>
+</section>
+
+<!-- RADIO SHOWS -->
 <section id="shows">
   <h2 class="centered">Radio Shows</h2>
-  <div id="shows-container" class="shows-grid"></div>
+  <div id="shows-grid" class="shows-grid"></div>
 </section>
 
 <script src="app.js"></script>
+
 </body>
 </html>
