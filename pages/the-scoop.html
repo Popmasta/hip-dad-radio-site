@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Scoop — Blog</title>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-
-<div class="window">
+<section class="card">
   <h1>The Scoop</h1>
-  <p>Classic Blog Vibes. Deep cuts. DJ thoughts. Music nonsense. Pure meat.</p>
+  <p>Show notes, DJ picks, blog posts, and whatever else the Hip Dad crew feels like ranting about.</p>
+</section>
 
-  <!-- Sample blog post card -->
-  <div class="post-card">
-    <img src="sample.jpg" alt="Post image" class="post-image"/>
-    <div class="post-content">
-      <h3>Sample blog post</h3>
-      <p>This will be words later.</p>
-    </div>
-  </div>
+<section id="blogContainer" class="blog-list"></section>
 
-  <!-- Widget under blog -->
-  <div class="window" id="played">
-    <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
-  </div>
-</div>
+<section class="card mailing-card">
+  <h2>Join our mailing list</h2>
+  <p>Show alerts + DJ blog drops + playlist updates (no spam, promise).</p>
+  <form id="mailingForm">
+    <input type="email" placeholder="email..." required style="padding:8px;width:70%;border-radius:6px;border:1px solid #aaa"/>
+    <button type="submit" class="btn primary">Join</button>
+  </form>
+</section>
 
-<script defer src="player.js"></script>
-<script defer src="app.js"></script>
-
-</body>
-</html>
+<script>
+  document.getElementById("mailingForm").addEventListener("submit",e=>{
+    e.preventDefault()
+    alert("Mailing list not wired yet — you can connect to drive later!")
+  })
+</script>
