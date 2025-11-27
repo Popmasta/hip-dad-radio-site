@@ -1,21 +1,34 @@
-<section id="scoop">
-  <h1 class="centered">The Scoop</h1>
-  <article class="blog-post">
-    <h2>Welcome to the Crate</h2>
-    <img src="../assets/oaks.jpg" alt="crate pick">
-    <p>Vinyl wisdom, kitchen exhaust adventure, and questionable audio decisions.</p>
-  </article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Scoop — Blog</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
 
-  <div class="instagram-feed">
-    <button class="mailing-btn">Join our mailing list</button>
-    <h2>Instagram Feed</h2>
-    <iframe class="instagram" src="https://www.instagram.com/p/Cy123/embed"></iframe>
+<div class="window">
+  <h1>The Scoop</h1>
+  <p>Classic Blog Vibes. Deep cuts. DJ thoughts. Music nonsense. Pure meat.</p>
+
+  <!-- Sample blog post card -->
+  <div class="post-card">
+    <img src="sample.jpg" alt="Post image" class="post-image"/>
+    <div class="post-content">
+      <h3>Sample blog post</h3>
+      <p>This will be words later.</p>
+    </div>
   </div>
 
-  <iframe 
-    frameborder="0"
-    class="played-widget"
-    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark">
-  </iframe>
+  <!-- Widget under blog -->
+  <div class="window" id="played">
+    <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
+  </div>
+</div>
 
-</section>
+<script defer src="player.js"></script>
+<script defer src="app.js"></script>
+
+</body>
+</html>
