@@ -1,53 +1,56 @@
-<section class="card">
-  <h1>Listen Live</h1>
-  <p>
-    Stream Hip Dad Radio right in your browser. The player up top keeps running while you click around,
-    and this page gives you a bigger view plus chat and recently-played tracks.
-  </p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hip Dad Radio — Listen Live</title>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
 
-<section class="live-layout">
-  <!-- LEFT: Live player + Recently played -->
-  <div class="live-panel">
-    <h2>Live Stream Player</h2>
-    <p>Use the mini player in the header or this full player for a bigger view.</p>
+<div class="window">
+  <h2>Listen Live</h2>
 
-    <div class="live-player-embed">
-      <iframe
-        src="https://live365.com/embeds/v1/player/a27079?s=sm&m=dark&c=mp3"
-        frameborder="0"
-        title="Hip Dad Radio Live365 Player"
-      ></iframe>
-    </div>
-
-    <div class="recently-played">
-      <h2 style="margin-bottom:6px;">Recently Played</h2>
-      <p style="font-size:14px;margin-bottom:8px;">
-        Tracks recently aired on Hip Dad Radio.
-      </p>
-      <iframe
-        width="600"
-        height="531"
-        frameborder="0"
-        src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
-        title="Recently Played on Hip Dad Radio"
-      ></iframe>
-    </div>
+  <!-- Audio Player Window -->
+  <div class="window" id="player">
+    <h3>Live365 Stream Player</h3>
+    <iframe id="livePlayerFrame"
+      width="100%" 
+      height="200"
+      frameborder="0"
+      scrolling="no"
+      allow="autoplay"
+      src="https://live365.com/embeds/v1/player/a27079?s=lg&m=dark">
+    </iframe>
   </div>
 
-  <!-- RIGHT: Live chat -->
-  <div class="live-panel">
-    <h2>Live Chat</h2>
-    <p style="font-size:14px;margin-bottom:8px;">
-      Chat with DJs and other listeners while the station is rolling.
-    </p>
-    <div class="chat-embed">
-      <!-- TLK.io embed (channel name can be changed) -->
-      <iframe
-        src="https://tlk.io/hipdadradio"
-        title="Hip Dad Radio Chat"
-        scrolling="yes"
-      ></iframe>
-    </div>
+  <!-- Live Chat Window -->
+  <div class="window chat-box">
+    <h3>Live Chat 💬</h3>
+    <iframe id="chatFrame"
+      width="100%"
+      height="500"
+      frameborder="0"
+      scrolling="no"
+      src="https://tlk.io/hipdadradio">
+    </iframe>
   </div>
-</section>
+
+  <!-- Widget under both -->
+  <div id="played-widget" class="window">
+    <h3>Recently Played Songs 🎶</h3>
+    <iframe width="600" height="531" frameborder="0" src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"></iframe>
+  </div>
+
+  <div class="window">
+    <button onclick="window.open('https://open.spotify.com', '_blank')" class="explore-btn">
+      Explore More Playlists →
+    </button>
+  </div>
+</div>
+
+<script defer src="../player.js"></script>
+<script defer src="../app.js"></script>
+
+</body>
+</html>
