@@ -1,45 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("hdr-audio");
-  const button = document.getElementById("playerToggle");
+const audio = new Audio("/assets/player-stream-url.mp3");
+let isPlaying = false;
 
-  if (!audio || !button) return;
-
-  const icon = button.querySelector(".player-icon");
-  let isPlaying = false;
-
-  function updateUI() {
-    if (isPlaying) {
-      button.classList.add("playing");
-      icon.textContent = "❚❚"; // pause
-    } else {
-      button.classList.remove("playing");
-      icon.textContent = "▶";
-    }
+function togglePlayer() {
+  if (!isPlaying) {
+    audio.play();
+    document.getElementById("player-btn").innerText = "Pause";
+  } else {
+    audio.pause();
+    document.getElementById("player-btn").innerText = "Play";
   }
+  isPlaying = !isPlaying;
+}
 
-  button.addEventListener("click", async () => {
-    try {
-      if (!isPlaying) {
-        await audio.play();
-        isPlaying = true;
-      } else {
-        audio.pause();
-        isPlaying = false;
-      }
-      updateUI();
-    } catch (err) {
-      console.error("Error toggling audio:", err);
-    }
-  });
-
-  audio.addEventListener("ended", () => {
-    isPlaying = false;
-    updateUI();
-  });
-
-  // footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("player-btn");
+  if (btn) {
+    btn.addEventListener("click", togglePlayer);
+    audio.loop = true;
   }
 });
