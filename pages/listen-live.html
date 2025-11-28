@@ -1,54 +1,37 @@
 <section class="card">
   <h1>Listen Live</h1>
-  <p>
-    Stream Hip Dad Radio right in your browser. Use the mini player up top or this page for
-    a bigger view, live chat, and a feed of recently played songs.
-  </p>
 </section>
 
 <section class="live-layout">
-  <!-- LEFT: Live365 Player -->
   <div class="live-panel">
     <h2>Live365 Player</h2>
-    <p style="font-size:14px;margin-bottom:6px;">
-      Hit play and keep this tab open while you browse.
-    </p>
-
     <div class="live-player-embed">
-      <iframe
-        src="https://live365.com/embeds/v1/player/a27079?s=sm&m=dark&c=mp3"
-        frameborder="0"
-        title="Hip Dad Radio Live365 Player"
-      ></iframe>
+      <iframe src="https://live365.com/embeds/v1/player/a27079?s=sm&m=dark&c=mp3"></iframe>
     </div>
   </div>
 
-  <!-- RIGHT: Live Chat -->
   <div class="live-panel">
     <h2>Live Chat</h2>
-    <p style="font-size:14px;margin-bottom:6px;">
-      Talk with DJs and listeners while the station rolls.
-    </p>
-
     <div class="chat-embed">
-      <iframe
-        src="https://tlk.io/hipdadradio"
-        title="Hip Dad Radio Chat"
-        scrolling="yes"
-      ></iframe>
+      <iframe src="https://tlk.io/hipdadradio"></iframe>
     </div>
   </div>
 </section>
 
-<!-- FULL-WIDTH: Recently Played -->
-<section class="card recently-played">
-  <h2>Past Songs</h2>
-  <p style="font-size:14px;margin-bottom:8px;">
-    Recently played tracks from Hip Dad Radio.
-  </p>
+<section class="recently-played">
   <iframe
-    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
+    width="600"
+    height="531"
     frameborder="0"
-    title="Recently Played on Hip Dad Radio"
+    src="https://live365.com/embeds/v1/player/a27079?s=lg&m=dark"
+    title="Recently Played"
+  ></iframe>
+
+  <iframe
+    width="600"
+    height="531"
+    frameborder="0"
+    src="https://live365.com/embeds/v1/played/a27079?s=lg&m=dark"
+    title="Previous Songs"
   ></iframe>
 </section>
