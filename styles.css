@@ -14,16 +14,10 @@ body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #d9c27c; /* gold */
+  background-color: #d4be72; /* gold */
   color: #111;
   line-height: 1.6;
-  padding-top: 80px; /* space for fixed header */
-}
-
-/* prevent giant images from taking over */
-img {
-  max-width: 100%;
-  height: auto;
+  padding-top: 90px; /* space for fixed header */
 }
 
 a {
@@ -31,28 +25,33 @@ a {
   color: inherit;
 }
 
-/* HEADER / NAV / PLAYER */
+/* LAYOUT WIDTH
+   Slightly wider so things don’t feel scrunched,
+   but still centered + card-based.
+*/
+
+.app {
+  max-width: 1080px;
+  margin: 32px auto 40px;
+  padding: 0 16px 40px;
+}
+
+/* HEADER / NAV / TOP PLAYER */
 
 .site-header {
+  background-color: #000;
+  color: #f7d96d;
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
-  background-color: #000;
-  border-bottom: 1px solid #333;
 }
-
-.header-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-/* brand */
 
 .brand {
   display: flex;
@@ -61,8 +60,8 @@ a {
 }
 
 .brand-logo {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
@@ -72,13 +71,12 @@ a {
 }
 
 .brand-title {
-  font-weight: 700;
-  font-size: 15px;
-  color: #f7d96d;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .brand-tagline {
-  font-size: 11px;
+  font-size: 12px;
   color: #ffeeb5;
 }
 
@@ -88,14 +86,18 @@ a {
   display: flex;
   flex: 1;
   justify-content: center;
-  gap: 22px;
+  gap: 24px;
 }
 
 .nav-link {
   font-size: 14px;
-  color: #f7d96d;          /* yellow, not purple */
+  color: #f7d96d;          /* make sure it’s the gold, not purple */
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
+}
+
+.nav-link:visited {
+  color: #f7d96d;
 }
 
 .nav-link:hover {
@@ -106,13 +108,13 @@ a {
   border-bottom-color: #f7d96d;
 }
 
-/* PLAYER PILL */
+/* TOP PLAYER PILL (in header) */
 
 .player-pill {
   border-radius: 999px;
   border: 2px solid #f7d96d;
   background: transparent;
-  padding: 6px 14px;
+  padding: 6px 16px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -145,34 +147,26 @@ a {
   letter-spacing: 0.08em;
 }
 
-/* Playing state */
+/* Top player “playing” state */
 .player-pill.playing {
   background-color: #f7d96d;
   color: #000;
   border-color: #f7d96d;
 }
 
-/* APP WRAPPER (this is what keeps the site from being too wide) */
-
-.app {
-  max-width: 960px;       /* <<< tighten the body width */
-  margin: 24px auto 40px;
-  padding: 0 16px 40px;
-}
-
-/* CARDS / SECTIONS */
+/* CARDS / PANELS */
 
 .card {
   background-color: #f9f1dd; /* cream */
-  border-radius: 22px;
-  padding: 20px 24px;
+  border-radius: 18px;
+  padding: 24px 28px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .card h1 {
   font-size: 26px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .card h2 {
@@ -184,29 +178,7 @@ a {
   font-size: 14px;
 }
 
-/* HOME PLAYLISTS LAYOUT (3 per row) */
-
-.playlist-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.playlist-embed iframe {
-  width: 100%;
-  min-height: 352px;
-  border-radius: 14px;
-  border: 0;
-}
-
-/* generic buttons */
-
-.btn-row {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+/* BUTTONS */
 
 .btn {
   display: inline-flex;
@@ -239,7 +211,123 @@ a {
   background-color: rgba(0, 0, 0, 0.07);
 }
 
-/* LISTEN LIVE LAYOUT */
+.btn-row {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* HOME: HERO */
+
+.hero-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr);
+  gap: 16px;
+}
+
+.hero-card h1 {
+  font-size: 28px;
+}
+
+.hero-intro {
+  max-width: 680px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #000;
+  margin-top: 12px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* HOME: PLAYLISTS
+   — 3 across, taller Spotify embeds so they feel “full”
+*/
+
+.playlist-section-title {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.playlist-row p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.spotify-embed {
+  width: 100%;
+  height: 360px;   /* taller, less “flat” */
+  border-radius: 12px;
+  border: 0;
+}
+
+/* THE SCOOP (BLOG LIST) */
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Each post is a card with image on left, text on right */
+.blog-card {
+  background-color: #f9f1dd;
+  border-radius: 18px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.blog-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  object-fit: cover;
+  background-color: #ddd; /* placeholder */
+}
+
+.blog-meta {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.blog-title {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.blog-excerpt {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* LISTEN LIVE LAYOUT (inside player + chat + last played)
+   Keeping what you liked, not changing structure here.
+*/
 
 .live-layout {
   display: grid;
@@ -249,41 +337,48 @@ a {
 
 .live-panel {
   background-color: #f9f1dd;
-  border-radius: 22px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .live-panel h2 {
   font-size: 18px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.live-panel p {
+  font-size: 14px;
 }
 
 .live-player-embed {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-/* THIS keeps the Live365 iframe from having scrollbars */
+/* Size the INSIDE Live365 iframe so it fits its box cleanly */
 .live-player-embed iframe {
   width: 100%;
-  height: 420px;     /* tall enough to show whole player */
+  height: 420px;
+  max-width: 100%;
   border: 0;
 }
 
-/* TLK.io / chat */
+/* TLK chat box next to it */
 
 .chat-embed {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .chat-embed iframe {
   width: 100%;
   height: 420px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
-/* Recently played section */
+/* Recently played under both */
 
 .recently-played {
   margin-top: 20px;
@@ -291,20 +386,32 @@ a {
 
 .recently-played iframe {
   width: 100%;
-  height: 350px;
   border: 0;
   border-radius: 12px;
 }
 
-/* CONTACT PAGE */
+/* CONTACT FORM / GOOGLE FORM LINK AREA */
 
-.contact-body {
-  font-size: 14px;
+.contact-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.contact-body a {
-  color: #000;
-  text-decoration: underline;
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #b8a86a;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 /* FOOTER */
@@ -319,26 +426,13 @@ a {
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
-  .header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .main-nav {
     flex-wrap: wrap;
-    order: 3;
-  }
-
-  .player-pill {
-    order: 2;
-  }
-
-  .brand {
-    order: 1;
+    gap: 16px;
   }
 
   .app {
-    margin-top: 20px;
+    margin-top: 26px;
   }
 
   .playlist-grid {
@@ -348,9 +442,35 @@ a {
   .live-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .blog-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-thumb {
+    width: 100%;
+    height: 180px;
+  }
 }
 
 @media (max-width: 600px) {
+  .site-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .main-nav {
+    order: 3;
+  }
+
+  .player-pill {
+    order: 2;
+  }
+
   .playlist-grid {
     grid-template-columns: minmax(0, 1fr);
   }
