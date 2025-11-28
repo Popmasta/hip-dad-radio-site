@@ -5,34 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hip Dad Radio</title>
   <link rel="stylesheet" href="styles.css"/>
+  <script defer src="player.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
 
-<header class="banner">
-  <!-- TOP PLAYER (do NOT touch) -->
-  <div class="top-player">
-    <button id="banner-play-btn" class="play-btn" aria-label="Play"></button>
+<!-- HEADER / NAV BAR -->
+<nav class="site-nav">
+  <div class="nav-left">Hip Dad Radio • Chicago’s Meat & Potatoes • 24/7</div>
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="videos.html">Videos</a>
+    <a href="the-scoop.html">The Scoop</a>
+    <a href="listen-live.html">Listen Live</a>
+    <a href="radio-shows.html">Radio Shows</a>
+    <a href="contact.html">Contact</a>
   </div>
+  <div class="nav-right">
+    <!-- TOP PLAYER (do NOT mix up with inside player) -->
+    <button id="banner-play-btn" class="banner-player-btn"></button>
+  </div>
+</nav>
 
-  <h1>Chicago’s Meat & Potatoes • Streaming 24/7</h1>
-</header>
+<!-- HERO BODY BOX -->
+<section class="card">
+  <h2>Welcome to Hip Dad Radio</h2>
+  <p>24/7 internet station for classic cuts & new hip stuff.</p>
+</section>
 
-<main>
+<!-- PLAYLIST SECTIONS -->
+<main class="layout">
+
   <section class="card">
-    <h2>HDR Playlists</h2>
-    <div class="playlist-grid" id="playlist-main"></div>
+    <h3>HDR Playlists</h3>
+    <div class="playlist-row" id="playlist-main"></div>
   </section>
 
   <section class="card">
-    <h2>HDR Golden Years</h2>
-    <div class="playlist-grid" id="playlist-golden"></div>
+    <h3>HDR Golden Years</h3>
+    <div class="playlist-row" id="playlist-golden"></div>
   </section>
+
 </main>
 
-<footer>
-  © 2025 Hip Dad Radio
-</footer>
+<footer class="site-footer">© 2025 Hip Dad Radio</footer>
 
 </body>
 </html>
