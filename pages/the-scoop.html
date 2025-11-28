@@ -1,21 +1,29 @@
 <section class="card">
-  <h1>The Scoop (Blog)</h1>
-  <p>latest blog posts below…</p>
+  <h2>The Scoop (Blog)</h2>
+  <p>Latest DJ stories and posts show up below…</p>
 </section>
 
-<section class="blog-list">
-  <article class="show-card">
-    <img src="assets/blog-1.jpg" class="show-image" onerror="this.style.display='none';" />
-    <div><h2>Blog Post One</h2><p>Next Live: Wed 8pm</p></div>
+<div id="blog-feed">
+  <article class="blog-post-card">
+     <img src="/assets/dj-guy.png" alt="DJ" class="blog-image"/>
+     <div class="blog-content">
+       <h3>Blog Post One</h3>
+       <div class="blog-meta">Date · By DJ Name</div>
+       <p class="blog-excerpt">This will act like a real blog feed later.</p>
+     </div>
   </article>
 
-  <article class="show-card">
-    <img src="assets/blog-2.jpg" class="show-image" onerror="this.style.display='none';" />
-    <div><h2>Blog Post Two</h2><p>Next Live: Fri 9pm</p></div>
+  <article class="blog-post-card">
+     <img src="/assets/dj-guy.png" alt="DJ" class="blog-image"/>
+     <div class="blog-content">
+       <h3>Blog Post Two</h3>
+       <div class="blog-meta">Date · By DJ Name</div>
+       <p class="blog-excerpt">You will be able to click this later.</p>
+     </div>
   </article>
-</section>
+</div>
 
-<section class="card mailing-card">
-  <h2>Join our Mailing List</h2>
-  <div class="btn-row"><a class="btn primary" href="mailto:hipdadradio@gmail.com?subject=Join%20the%20mailing%20list">Join via email</a></div>
+<section class="card">
+  <h3>Join our Mailing List</h3>
+  <button class="btn" id="mailing-list-btn">Join via email</button>
 </section>
