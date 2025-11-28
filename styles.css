@@ -1,172 +1,119 @@
-/* Global page layout */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica", Arial, sans-serif;
-  background-color: #f4f1e9;
-  color: #222;
-  overflow-x: hidden;
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
+/* Global Layout */
+body {
   margin: 0 auto;
-  padding: 24px;
+  max-width: 1200px; /* keeps website body normal width */
+  font-family: 'Arial', sans-serif;
+  background: #f7f2e9;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Banner layout */
+/* Banner */
 .banner {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  background-color: #111;
-  padding: 14px 0;
-  position: relative;
+  background: black;
+  padding: 20px 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 }
 
 .banner-content {
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  color: #f4d03f; /* yellow text */
 }
 
-/* Banner text */
-.banner-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.banner-text h1 {
+.banner-content h1 {
   margin: 0;
-  font-size: 26px;
-  font-weight: 800;
-  color: #f8d873; /* classic yellow */
+  font-size: 32px;
 }
 
-.banner-text p {
-  margin: 0;
+.banner-content p {
+  margin: 4px 0 0;
   font-size: 16px;
-  font-weight: 500;
-  color: #f8d873;
+  opacity: 0.8;
 }
 
-/* Top-right player (untouched functionality preserved) */
+/* Top Player (banner only) */
 .top-player {
-  min-width: 320px;
-  min-height: 100px;
-  max-width: 380px;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 16px;
-  right: 24px;
-  z-index: 999;
+  width: 300px;
+  height: 70px;
   border: none;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* Navigation */
-.nav-tabs {
-  display: flex;
-  gap: 30px;
+/* Playlist Rows */
+.playlist-section {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
-.nav-tabs a {
-  color: #f8d873;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 600;
+.playlist-section h2 {
+  margin-top: 0;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.nav-tabs a:hover {
-  text-decoration: underline;
-}
-
-/* Playlist rows */
-.playlist-row {
+.playlists {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 24px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr); /* 3 playlists per row */
+  gap: 20px;
 }
 
 .playlist-card {
-  width: 100%;
-  max-width: 360px;
-  min-height: 210px;
-  border-radius: 16px;
-  background: #201a15;
+  background: #fff;
+  border-radius: 18px;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
 }
 
 .playlist-card iframe {
   width: 100%;
-  height: 120px;
+  height: 160px; /* gives playlists more vertical space, less flat */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.playlist-card p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Listen Live Layout */
+.listen-live-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* player + chat side by side */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.inside-player {
+  width: 100%;
+  height: 200px; /* box fits player size, no scroll bars */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.live-chat {
+  width: 100%;
+  height: 200px;
   border-radius: 12px;
   border: none;
 }
 
-/* Scoop (Blog) cards */
-.blog-post-card {
-  width: 100%;
-  background: #201a15;
-  border-radius: 14px;
-  padding: 18px;
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  margin-bottom: 22px;
-  transition: transform 0.1s ease;
-}
-
-.blog-post-card:hover {
-  transform: scale(1.015);
-}
-
-.blog-thumb {
-  width: 120px;
-  height: 120px;
-  border-radius: 12px;
-  flex-shrink: 0;
-  overflow: hidden;
-  background: #333;
-}
-
-.blog-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.blog-info h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #f8d873;
-}
-
-.blog-meta {
-  font-size: 14px;
-  color: #f8d873;
-  margin-top: 4px;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.blog-info p {
-  margin: 0;
-  font-size: 15px;
-  color: #e6e2d9;
+.last-played {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
 }
