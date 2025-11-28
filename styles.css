@@ -1,126 +1,172 @@
-/* NORMAL SITE WIDTH (not ultra wide) */
-.page {
-  max-width: 960px;
+/* Global page layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", Arial, sans-serif;
+  background-color: #f4f1e9;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
+  padding: 24px;
 }
 
-/* BANNER FULL WIDTH but with more height for width */
+/* Banner layout */
 .banner {
-  width: 100%;
-  background: black;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: #111;
+  padding: 14px 0;
+  position: relative;
   display: flex;
-  justify-content: center;
-  padding: 1.2rem 0;
-}
-
-/* MAKE BANNER SECTION WIDER INTERNALLY */
-.banner-content {
-  width: 1400px;  /* wide banner, page stays normal */
-  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  color: #f2c94c;
-  padding: 0 2rem;
 }
 
-.tab {
-  color: #f2c94c;
+.banner-content {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Banner text */
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #f8d873; /* classic yellow */
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #f8d873;
+}
+
+/* Top-right player (untouched functionality preserved) */
+.top-player {
+  min-width: 320px;
+  min-height: 100px;
+  max-width: 380px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 999;
+  border: none;
+}
+
+/* Navigation */
+.nav-tabs {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-tabs a {
+  color: #f8d873;
   text-decoration: none;
-  margin-right: 1.2rem;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 600;
 }
 
-/* PLAYLIST PREVIEW ROWS ALWAYS 3 PER ROW */
-.playlist-row, .playlist-row2, .playlist-row3, .playlist-row4, .playlist-row5, .playlist-row6,
-.playlist-row7, .playlist-row8, .playlist-row9, .playlist-row10,
-.playlist-row11, .playlist-row12 {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+.nav-tabs a:hover {
+  text-decoration: underline;
 }
 
-.playlist {
-  flex: 1;
-  background: #3a2f2f;
-  border-radius: 8px;
-  min-width: 240px;
-  max-width: 300px;
-  height: 180px;
+/* Playlist rows */
+.playlist-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+  justify-items: center;
+}
+
+.playlist-card {
+  width: 100%;
+  max-width: 360px;
+  min-height: 210px;
+  border-radius: 16px;
+  background: #201a15;
+  padding: 16px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.playlist-card iframe {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Scoop (Blog) cards */
+.blog-post-card {
+  width: 100%;
+  background: #201a15;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  gap: 18px;
   align-items: center;
-  overflow: hidden;
+  margin-bottom: 22px;
+  transition: transform 0.1s ease;
 }
 
-/* INSIDE PLAYER SIDE-BY-SIDE FIX */
-.inside-player-layout {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  align-items: flex-start;
+.blog-post-card:hover {
+  transform: scale(1.015);
 }
 
-.inside-player-layout > div {
+.blog-thumb {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
   flex-shrink: 0;
-}
-
-/* MAKE INSIDE PLAYER FIT BOX — NO SCROLLBARS */
-.inside-player-box, .inside-player-box2 {
-  width: 420px;
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  border-radius: 10px;
-  background: black;
+  background: #333;
 }
 
-/* SCOOP BLOG POSTS AS CONTENT BOXES LIKE EVERYWHERE ELSE */
-.scoop-post {
-  display: flex;
-  gap: 1.5rem;
-  background:#f7efdf;
-  border-radius:12px;
-  padding:1.5rem;
-  margin-bottom:1.2rem;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
-  align-items:center;
+.blog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.scoop-image-container img {
-  width:140px;
-  height:140px;
-  border-radius:8px;
-  object-fit:cover;
+.blog-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8d873;
 }
 
-.scoop-text .post-title {
-  color:black;
-  font-size:1.5rem;
+.blog-meta {
+  font-size: 14px;
+  color: #f8d873;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
-.post-meta {
-  font-size:0.9rem;
-  color:#222;
-  margin:0.2rem 0;
-}
-
-/* CONTACT FORM LINK STYLE */
-.google-form-link, .google-form-link2 {
-  display:inline-block;
-  margin-top:1rem;
-  color:#f2c94c;
-  background:black;
-  padding:0.8rem 1.2rem;
-  border-radius:8px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.last-played-box {
-  margin-top:2rem;
-  text-align:center;
+.blog-info p {
+  margin: 0;
+  font-size: 15px;
+  color: #e6e2d9;
 }
