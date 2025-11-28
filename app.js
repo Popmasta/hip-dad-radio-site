@@ -1,53 +1,47 @@
-// --- Dummy playlist rendering so page isn't empty ---
+// Shared state listener for banner button ONLY
+document.addEventListener("bannerToggle", (e) => {
+  console.log("BANNER PLAYER is now", e.detail ? "PLAYING" : "PAUSED");
+});
+
+// Render playlists (3 per row only)
 function renderPlaylists() {
   document.getElementById("playlist-main").innerHTML = `
-    <div class="playlist-item">New Tunes for Hip Dads</div>
-    <div class="playlist-item">Kodachrome Cookout</div>
-    <div class="playlist-item">Driftwood Dads</div>
+    <div class="playlist">New Tunes for Hip Dads</div>
+    <div class="playlist">Kodachrome Cookout</div>
+    <div class="playlist">Driftwood Dads</div>
   `;
   document.getElementById("playlist-golden").innerHTML = `
-    <div class="playlist-item">HDR 1973</div>
-    <div class="playlist-item">Slinky Saturdays</div>
-    <div class="playlist-item">Ghouly Garage</div>
+    <div class="playlist">HDR 1973</div>
+    <div class="playlist">Slinky Saturdays</div>
+    <div class="playlist">Ghouly Garage</div>
   `;
 }
 
-// --- Inside Player box sizing fix (prevents scrollbars) ---
-function fixInsidePlayerBox() {
-  const frame = document.querySelector(".live365-box iframe");
+// Fix inside Live365 iframe box so it fits with no scrollbars
+function fixInsidePlayer() {
+  const frame = document.getElementById("inside-player-frame");
   if (!frame) return;
 
   frame.addEventListener("load", () => {
-    const w = Math.max(frame.contentWindow.document.body.scrollWidth, 360);
-    const h = Math.max(frame.contentWindow.document.body.scrollHeight, 200);
-
+    const w = Math.max(frame.contentDocument.body.scrollWidth, 380);
+    const h = Math.max(frame.contentDocument.body.scrollHeight, 230);
     frame.style.width = w + "px";
     frame.style.height = h + "px";
-    frame.parentElement.style.width = w + "px";
-    frame.parentElement.style.height = h + "px";
+    frame.parentElement.style.width = w + 20 + "px";
+    frame.parentElement.style.height = h + 20 + "px";
   });
 }
 
-// --- Banner PLAY / PAUSE button toggle (Top Player only) ---
-const bannerBtn = document.getElementById("banner-play-btn");
-let isPlaying = false;
+// Render radio shows boxes (3 per row)
+function renderShows() {
+  document.getElementById("shows-grid").innerHTML = `
+    <div class="show-card"><strong>1978 Yacht-Rock Cookout</strong><br/>Next: Wed 8pm</div>
+    <div class="show-card"><strong>Ghost-Dad Garage Hour</strong><br/>Next: Fri 9pm</div>
+    <div class="show-card"><strong>Karaoke-Dad Power Ballads</strong><br/>Next: Sun 8am</div>
+  `;
+}
 
-bannerBtn.addEventListener("click", () => {
-  isPlaying = !isPlaying;
-  bannerBtn.classList.toggle("playing", isPlaying);
-});
-
-// Init
+// Startup
 renderPlaylists();
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-
-// Call spacing adjustments only for inside page
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-fixInsidePlayerBox();
-
-fixInsidePlayerBox();
+fixInsidePlayer();
+renderShows();
