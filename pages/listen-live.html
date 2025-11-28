@@ -1,22 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listen Live – Hip Dad Radio</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <script defer src="../app.js"></script>
+</head>
+<body>
+
 <section class="card">
   <h2>Listen Live</h2>
+  <p>Live365 player + chat side by side</p>
 </section>
 
 <div class="listen-container">
-  <!-- Single Live365 Player -->
+  <!-- INSIDE PLAYER iframe -->
   <div class="live365-box">
-    <iframe src="PLAYLIST_URL"></iframe>
+    <iframe src="INSIDE_PLAYER_URL" scrolling="no"></iframe>
   </div>
 
-  <!-- Live Chat Box -->
+  <!-- Chat beside it -->
   <div class="chat-box">
     <h3>Live Chat</h3>
-    <div id="chat-content">Join chat here soon…</div>
+    <div id="chat-content">Join chat here...</div>
   </div>
 </div>
 
-<!-- Last Played Songs under both -->
 <section class="last-played">
   <h3>Last Played Songs</h3>
-  <div id="last-played-list">Tracks will appear here…</div>
+  <div id="last-played-list">Tracks will load here...</div>
 </section>
+
+</body>
+</html>
