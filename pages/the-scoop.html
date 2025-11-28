@@ -1,29 +1,68 @@
+<!-- THE SCOOP PAGE -->
+
 <section class="card">
-  <h2>The Scoop (Blog)</h2>
-  <p>Latest DJ stories and posts show up below…</p>
+  <h1>The Scoop (Blog)</h1>
+  <p>Show notes, DJ picks, record-club thoughts, and general dad-music chatter.</p>
 </section>
 
-<div id="blog-feed">
-  <article class="blog-post-card">
-     <img src="/assets/dj-guy.png" alt="DJ" class="blog-image"/>
-     <div class="blog-content">
-       <h3>Blog Post One</h3>
-       <div class="blog-meta">Date · By DJ Name</div>
-       <p class="blog-excerpt">This will act like a real blog feed later.</p>
-     </div>
+<section class="blog-list">
+  <!-- POST 1 -->
+  <article class="blog-card">
+    <img
+      src="assets/dj-guy.png"
+      alt="Hip Dad DJ illustration"
+      class="blog-thumb"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Nov 2025 • Matt • Next live: Wed 8pm</div>
+      <div class="blog-title">Blog Post One</div>
+      <p class="blog-excerpt">
+        Little intro about what’s on this week’s show, a couple highlight tracks, and a shout to
+        the Chicago dad-rock faithful…
+      </p>
+      <!-- Eventually this becomes a real link to /#/scoop-post?id=... -->
+      <p style="font-size:13px;">
+        <em>Full post coming soon.</em>
+      </p>
+    </div>
   </article>
 
-  <article class="blog-post-card">
-     <img src="/assets/dj-guy.png" alt="DJ" class="blog-image"/>
-     <div class="blog-content">
-       <h3>Blog Post Two</h3>
-       <div class="blog-meta">Date · By DJ Name</div>
-       <p class="blog-excerpt">You will be able to click this later.</p>
-     </div>
+  <!-- POST 2 -->
+  <article class="blog-card">
+    <img
+      src="assets/dj-guy.png"
+      alt="Hip Dad DJ illustration"
+      class="blog-thumb"
+      onerror="this.style.display='none';"
+    />
+    <div>
+      <div class="blog-meta">Nov 2025 • Guest DJ • Next live: Fri 9pm</div>
+      <div class="blog-title">Blog Post Two</div>
+      <p class="blog-excerpt">
+        Guest DJ runs through late-night picks, deep cuts from the vinyl pile, and a couple
+        guilty-pleasure singles that somehow made the list…
+      </p>
+      <p style="font-size:13px;">
+        <em>Full post coming soon.</em>
+      </p>
+    </div>
   </article>
-</div>
+</section>
 
-<section class="card">
-  <h3>Join our Mailing List</h3>
-  <button class="btn" id="mailing-list-btn">Join via email</button>
+<!-- Mailing list card stays like before -->
+
+<section class="card mailing-card">
+  <h2>Join our Mailing List</h2>
+  <p>
+    Occasional updates on shows, playlists, and random dad-music projects. No spam, no nonsense.
+  </p>
+  <div class="btn-row">
+    <a
+      href="mailto:hipdadradio@gmail.com?subject=Join%20the%20mailing%20list"
+      class="btn primary"
+    >
+      Join via email
+    </a>
+  </div>
 </section>
