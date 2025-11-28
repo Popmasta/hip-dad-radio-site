@@ -1,29 +1,53 @@
-async function loadPage(page) {
-  const app = document.getElementById("app");
-  try {
-    const res = await fetch(`pages/${page}.html?cacheBust=${Date.now()}`);
-    if (!res.ok) throw new Error();
-    app.innerHTML = await res.text();
-  } catch {
-    app.innerHTML = `<div class="card"><h1>Page not found</h1></div>`;
-  }
+// --- Dummy playlist rendering so page isn't empty ---
+function renderPlaylists() {
+  document.getElementById("playlist-main").innerHTML = `
+    <div class="playlist-item">New Tunes for Hip Dads</div>
+    <div class="playlist-item">Kodachrome Cookout</div>
+    <div class="playlist-item">Driftwood Dads</div>
+  `;
+  document.getElementById("playlist-golden").innerHTML = `
+    <div class="playlist-item">HDR 1973</div>
+    <div class="playlist-item">Slinky Saturdays</div>
+    <div class="playlist-item">Ghouly Garage</div>
+  `;
 }
 
-function setActiveNav(page) {
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("data-page") === page);
+// --- Inside Player box sizing fix (prevents scrollbars) ---
+function fixInsidePlayerBox() {
+  const frame = document.querySelector(".live365-box iframe");
+  if (!frame) return;
+
+  frame.addEventListener("load", () => {
+    const w = Math.max(frame.contentWindow.document.body.scrollWidth, 360);
+    const h = Math.max(frame.contentWindow.document.body.scrollHeight, 200);
+
+    frame.style.width = w + "px";
+    frame.style.height = h + "px";
+    frame.parentElement.style.width = w + "px";
+    frame.parentElement.style.height = h + "px";
   });
 }
 
-function handleRoute() {
-  const hash = window.location.hash.replace("#", "");
-  const route = hash || "home";
-  setActiveNav(route);
-  loadPage(route);
-}
+// --- Banner PLAY / PAUSE button toggle (Top Player only) ---
+const bannerBtn = document.getElementById("banner-play-btn");
+let isPlaying = false;
 
-window.addEventListener("hashchange", handleRoute);
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-  handleRoute();
+bannerBtn.addEventListener("click", () => {
+  isPlaying = !isPlaying;
+  bannerBtn.classList.toggle("playing", isPlaying);
 });
+
+// Init
+renderPlaylists();
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+
+// Call spacing adjustments only for inside page
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+fixInsidePlayerBox();
+
+fixInsidePlayerBox();
