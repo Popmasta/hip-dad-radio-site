@@ -1,357 +1,126 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-/* BASE */
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #d9c27c; /* gold */
-  color: #111;
-  line-height: 1.6;
-  padding-top: 80px; /* space for fixed header */
-}
-
-/* prevent giant images from taking over */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* HEADER / NAV / PLAYER */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: #000;
-  border-bottom: 1px solid #333;
-}
-
-.header-inner {
+/* NORMAL SITE WIDTH (not ultra wide) */
+.page {
   max-width: 960px;
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* BANNER FULL WIDTH but with more height for width */
+.banner {
+  width: 100%;
+  background: black;
   display: flex;
+  justify-content: center;
+  padding: 1.2rem 0;
+}
+
+/* MAKE BANNER SECTION WIDER INTERNALLY */
+.banner-content {
+  width: 1400px;  /* wide banner, page stays normal */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  color: #f2c94c;
+  padding: 0 2rem;
 }
 
-/* brand */
+.tab {
+  color: #f2c94c;
+  text-decoration: none;
+  margin-right: 1.2rem;
+  font-weight: bold;
+}
 
-.brand {
+/* PLAYLIST PREVIEW ROWS ALWAYS 3 PER ROW */
+.playlist-row, .playlist-row2, .playlist-row3, .playlist-row4, .playlist-row5, .playlist-row6,
+.playlist-row7, .playlist-row8, .playlist-row9, .playlist-row10,
+.playlist-row11, .playlist-row12 {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.brand-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-weight: 700;
-  font-size: 15px;
-  color: #f7d96d;
-}
-
-.brand-tagline {
-  font-size: 11px;
-  color: #ffeeb5;
-}
-
-/* NAV */
-
-.main-nav {
-  display: flex;
+.playlist {
   flex: 1;
-  justify-content: center;
-  gap: 22px;
-}
-
-.nav-link {
-  font-size: 14px;
-  color: #f7d96d;          /* yellow, not purple */
-  padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-link:hover {
-  border-bottom-color: #f7d96d;
-}
-
-.nav-link.active {
-  border-bottom-color: #f7d96d;
-}
-
-/* PLAYER PILL */
-
-.player-pill {
-  border-radius: 999px;
-  border: 2px solid #f7d96d;
-  background: transparent;
-  padding: 6px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #f7d96d;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.player-pill:hover {
-  background-color: #111;
-}
-
-.player-icon {
-  display: inline-block;
-  width: 16px;
-  text-align: center;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #ff2222;
-  display: inline-block;
-}
-
-.live-text {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-}
-
-/* Playing state */
-.player-pill.playing {
-  background-color: #f7d96d;
-  color: #000;
-  border-color: #f7d96d;
-}
-
-/* APP WRAPPER (this is what keeps the site from being too wide) */
-
-.app {
-  max-width: 960px;       /* <<< tighten the body width */
-  margin: 24px auto 40px;
-  padding: 0 16px 40px;
-}
-
-/* CARDS / SECTIONS */
-
-.card {
-  background-color: #f9f1dd; /* cream */
-  border-radius: 22px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-}
-
-.card h1 {
-  font-size: 26px;
-  margin-bottom: 6px;
-}
-
-.card h2 {
-  font-size: 20px;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 14px;
-}
-
-/* HOME PLAYLISTS LAYOUT (3 per row) */
-
-.playlist-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.playlist-embed iframe {
-  width: 100%;
-  min-height: 352px;
-  border-radius: 14px;
-  border: 0;
-}
-
-/* generic buttons */
-
-.btn-row {
-  margin-top: 14px;
+  background: #3a2f2f;
+  border-radius: 8px;
+  min-width: 240px;
+  max-width: 300px;
+  height: 180px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 14px;
-  cursor: pointer;
-  border: 2px solid transparent;
+  align-items: center;
+  overflow: hidden;
 }
 
-.btn.primary {
-  background-color: #000;
-  color: #f7d96d;
-  border-color: #000;
+/* INSIDE PLAYER SIDE-BY-SIDE FIX */
+.inside-player-layout {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-.btn.primary:hover {
-  background-color: #222;
+.inside-player-layout > div {
+  flex-shrink: 0;
 }
 
-.btn.secondary {
-  background-color: transparent;
-  color: #000;
-  border-color: #000;
+/* MAKE INSIDE PLAYER FIT BOX — NO SCROLLBARS */
+.inside-player-box, .inside-player-box2 {
+  width: 420px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: black;
 }
 
-.btn.secondary:hover {
-  background-color: rgba(0, 0, 0, 0.07);
+/* SCOOP BLOG POSTS AS CONTENT BOXES LIKE EVERYWHERE ELSE */
+.scoop-post {
+  display: flex;
+  gap: 1.5rem;
+  background:#f7efdf;
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:1.2rem;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  align-items:center;
 }
 
-/* LISTEN LIVE LAYOUT */
-
-.live-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 20px;
+.scoop-image-container img {
+  width:140px;
+  height:140px;
+  border-radius:8px;
+  object-fit:cover;
 }
 
-.live-panel {
-  background-color: #f9f1dd;
-  border-radius: 22px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+.scoop-text .post-title {
+  color:black;
+  font-size:1.5rem;
 }
 
-.live-panel h2 {
-  font-size: 18px;
-  margin-bottom: 8px;
+.post-meta {
+  font-size:0.9rem;
+  color:#222;
+  margin:0.2rem 0;
 }
 
-.live-player-embed {
-  margin-top: 8px;
+/* CONTACT FORM LINK STYLE */
+.google-form-link, .google-form-link2 {
+  display:inline-block;
+  margin-top:1rem;
+  color:#f2c94c;
+  background:black;
+  padding:0.8rem 1.2rem;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-/* THIS keeps the Live365 iframe from having scrollbars */
-.live-player-embed iframe {
-  width: 100%;
-  height: 420px;     /* tall enough to show whole player */
-  border: 0;
-}
-
-/* TLK.io / chat */
-
-.chat-embed {
-  margin-top: 8px;
-}
-
-.chat-embed iframe {
-  width: 100%;
-  height: 420px;
-  border: 0;
-  border-radius: 12px;
-}
-
-/* Recently played section */
-
-.recently-played {
-  margin-top: 20px;
-}
-
-.recently-played iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  border-radius: 12px;
-}
-
-/* CONTACT PAGE */
-
-.contact-body {
-  font-size: 14px;
-}
-
-.contact-body a {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* FOOTER */
-
-.site-footer {
-  text-align: center;
-  font-size: 13px;
-  padding: 16px;
-  color: #000;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-  .header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .main-nav {
-    flex-wrap: wrap;
-    order: 3;
-  }
-
-  .player-pill {
-    order: 2;
-  }
-
-  .brand {
-    order: 1;
-  }
-
-  .app {
-    margin-top: 20px;
-  }
-
-  .playlist-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .live-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .playlist-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+.last-played-box {
+  margin-top:2rem;
+  text-align:center;
 }
