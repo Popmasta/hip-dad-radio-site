@@ -1,61 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Listen Live - HDR</title>
+  <title>Listen Live — HDR</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="banner">
   <div class="banner-content">
-    <div class="banner-text">
-      <h1>Hip Dad Radio</h1>
-      <p>Chicago’s Meat ‘N Potatoes · Streaming 24/7</p>
-    </div>
-
-    <div class="nav-tabs">
-      <a href="index.html#home">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="the-scoop.html">The Scoop</a>
-      <a href="listen-live.html">Listen Live</a>
-      <a href="radio-shows.html">Radio Shows</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <iframe class="top-player"
-      src="https://player.live365.com/hip-dad-radio"
-      allow="autoplay; encrypted-media"
-      scrolling="no"></iframe>
-
+    <h1>Listen Live</h1>
+    <p>Big player view + live chat</p>
   </div>
+
+  <iframe class="top-player" 
+          src="https://player.live365.com/station/Hip-Dad-Radio" 
+          allow="autoplay; encrypted-media">
+  </iframe>
 </header>
 
-<section class="container">
+<section class="listen-live-grid playlist-section">
+  <h2>Live Stream</h2>
 
-<h2>Listen Live</h2>
+  <div class="listen-live-grid">
+    <!-- Inside Player -->
+    <iframe class="inside-player inside-player" 
+            src="STATION_EMBED_URL" 
+            allow="autoplay; encrypted-media">
+    </iframe>
 
-<div class="player-row">
-
-  <!-- ✅ ONE inside player that actually fills its container -->
-  <iframe class="inside-player"
-    src="https://player.live365.com/hip-dad-radio"
-    allow="autoplay; encrypted-media"
-    scrolling="no"
-    style="min-width:360px; width:360px; height:300px;"></iframe>
-
-  <!-- ✅ Chat directly beside -->
-  <div class="chat-box" style="height:300px;">
-    <strong>LIVE CHAT</strong>
-    <p>Chat coming soon!</p>
+    <!-- Chat Box Right Next to Player -->
+    <iframe class="live-chat live-chat" 
+            src="CHAT_EMBED_URL">
+    </iframe>
   </div>
 
-</div>
-
-<!-- ✅ Last played appears ONLY below both player + chat -->
-<div class="last-played">
-  <h3>Last Played</h3>
-  <p> … Coming soon … </p>
-</div>
+  <!-- Last Played -->
+  <div class="last-played mt-6">
+    <h3>Last Played</h3>
+    <iframe src="LAST_PLAYED_EMBED_URL"></iframe>
+  </div>
 
 </section>
 
