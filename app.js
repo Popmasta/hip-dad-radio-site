@@ -1,29 +1,10 @@
-async function loadPage(page) {
-  const app = document.getElementById("app");
-  try {
-    const res = await fetch(`pages/${page}.html?cacheBust=${Date.now()}`);
-    if (!res.ok) throw new Error();
-    app.innerHTML = await res.text();
-  } catch {
-    app.innerHTML = `<div class="card"><h1>Page not found</h1></div>`;
-  }
-}
+document.addEventListener("DOMContentLoaded", ()=>{
 
-function setActiveNav(page) {
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("data-page") === page);
+  /* Load 3 inside playlists only, remove bottom one */
+  const pls = ["p1","p2","p3","gy1","gy2","gy3"];
+  pls.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.innerText="Playlist Preview";
   });
-}
 
-function handleRoute() {
-  const hash = window.location.hash.replace("#", "");
-  const route = hash || "home";
-  setActiveNav(route);
-  loadPage(route);
-}
-
-window.addEventListener("hashchange", handleRoute);
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-  handleRoute();
 });
