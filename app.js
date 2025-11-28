@@ -1,33 +1,29 @@
-// SPA Router for Hip Dad Radio
-document.addEventListener("DOMContentLoaded", () => {
-  const pageContainer = document.getElementById("spa-page");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  async function loadPage(hash) {
-    let page = hash.replace("#", "");
-    if (!page) page = "home";
-
-    const url = `/pages/${page}.html`;
-
-    try {
-      const response = await fetch(url);
-      const html = await response.text();
-      pageContainer.innerHTML = html;
-
-      // update active nav styling
-      navLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${page}`);
-      });
-
-    } catch (err) {
-      pageContainer.innerHTML = `
-        <div class="card">
-          <h2>404 — Page Not Found</h2>
-          <p>The page you're trying to reach does not exist.</p>
-        </div>`;
-    }
+async function loadPage(page) {
+  const app = document.getElementById("app");
+  try {
+    const res = await fetch(`pages/${page}.html?cacheBust=${Date.now()}`);
+    if (!res.ok) throw new Error();
+    app.innerHTML = await res.text();
+  } catch {
+    app.innerHTML = `<div class="card"><h1>Page not found</h1></div>`;
   }
+}
 
-  window.addEventListener("hashchange", () => loadPage(location.hash));
-  loadPage(location.hash);
+function setActiveNav(page) {
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("data-page") === page);
+  });
+}
+
+function handleRoute() {
+  const hash = window.location.hash.replace("#", "");
+  const route = hash || "home";
+  setActiveNav(route);
+  loadPage(route);
+}
+
+window.addEventListener("hashchange", handleRoute);
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  handleRoute();
 });
