@@ -3,34 +3,38 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Listen Live – Hip Dad Radio</title>
-  <link rel="stylesheet" href="../styles.css"/>
-  <script defer src="../app.js"></script>
+  <title>Listen Live</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="player.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 
 <section class="card">
   <h2>Listen Live</h2>
-  <p>Live365 player + chat side by side</p>
+  <p>Live365 player & chat side-by-side</p>
 </section>
 
-<div class="listen-container">
-  <!-- INSIDE PLAYER iframe -->
+<div class="inside-live-container">
+  <!-- INSIDE PLAYER (THIS is the one with spacing issues to fix, not the banner player) -->
   <div class="live365-box">
-    <iframe src="INSIDE_PLAYER_URL" scrolling="no"></iframe>
+    <iframe id="inside-player-frame" src="LIVE365_EMBED_URL" scrolling="no"></iframe>
   </div>
 
   <!-- Chat beside it -->
-  <div class="chat-box">
+  <div class="live-chat-box">
     <h3>Live Chat</h3>
-    <div id="chat-content">Join chat here...</div>
+    <div id="chat-app"></div>
   </div>
 </div>
 
-<section class="last-played">
-  <h3>Last Played Songs</h3>
-  <div id="last-played-list">Tracks will load here...</div>
+<!-- LAST PLAYED BOX (only shows under both player+chat, no extra player between them) -->
+<section class="card last-played">
+  <h3>Last Played</h3>
+  <div id="last-played-list"></div>
 </section>
+
+<section class="site-footer">Return to <a href="index.html">Home</a></section>
 
 </body>
 </html>
