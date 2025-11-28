@@ -1,21 +1,9 @@
-const audio = new Audio("/assets/player-stream-url.mp3");
-let isPlaying = false;
+// 🔊 Banner player (TOP PLAYER) toggle
+const bannerBtn = document.getElementById("banner-play-btn");
+let isBannerPlaying = false;
 
-function togglePlayer() {
-  if (!isPlaying) {
-    audio.play();
-    document.getElementById("player-btn").innerText = "Pause";
-  } else {
-    audio.pause();
-    document.getElementById("player-btn").innerText = "Play";
-  }
-  isPlaying = !isPlaying;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("player-btn");
-  if (btn) {
-    btn.addEventListener("click", togglePlayer);
-    audio.loop = true;
-  }
+bannerBtn?.addEventListener("click", () => {
+  isBannerPlaying = !isBannerPlaying;
+  bannerBtn.classList.toggle("playing", isBannerPlaying);
+  document.dispatchEvent(new CustomEvent("bannerToggle", { detail: isBannerPlaying }));
 });
