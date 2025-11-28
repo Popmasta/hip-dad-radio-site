@@ -1,55 +1,18 @@
-<section class="card">
-  <h1>Radio Shows</h1>
-  <p>Upcoming shows from the crew</p>
-</section>
+<section class="card"><h1>Radio Shows</h1></section>
 
-<section class="shows-grid">
+<section class="blog-list">
   <article class="show-card">
-    <img src="../assets/dj-guy.png" alt="DJ" class="show-thumb"/>
-    <div>
-      <h3>Morning Brew Cuts</h3>
-      <p class="show-meta">Next airing: Wed 8PM</p>
-      <p>Soft rock to caffeinate your soul</p>
-    </div>
+    <img src="assets/show1.jpg" class="show-image" onerror="this.style.display='none';" />
+    <div><h2>The 1978 Show</h2><p>Next Live: Wednesday 8pm</p></div>
   </article>
 
   <article class="show-card">
-    <img src="../assets/dj-guy.png" alt="DJ" class="show-thumb"/>
-    <div>
-      <h3>Dusty Crates N’ Chats</h3>
-      <p class="show-meta">Next airing: Sun 3PM</p>
-      <p>Obscure 70s gems and mild existential dread</p>
-    </div>
+    <img src="assets/show2.jpg" class="show-image" onerror="this.style.display='none';" />
+    <div><h2>Kodachrome Cookout</h2><p>Next Live: Saturday 3pm</p></div>
+  </article>
+
+  <article class="show-card">
+    <img src="assets/show3.jpg" class="show-image" onerror="this.style.display='none';" />
+    <div><h2>Driftwood Dads</h2><p>Live Every: Monday 9pm</p></div>
   </article>
 </section>
-
-<style>
-.shows-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.show-thumb{
-  width:60px;
-  height:60px;
-  border-radius:10px;
-  object-fit:cover;
-  flex-shrink:0;
-}
-
-.show-card{
-  background:#fff;
-  border-radius:16px;
-  padding:16px;
-  display:flex;
-  flex-shrink:0;
-  gap:14px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.12);
-}
-
-.show-meta{
-  font-size:12px;
-  opacity:0.6;
-}
-</style>
