@@ -1,118 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hip Dad Radio</title>
-<link rel="stylesheet" href="styles.css"/>
+  <title>Hip Dad Radio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="banner">
   <div class="banner-content">
-    <div class="logo">Hip Dad Radio <span class="tagline">Chicago’s Meat &amp; Potatoes • Streaming 24/7</span></div>
-    <nav>
-      <a href="#home" class="tab">Home</a>
-      <a href="#videos" class="tab">Videos</a>
-      <a href="#scoop" class="tab">The Scoop</a>
-      <a href="#listen-live" class="tab">Listen Live</a>
-      <a href="#radio-shows" class="tab">Radio Shows</a>
-      <a href="#contact" class="tab">Contact</a>
-    </nav>
-
-    <!-- TOP PLAYER (working) -->
-    <div class="top-player-container">
-      <div id="top-player"></div>
-    </div>
+    <h1>Hip Dad Radio</h1>
+    <p>Chicago’s Meat ‘N Potatoes • Streaming 24/7</p>
   </div>
+
+  <!-- Top Player embed (banner only, top right, not cut off) -->
+  <iframe class="top-player" 
+          src="https://player.live365.com/station/Hip-Dad-Radio" 
+          allow="autoplay; encrypted-media">
+  </iframe>
 </header>
 
-<main class="page" id="home">
-  <h1>Welcome</h1>
-  <p>24/7 internet station for classic cuts, deep crates &amp; new tunes.</p>
+<section class="playlist-section">
+  <h2>HDR Playlists</h2>
+  <div class="playlists">
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_1"></iframe><p>New Tunes for Hip Dads</p></div>
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_2"></iframe><p>Kodachrome Cookout</p></div>
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_3"></iframe><p>Driftwood Dads</p></div>
+  </div>
+</section>
 
-  <section>
-    <h2>HDR Playlists</h2>
-    <div class="playlist-row">
-      <div class="playlist" id="p1"></div>
-      <div class="playlist" id="p2"></div>
-      <div class="playlist" id="p3"></div>
-    </div>
-  </section>
+<section class="playlist-section">
+  <h2>HDR Golden Years</h2>
+  <div class="playlists">
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_4"></iframe><p>HDR 1973</p></div>
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_5"></iframe><p>Slinky Saturdays</p></div>
+    <div class="playlist-card"><iframe src="PLAYLIST_EMBED_6"></iframe><p>Ghouly Garage</p></div>
+  </div>
+</section>
 
-  <section>
-    <h2>Golden Years</h2>
-    <div class="playlist-row">
-      <div class="playlist" id="gy1"></div>
-      <div class="playlist" id="gy2"></div>
-      <div class="playlist" id="gy3"></div>
-    </div>
-  </section>
-</main>
+<section class="listen-live-section playlist-section">
+  <h2>Listen Live</h2>
 
-<main class="page" id="listen-live">
-  <h1>Listen Live</h1>
-  <div class="inside-player-layout">
+  <!-- Inside Player + Chat side-by-side -->
+  <div class="listen-live-grid listen-live-grid">
+    <iframe class="inside-player inside-player inside-player" 
+            src="STATION_EMBED_URL" 
+            allow="autoplay; encrypted-media">
+    </iframe>
 
-    <!-- INSIDE PLAYER -->
-    <div class="inside-player-box">
-      <div id="inside-player"></div>
-    </div>
-
-    <!-- CHAT TO RIGHT OF IT -->
-    <div class="chat-box">
-      <div id="chat-widget">Live Chat coming soon...</div>
-    </div>
-
+    <iframe class="live-chat live-chat" 
+            src="CHAT_EMBED_URL">
+    </iframe>
   </div>
 
-  <div id="last-played" class="last-played-box">
+  <!-- Last Played centered under both -->
+  <div class="last-played last-played">
     <h3>Last Played</h3>
-    <p id="last-track">—</p>
+    <iframe src="LAST_PLAYED_EMBED_URL"></iframe>
   </div>
-</main>
 
-<main class="page" id="radio-shows">
-  <h1>Radio Shows</h1>
-  <p>Show archive coming soon.</p>
-</main>
+</section>
 
-<main class="page" id="scoop">
-  <h2>The Scoop (Blog)</h2>
+<footer class="last-played text-center">
+  <p>© 2025 Hip Dad Radio • Chicago IL</p>
+</footer>
 
-  <article class="scoop-post">
-    <div class="scoop-image-container">
-      <img src="assets/blog-1.jpg" alt="blog"/>
-    </div>
-    <div class="scoop-text">
-      <h3 class="post-title">Blog Post One</h3>
-      <p class="post-meta">Next Live: Wed 8pm</p>
-      <p class="post-meta">Date: <span>2025-MM-DD</span></p>
-      <p class="post-meta">By: <span class="author">Author Name</span></p>
-    </div>
-  </article>
-
-  <article class="scoop-post">
-    <div class="scoop-image-container">
-      <img src="assets/blog-2.jpg" alt="blog"/>
-    </div>
-    <div class="scoop-text">
-      <h3 class="post-title">Blog Post Two</h3>
-      <p class="post-meta">Next Live: Fri 9pm</p>
-      <p class="post-meta">Date: <span>2025-MM-DD</span></p>
-      <p class="post-meta">By: <span class="author">Author Name</span></p>
-    </div>
-  </article>
-
-</main>
-
-<main class="page" id="contact">
-  <h1>Contact Us</h1>
-  <p>Want to reach the DJ lair? Hit us.</p>
-  <a class="google-form-link" href="#" id="google-form-link">Google Form (link later)</a>
-</main>
-
-<script src="app.js"></script>
-<script src="player.js"></script>
 </body>
 </html>
