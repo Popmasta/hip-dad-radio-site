@@ -1,357 +1,108 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
+/* Global site width fix */
 body {
-  height: 100%;
-}
-
-/* BASE */
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #d9c27c; /* gold */
+  max-width: 1100px;
+  margin: auto;
+  font-family: Georgia, serif;
+  padding: 20px;
+  background: #fdf8f2;
   color: #111;
-  line-height: 1.6;
-  padding-top: 80px; /* space for fixed header */
 }
 
-/* prevent giant images from taking over */
-img {
-  max-width: 100%;
-  height: auto;
+/* Keep all section boxes normal width */
+.card, article.blog-post-card {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* HEADER / NAV / PLAYER */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Banner width independent of body */
+.site-banner {
   width: 100%;
-  z-index: 999;
-  background-color: #000;
-  border-bottom: 1px solid #333;
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 25px 20px;
+  background: #000;
+  border-radius: 14px;
 }
 
-.header-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 10px 16px;
+/* Banner text color restored */
+.site-banner h1, .site-banner nav a {
+  color: #ffd600;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navigation spacing fix */
+.site-banner nav {
+  margin-top: 12px;
   display: flex;
-  align-items: center;
   gap: 18px;
 }
 
-/* brand */
+/* Live player + chat layout */
+.listen-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+}
 
-.brand {
+/* Live365 player box sized properly */
+.live365-box {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  padding: 10px;
 }
 
-.brand-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+/* Remove unwanted scroll bars */
+.live365-box iframe {
+  border: none;
+  overflow: hidden;
+  width: 360px;
+  height: 200px;
+  max-width: 360px;
+  border-radius: 12px;
 }
 
-.brand-text {
+/* Chat box alignment */
+.chat-box {
+  width: 100%;
+  border-radius: 14px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
-.brand-title {
-  font-weight: 700;
-  font-size: 15px;
-  color: #f7d96d;
+/* Last played section fix */
+.last-played {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.brand-tagline {
-  font-size: 11px;
-  color: #ffeeb5;
-}
-
-/* NAV */
-
-.main-nav {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  gap: 22px;
-}
-
-.nav-link {
-  font-size: 14px;
-  color: #f7d96d;          /* yellow, not purple */
-  padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-link:hover {
-  border-bottom-color: #f7d96d;
-}
-
-.nav-link.active {
-  border-bottom-color: #f7d96d;
-}
-
-/* PLAYER PILL */
-
-.player-pill {
-  border-radius: 999px;
-  border: 2px solid #f7d96d;
-  background: transparent;
-  padding: 6px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #f7d96d;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.player-pill:hover {
-  background-color: #111;
-}
-
-.player-icon {
-  display: inline-block;
-  width: 16px;
-  text-align: center;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #ff2222;
-  display: inline-block;
-}
-
-.live-text {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-}
-
-/* Playing state */
-.player-pill.playing {
-  background-color: #f7d96d;
-  color: #000;
-  border-color: #f7d96d;
-}
-
-/* APP WRAPPER (this is what keeps the site from being too wide) */
-
-.app {
-  max-width: 960px;       /* <<< tighten the body width */
-  margin: 24px auto 40px;
-  padding: 0 16px 40px;
-}
-
-/* CARDS / SECTIONS */
-
-.card {
-  background-color: #f9f1dd; /* cream */
-  border-radius: 22px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-}
-
-.card h1 {
-  font-size: 26px;
-  margin-bottom: 6px;
-}
-
-.card h2 {
-  font-size: 20px;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 14px;
-}
-
-/* HOME PLAYLISTS LAYOUT (3 per row) */
-
+/* Playlist grid row fix */
 .playlist-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.playlist-embed iframe {
-  width: 100%;
-  min-height: 352px;
-  border-radius: 14px;
-  border: 0;
-}
-
-/* generic buttons */
-
-.btn-row {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 14px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.btn.primary {
-  background-color: #000;
-  color: #f7d96d;
-  border-color: #000;
-}
-
-.btn.primary:hover {
-  background-color: #222;
-}
-
-.btn.secondary {
-  background-color: transparent;
-  color: #000;
-  border-color: #000;
-}
-
-.btn.secondary:hover {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-
-/* LISTEN LIVE LAYOUT */
-
-.live-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 20px;
-}
-
-.live-panel {
-  background-color: #f9f1dd;
-  border-radius: 22px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-}
-
-.live-panel h2 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.live-player-embed {
-  margin-top: 8px;
-}
-
-/* THIS keeps the Live365 iframe from having scrollbars */
-.live-player-embed iframe {
-  width: 100%;
-  height: 420px;     /* tall enough to show whole player */
-  border: 0;
-}
-
-/* TLK.io / chat */
-
-.chat-embed {
-  margin-top: 8px;
-}
-
-.chat-embed iframe {
-  width: 100%;
-  height: 420px;
-  border: 0;
-  border-radius: 12px;
-}
-
-/* Recently played section */
-
-.recently-played {
-  margin-top: 20px;
-}
-
-.recently-played iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  border-radius: 12px;
-}
-
-/* CONTACT PAGE */
-
-.contact-body {
-  font-size: 14px;
-}
-
-.contact-body a {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* FOOTER */
-
-.site-footer {
-  text-align: center;
-  font-size: 13px;
-  padding: 16px;
-  color: #000;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-  .header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .main-nav {
-    flex-wrap: wrap;
-    order: 3;
-  }
-
-  .player-pill {
-    order: 2;
-  }
-
-  .brand {
-    order: 1;
-  }
-
-  .app {
-    margin-top: 20px;
-  }
-
-  .playlist-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .live-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .playlist-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 900px;
+  margin: auto;
 }
